@@ -60,24 +60,12 @@
 /obj/item/nullrod/proc/on_selected(obj/item/nullrod/old_weapon, mob/living/picker)
 	return
 
-/// Callback for effect remover, invoked when a cult rune is cleared
-/obj/item/nullrod/proc/on_cult_rune_removed(obj/effect/target, mob/living/user)
-	if(!istype(target, /obj/effect/rune))
-		return
-
-	var/obj/effect/rune/target_rune = target
-	if(target_rune.log_when_erased)
-		user.log_message("erased [target_rune.cultist_name] rune using [src]", LOG_GAME)
-	SSshuttle.shuttle_purchase_requirements_met[SHUTTLE_UNLOCK_NARNAR] = TRUE
-
 /obj/item/nullrod/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] is killing [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to get closer to god!"))
 	return (BRUTELOSS|FIRELOSS)
 
 /obj/item/nullrod/attack(mob/living/target_mob, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(!user.mind?.holy_role)
-		return ..()
-	if(!IS_CULTIST(target_mob) || istype(target_mob, /mob/living/carbon/human/cult_ghost))
 		return ..()
 
 	var/old_stat = target_mob.stat
@@ -88,7 +76,7 @@
 
 /obj/item/nullrod/examine(mob/user)
 	. = ..()
-	if(!IS_CULTIST(user) || !GET_ATOM_BLOOD_DNA_LENGTH(src))
+	if(!GET_ATOM_BLOOD_DNA_LENGTH(src))
 		return
 
 	var/num_slain = LAZYLEN(cultists_slain)

@@ -181,7 +181,7 @@
 
 /datum/armour_dimensional_theme/dangerous/lavaland
 	replace_floor = /turf/open/floor/fakebasalt
-	replace_wall = /turf/closed/wall/mineral/cult
+	replace_wall = /turf/closed/wall/mineral/uranium
 
 /// Replace the barrier spawning to instead create weak lava.
 /datum/armour_dimensional_theme/dangerous/lavaland/place_barrier(turf/source, list/materials)

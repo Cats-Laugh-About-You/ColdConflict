@@ -265,12 +265,6 @@
 /datum/cardboard_cutout/nuclear_operative/get_name()
 	return pick("Unknown", "COMMS", "Telecomms", "AI", "stealthy op", "STEALTH", "sneakybeaky", "MEDIC", "Medic")
 
-/datum/cardboard_cutout/cultist
-	name = "Cultist"
-	applied_name = "Unknown"
-	applied_desc = "A cardboard cutout of a cultist."
-	outfit = /datum/outfit/cult_cutout
-
 /datum/cardboard_cutout/revolutionary
 	name = "Revolutionary"
 	applied_name = "Unknown"

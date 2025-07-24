@@ -29,7 +29,7 @@
 	grant_abilities()
 
 /mob/living/basic/construct/harvester/proc/grant_abilities()
-	AddElement(/datum/element/wall_walker, /turf/closed/wall/mineral/cult)
+	AddElement(/datum/element/wall_walker)
 	AddComponent(\
 		/datum/component/amputating_limbs,\
 		surgery_time = 0,\
@@ -75,13 +75,6 @@
 	..()
 
 /datum/action/innate/seek_master/Activate()
-	var/datum/antagonist/cult/cult_status = owner.mind.has_antag_datum(/datum/antagonist/cult)
-	if(!cult_status)
-		return
-	var/datum/objective/eldergod/summon_objective = locate() in cult_status.cult_team.objectives
-
-	if(summon_objective.check_completion())
-		the_construct.construct_master = cult_status.cult_team.blood_target
 
 	if(!the_construct.construct_master)
 		to_chat(the_construct, span_cult_italic("You have no master to seek!"))
@@ -108,8 +101,6 @@
 	button_icon_state = "cult_mark"
 
 /datum/action/innate/seek_prey/Activate()
-	if(GLOB.cult_narsie == null)
-		return
 	var/mob/living/basic/construct/harvester/the_construct = owner
 
 	if(the_construct.seeking)
@@ -119,11 +110,6 @@
 		to_chat(the_construct, span_cult_italic("You are now tracking Nar'Sie, return to reap the harvest!"))
 		return
 
-	if(!LAZYLEN(GLOB.cult_narsie.souls_needed))
-		to_chat(the_construct, span_cult_italic("Nar'Sie has completed her harvest!"))
-		return
-
-	the_construct.construct_master = pick(GLOB.cult_narsie.souls_needed)
 	var/mob/living/real_target = the_construct.construct_master //We can typecast this way because Narsie only allows /mob/living into the souls list
 	to_chat(the_construct, span_cult_italic("You are now tracking your prey, [real_target.real_name] - harvest [real_target.p_them()]!"))
 	desc = "Activate to track Nar'Sie!"

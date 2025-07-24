@@ -180,8 +180,6 @@ GLOBAL_LIST_INIT(ore_probability, list(
 		if(17)
 			new /obj/item/clothing/gloves/fingerless/punch_mitts(loc)
 			new /obj/item/clothing/head/cowboy(loc)
-		if(18)
-			new /obj/item/soulstone/anybody(loc)
 		if(19)
 			new /obj/item/disk/design_disk/modkit_disc/resonator_blast(loc)
 		if(20)

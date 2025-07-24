@@ -584,42 +584,6 @@ or shoot a gun to move around via Newton's 3rd Law of Motion."
 		blood_target = construct_owner.construct_master
 		desc = "Your blood sense is leading you to [construct_owner.construct_master]"
 
-	// cult track
-	var/datum/antagonist/cult/antag = owner.mind.has_antag_datum(/datum/antagonist/cult,TRUE)
-	if(antag)
-		var/datum/objective/sacrifice/sac_objective = locate() in antag.cult_team.objectives
-		if(antag.cult_team.blood_target)
-			if(!get_turf(antag.cult_team.blood_target))
-				antag.cult_team.unset_blood_target()
-			else
-				blood_target = antag.cult_team.blood_target
-		if(!blood_target)
-			if(sac_objective && !sac_objective.check_completion())
-				if(icon_state == "runed_sense0")
-					return
-				animate(src, transform = null, time = 1, loop = 0)
-				angle = 0
-				cut_overlays()
-				icon_state = "runed_sense0"
-				desc = "Nar'Sie demands that [sac_objective.target] be sacrificed before the summoning ritual can begin."
-				add_overlay(sac_objective.sac_image)
-			else
-				var/datum/objective/eldergod/summon_objective = locate() in antag.cult_team.objectives
-				if(!summon_objective)
-					return
-				var/list/location_list = list()
-				for(var/area/area_to_check in summon_objective.summon_spots)
-					location_list += area_to_check.get_original_area_name()
-				desc = "The sacrifice is complete, summon Nar'Sie! The summoning can only take place in [english_list(location_list)]!"
-				if(icon_state == "runed_sense1")
-					return
-				animate(src, transform = null, time = 1, loop = 0)
-				angle = 0
-				cut_overlays()
-				icon_state = "runed_sense1"
-				add_overlay(narnar)
-			return
-
 	// actual tracking
 	var/turf/P = get_turf(blood_target)
 	var/turf/Q = get_turf(owner)

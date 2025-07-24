@@ -129,67 +129,6 @@
 	SSticker.news_report = WIZARD_KILLED
 	return TRUE
 
-/datum/dynamic_ruleset/roundstart/blood_cult
-	name = "Blood Cult"
-	config_tag = "Roundstart Blood Cult"
-	preview_antag_datum = /datum/antagonist/cult
-	pref_flag = ROLE_CULTIST
-	ruleset_flags = RULESET_HIGH_IMPACT
-	weight = list(
-		DYNAMIC_TIER_LOW = 0,
-		DYNAMIC_TIER_LOWMEDIUM = 1,
-		DYNAMIC_TIER_MEDIUMHIGH = 3,
-		DYNAMIC_TIER_HIGH = 3,
-	)
-	min_pop = 30
-	blacklisted_roles = list(
-		JOB_HEAD_OF_PERSONNEL,
-	)
-	min_antag_cap = list("denominator" = 20, "offset" = 1)
-	repeatable = FALSE
-	/// Ratio of cultists getting on the shuttle to be considered a minor win
-	var/ratio_to_be_considered_escaped = 0.5
-
-/datum/dynamic_ruleset/roundstart/blood_cult/get_always_blacklisted_roles()
-	return ..() | JOB_CHAPLAIN
-
-/datum/dynamic_ruleset/roundstart/blood_cult/create_execute_args()
-	return list(
-		new /datum/team/cult(),
-		get_most_experienced(selected_minds, pref_flag),
-	)
-
-/datum/dynamic_ruleset/roundstart/blood_cult/execute()
-	. = ..()
-	// future todo, find a cleaner way to get this from execute args
-	var/datum/team/cult/main_cult = locate() in GLOB.antagonist_teams
-	main_cult.setup_objectives()
-
-/datum/dynamic_ruleset/roundstart/blood_cult/assign_role(datum/mind/candidate, datum/team/cult/cult, datum/mind/most_experienced)
-	var/datum/antagonist/cult/cultist = new()
-	cultist.give_equipment = TRUE
-	candidate.add_antag_datum(cultist, cult)
-	if(most_experienced == candidate)
-		cultist.make_cult_leader()
-
-/datum/dynamic_ruleset/roundstart/blood_cult/round_result()
-	var/datum/team/cult/main_cult = locate() in GLOB.antagonist_teams
-	if(main_cult.check_cult_victory())
-		SSticker.mode_result = "win - cult win"
-		SSticker.news_report = CULT_SUMMON
-		return TRUE
-
-	var/num_cultists = main_cult.size_at_maximum || 100
-	var/ratio_to_be_considered_escaped = 0.5
-	var/escaped_cultists = 0
-	for(var/datum/mind/escapee as anything in main_cult.members)
-		if(considered_escaped(escapee))
-			escaped_cultists++
-
-	SSticker.mode_result = "loss - staff stopped the cult"
-	SSticker.news_report = (escaped_cultists / num_cultists) >= ratio_to_be_considered_escaped ? CULT_ESCAPE : CULT_FAILURE
-	return TRUE
-
 /datum/dynamic_ruleset/roundstart/nukies
 	name = "Nuclear Operatives"
 	config_tag = "Roundstart Nukeops"

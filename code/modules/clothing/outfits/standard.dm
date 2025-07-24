@@ -260,23 +260,6 @@
 	back = /obj/item/mod/control/pre_equipped/corporate
 	internals_slot = ITEM_SLOT_SUITSTORE
 
-/datum/outfit/ghost_cultist
-	name = "Cultist Ghost"
-
-	uniform = /obj/item/clothing/under/color/black/ghost
-	suit = /obj/item/clothing/suit/hooded/cultrobes/alt/ghost
-	shoes = /obj/item/clothing/shoes/cult/alt/ghost
-	l_hand = /obj/item/melee/cultblade/ghost
-
-/datum/outfit/cult_cutout
-	name = "Cultist Cutout"
-
-	uniform = /obj/item/clothing/under/rank/civilian/chaplain
-	suit = /obj/item/clothing/suit/hooded/cultrobes/hardened
-	shoes = /obj/item/clothing/shoes/cult/alt
-	back = /obj/item/storage/backpack/cultpack
-	r_hand = /obj/item/melee/cultblade/dagger
-
 /datum/outfit/wizard
 	name = "Blue Wizard"
 

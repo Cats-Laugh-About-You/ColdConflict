@@ -16,11 +16,6 @@
 	attack_sound = 'sound/items/weapons/punch2.ogg'
 	construct_spells = list(
 		/datum/action/cooldown/spell/aoe/magic_missile/lesser,
-		/datum/action/cooldown/spell/conjure/construct/lesser,
-		/datum/action/cooldown/spell/conjure/cult_floor,
-		/datum/action/cooldown/spell/conjure/cult_wall,
-		/datum/action/cooldown/spell/conjure/soulstone,
-		/datum/action/innate/cult/create_rune/revive,
 	)
 	playstyle_string = "<b>You are an Artificer. You are incredibly weak and fragile, \
 		but you are able to construct fortifications, use magic missile, and repair allied constructs, shades, \
@@ -51,10 +46,7 @@
 	faction = list(FACTION_HOLY)
 	theme = THEME_HOLY
 	construct_spells = list(
-		/datum/action/cooldown/spell/conjure/soulstone/purified,
-		/datum/action/cooldown/spell/conjure/construct/lesser,
 		/datum/action/cooldown/spell/aoe/magic_missile/lesser,
-		/datum/action/innate/cult/create_rune/revive,
 	)
 
 /mob/living/basic/construct/artificer/angelic/Initialize(mapload)
@@ -65,20 +57,10 @@
 	faction = list(ROLE_WIZARD)
 	theme = THEME_WIZARD
 	construct_spells = list(
-		/datum/action/cooldown/spell/conjure/cult_floor,
-		/datum/action/cooldown/spell/conjure/cult_wall,
-		/datum/action/cooldown/spell/conjure/soulstone/mystic,
-		/datum/action/cooldown/spell/conjure/construct/lesser,
 		/datum/action/cooldown/spell/aoe/magic_missile/lesser,
-		/datum/action/innate/cult/create_rune/revive,
 	)
 
 /mob/living/basic/construct/artificer/noncult
 	construct_spells = list(
-		/datum/action/cooldown/spell/conjure/cult_floor,
-		/datum/action/cooldown/spell/conjure/cult_wall,
-		/datum/action/cooldown/spell/conjure/soulstone/noncult,
-		/datum/action/cooldown/spell/conjure/construct/lesser,
 		/datum/action/cooldown/spell/aoe/magic_missile/lesser,
-		/datum/action/innate/cult/create_rune/revive,
 	)

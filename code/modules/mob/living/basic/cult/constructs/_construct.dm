@@ -78,7 +78,7 @@
 			show_health = TRUE,\
 			heal_color = COLOR_CULT_RED,\
 		)
-		var/static/list/structure_types = typecacheof(list(/obj/structure/destructible/cult))
+		var/static/list/structure_types = typecacheof(list())
 		AddElement(\
 			/datum/element/structure_repair,\
 			structure_types_typecache = structure_types,\

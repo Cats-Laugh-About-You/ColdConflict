@@ -234,8 +234,6 @@
 	desc = "Cultists, heretics, and chaplains all duking it out in the jungle to retrieve the McGuffin."
 	max_players = 8
 	allowed_loadouts = list(
-		/datum/outfit/deathmatch_loadout/cultish/invoker,
-		/datum/outfit/deathmatch_loadout/cultish/artificer,
 		/datum/outfit/deathmatch_loadout/holy_crusader,
 		/datum/outfit/deathmatch_loadout/clock_cult,
 	)

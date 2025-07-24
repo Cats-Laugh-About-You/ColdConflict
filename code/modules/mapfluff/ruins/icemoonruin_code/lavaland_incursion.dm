@@ -8,7 +8,6 @@
 /datum/outfit/skeleton_cultist
 	name = "Skeleton Cultist"
 	uniform = /obj/item/clothing/under/rank/civilian/chaplain
-	suit = /obj/item/clothing/suit/hooded/cultrobes
 	shoes = /obj/item/clothing/shoes/cult
 
 /obj/item/paper/crumpled/bloody/ruins/lavaland_incursion

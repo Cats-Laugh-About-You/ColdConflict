@@ -787,9 +787,6 @@ ADMIN_VERB(secrets, R_NONE, "Secrets", "Abuse harder than you ever have before w
 				var/datum/antagonist/changeling/antag_datum = new
 				antag_datum.give_objectives = keep_generic_objecives
 				assign_admin_objective_and_antag(player, antag_datum)
-			if(ROLE_CULTIST)
-				var/datum/antagonist/cult/antag_datum = new
-				assign_admin_objective_and_antag(player, antag_datum)
 			if(ROLE_NINJA)
 				var/datum/antagonist/ninja/antag_datum = new
 				antag_datum.give_objectives = keep_generic_objecives
