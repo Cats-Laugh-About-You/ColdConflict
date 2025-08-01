@@ -349,10 +349,9 @@
 	icon_state = "goliath_hide"
 	window_colour = "#860000"
 	replace_floors = list(/turf/open/floor/fakebasalt = 5, /turf/open/floor/fakepit = 1)
-	replace_walls = /turf/closed/wall/mineral/cult
+	replace_walls = /turf/closed/wall/mineral/uranium
 	replace_objs = list(
 		/obj/machinery/door/airlock = list(/obj/machinery/door/airlock/external/glass/ruin = 1),
-		/obj/structure/platform = list(/obj/structure/platform/cult = 1),
 	)
 	random_spawns = list(/mob/living/basic/mining/goldgrub)
 	random_spawn_chance = 1

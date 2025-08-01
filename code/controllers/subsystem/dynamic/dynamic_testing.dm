@@ -27,10 +27,6 @@ ADMIN_VERB(dynamic_tester, R_DEBUG, "Dynamic Tester", "See dynamic probabilities
 			continue
 		var/datum/dynamic_ruleset/roundstart/created = new rtype(SSdynamic.get_config())
 		roundstart_rulesets += created
-		// snowflake so we can see headrev stats
-		if(istype(created, /datum/dynamic_ruleset/roundstart/revolution))
-			var/datum/dynamic_ruleset/roundstart/revolution/revs = created
-			revs.heads_necessary = 0
 
 	for(var/datum/dynamic_ruleset/rtype as anything in subtypesof(/datum/dynamic_ruleset/midround))
 		if(!initial(rtype.config_tag))
@@ -86,9 +82,6 @@ ADMIN_VERB(dynamic_tester, R_DEBUG, "Dynamic Tester", "See dynamic probabilities
 	roundstart_ruleset_report.Cut()
 	for(var/datum/dynamic_ruleset/roundstart/ruleset as anything in roundstart_rulesets)
 		var/comment = ""
-		if(istype(ruleset, /datum/dynamic_ruleset/roundstart/revolution))
-			var/datum/dynamic_ruleset/roundstart/revolution/revs = ruleset
-			comment = " (Assuming [initial(revs.heads_necessary)] heads of staff)"
 
 		roundstart_ruleset_report[ruleset] = list(
 			"name" = ruleset.name,

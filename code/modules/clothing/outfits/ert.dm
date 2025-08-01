@@ -216,7 +216,6 @@
 	id = /obj/item/card/id/advanced/centcom/ert/chaplain
 	back = /obj/item/mod/control/pre_equipped/responsory/chaplain
 	l_hand = /obj/item/gun/energy/e_gun
-	belt = /obj/item/storage/belt/soulstone
 	glasses = /obj/item/clothing/glasses/hud/health
 	box = /obj/item/storage/box/survival/centcom
 	backpack_contents = list(
@@ -232,7 +231,6 @@
 		/obj/item/grenade/chem_grenade/holy = 1,
 		/obj/item/nullrod = 1,
 	)
-	belt = /obj/item/storage/belt/soulstone/full/chappy
 
 /datum/outfit/centcom/ert/janitor
 	name = "ERT Janitor"

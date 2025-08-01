@@ -31,7 +31,6 @@
 /// Any traits given through a smite.
 #define SMITE_TRAIT "smite"
 #define CHANGELING_TRAIT "changeling"
-#define CULT_TRAIT "cult"
 #define LICH_TRAIT "lich"
 ///Comes from a holy source.
 #define HOLY_TRAIT "holy"

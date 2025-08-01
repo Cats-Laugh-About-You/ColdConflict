@@ -13,7 +13,6 @@ GLOBAL_LIST_INIT(abstract_mob_types, list(
 	/mob/living/basic/bot,
 	/mob/living/basic/construct,
 	/mob/living/basic/guardian,
-	/mob/living/basic/heretic_summon,
 	/mob/living/basic/mimic, // Cannot exist if spawned without being passed an item reference
 	/mob/living/basic/mining,
 	/mob/living/basic/pet,

@@ -942,8 +942,6 @@ GLOBAL_LIST_INIT(vox_sounds, list(
 	"resonance" = 'sound/announcer/vox_fem/resonance.ogg',
 	"rest" = 'sound/announcer/vox_fem/rest.ogg',
 	"restoration" = 'sound/announcer/vox_fem/restoration.ogg',
-	"revolution" = 'sound/announcer/vox_fem/revolution.ogg',
-	"revolutionary" = 'sound/announcer/vox_fem/revolutionary.ogg',
 	"right" = 'sound/announcer/vox_fem/right.ogg',
 	"riot" = 'sound/announcer/vox_fem/riot.ogg',
 	"roboticist" = 'sound/announcer/vox_fem/roboticist.ogg',

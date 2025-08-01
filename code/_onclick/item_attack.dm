@@ -430,12 +430,6 @@
 				else
 					adjustOrganLoss(ORGAN_SLOT_BRAIN, damage_done * 0.2)
 
-				// rev deconversion through blunt trauma.
-				// this can be signalized to the rev datum
-				if(mind && stat == CONSCIOUS && src != attacker && prob(damage_done + ((100 - health) * 0.5)))
-					var/datum/antagonist/rev/rev = mind.has_antag_datum(/datum/antagonist/rev)
-					rev?.remove_revolutionary(attacker)
-
 		if(BODY_ZONE_CHEST)
 			if(.)
 				add_blood_DNA_to_items(get_blood_dna_list(), ITEM_SLOT_ICLOTHING|ITEM_SLOT_OCLOTHING)

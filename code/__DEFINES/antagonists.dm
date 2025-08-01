@@ -281,12 +281,6 @@ GLOBAL_LIST_INIT(ai_employers, list(
 /// Checks if the given mob is a wizard apprentice
 #define IS_WIZARD_APPRENTICE(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/wizard/apprentice))
 
-/// Checks if the given mob is a revolutionary. Will return TRUE for rev heads as well.
-#define IS_REVOLUTIONARY(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/rev))
-
-/// Checks if the given mob is a head revolutionary.
-#define IS_HEAD_REVOLUTIONARY(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/rev/head))
-
 /// Checks if the given mob is a malf ai.
 #define IS_MALF_AI(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/malf_ai))
 

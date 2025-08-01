@@ -265,11 +265,6 @@
 		if(prob(30))
 			dismantle_wall()
 
-/turf/closed/wall/narsie_act(force, ignore_mobs, probability = 20)
-	. = ..()
-	if(.)
-		ChangeTurf(/turf/closed/wall/mineral/cult)
-
 /turf/closed/wall/get_dumping_location()
 	return null
 
@@ -316,13 +311,6 @@
 		dent_decals = list(decal)
 
 	add_overlay(dent_decals)
-
-/turf/closed/wall/rust_turf()
-	if(HAS_TRAIT(src, TRAIT_RUSTY))
-		ScrapeAway()
-		return
-
-	return ..()
 
 /turf/closed/wall/metal_foam_base
 	girder_type = /obj/structure/foamedmetal

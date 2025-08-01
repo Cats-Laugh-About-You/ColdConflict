@@ -43,17 +43,15 @@
 	var/can_repair = FALSE
 	/// Whether this construct can repair itself. Works independently of can_repair.
 	var/can_repair_self = FALSE
-	/// Theme controls color. THEME_CULT is red THEME_WIZARD is purple and THEME_HOLY is blue
-	var/theme = THEME_CULT
 	/// Can this construct destroy walls?
 	var/smashes_walls = FALSE
 	/// The different flavors of goop constructs can drop, depending on theme.
 	var/static/list/remains_by_theme = list(
-		THEME_CULT = list(/obj/item/ectoplasm/construct),
 		THEME_HOLY = list(/obj/item/ectoplasm/angelic),
 		THEME_WIZARD = list(/obj/item/ectoplasm/mystic),
-		THEME_HERETIC = list(/obj/item/ectoplasm/construct),
 	)
+
+	var/theme = THEME_CULT
 
 /mob/living/basic/construct/Initialize(mapload)
 	. = ..()
@@ -78,7 +76,7 @@
 			show_health = TRUE,\
 			heal_color = COLOR_CULT_RED,\
 		)
-		var/static/list/structure_types = typecacheof(list(/obj/structure/destructible/cult))
+		var/static/list/structure_types = typecacheof(list())
 		AddElement(\
 			/datum/element/structure_repair,\
 			structure_types_typecache = structure_types,\
@@ -110,8 +108,6 @@
 /mob/living/basic/construct/get_examine_name(mob/user)
 	var/text_span
 	switch(theme)
-		if(THEME_CULT)
-			text_span = "cult"
 		if(THEME_WIZARD)
 			text_span = "purple"
 		if(THEME_HOLY)

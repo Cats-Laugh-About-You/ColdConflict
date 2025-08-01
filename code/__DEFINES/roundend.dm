@@ -25,10 +25,6 @@
 #define OPERATIVES_KILLED 15
 /// The nuclear operatives forced the crew to evacuate without securing the disk
 #define OPERATIVE_SKIRMISH 16
-/// The revolution successfully killed or exiled all the station heads of staff
-#define REVS_WIN 17
-/// The revolution failed and all the head revs were killed or exiled
-#define REVS_LOSE 18
 /// The wizard was killed by the crew
 #define WIZARD_KILLED 19
 /// The station was destroyed by its own self-destruct nuclear device

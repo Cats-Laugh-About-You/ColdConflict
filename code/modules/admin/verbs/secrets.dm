@@ -532,7 +532,7 @@ ADMIN_VERB(secrets, R_NONE, "Secrets", "Abuse harder than you ever have before w
 				if(are_we_antagstacking != "Confirm")
 					return
 
-			var/chosen_antag = tgui_input_list(usr, "Choose antag", "Chose antag", list(ROLE_TRAITOR, ROLE_CHANGELING, ROLE_HERETIC, ROLE_CULTIST, ROLE_NINJA, ROLE_WIZARD, ROLE_NIGHTMARE))
+			var/chosen_antag = tgui_input_list(usr, "Choose antag", "Chose antag", list(ROLE_TRAITOR, ROLE_CHANGELING, ROLE_NINJA, ROLE_WIZARD, ROLE_NIGHTMARE))
 			if(!chosen_antag)
 				return
 			var/objective = tgui_input_text(usr, "Enter an objective", "Objective")
@@ -786,9 +786,6 @@ ADMIN_VERB(secrets, R_NONE, "Secrets", "Abuse harder than you ever have before w
 			if(ROLE_CHANGELING)
 				var/datum/antagonist/changeling/antag_datum = new
 				antag_datum.give_objectives = keep_generic_objecives
-				assign_admin_objective_and_antag(player, antag_datum)
-			if(ROLE_CULTIST)
-				var/datum/antagonist/cult/antag_datum = new
 				assign_admin_objective_and_antag(player, antag_datum)
 			if(ROLE_NINJA)
 				var/datum/antagonist/ninja/antag_datum = new

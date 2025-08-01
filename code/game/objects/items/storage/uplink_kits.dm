@@ -10,7 +10,6 @@
 #define KIT_SNIPER "sniper"
 #define KIT_NUKEOPS_METAGAME "metaops"
 #define KIT_LORD_SINGULOTH "lordsingulo"
-#define KIT_REVOLUTIONARY "revolutionary"
 
 #define KIT_JAMES_BOND "bond"
 #define KIT_NINJA "ninja"
@@ -40,7 +39,6 @@
 		KIT_HACKER = 3,
 		KIT_SNIPER = 1,
 		KIT_NUKEOPS_METAGAME = 1,
-		KIT_REVOLUTIONARY = 2
 		)))
 		if(KIT_RECON)
 			new /obj/item/clothing/glasses/thermal/xray(src) // ~8 tc?
@@ -169,18 +167,6 @@
 			new /obj/item/grenade/c4 (src) // 1 tc
 			new /obj/item/card/emag(src) // 4 tc
 			new /obj/item/card/emag/doorjack(src) // 3 tc
-
-		if(KIT_REVOLUTIONARY)
-			new /obj/item/healthanalyzer/rad_laser(src) // 3 TC
-			new /obj/item/assembly/flash/hypnotic(src) // 7 TC
-			new /obj/item/storage/pill_bottle/lsd(src) // ~1 TC
-			new /obj/item/pen/sleepy(src) // 4 TC
-			new /obj/item/gun/ballistic/revolver/nagant(src) // 13 TC comparable to 357. revolvers
-			new /obj/item/megaphone(src)
-			new /obj/item/bedsheet/rev(src)
-			new /obj/item/clothing/suit/armor/vest/russian_coat(src)
-			new /obj/item/clothing/head/helmet/rus_ushanka(src)
-			new /obj/item/storage/box/syndie_kit/poster_box(src)
 
 /obj/item/storage/box/syndicate/bundle_b/PopulateContents()
 	switch (pick_weight(list(
@@ -904,7 +890,6 @@
 #undef KIT_SNIPER
 #undef KIT_NUKEOPS_METAGAME
 #undef KIT_LORD_SINGULOTH
-#undef KIT_REVOLUTIONARY
 
 #undef KIT_JAMES_BOND
 #undef KIT_NINJA

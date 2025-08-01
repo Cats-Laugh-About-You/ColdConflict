@@ -322,32 +322,4 @@
 			victim.mind.add_antag_datum(antag)
 			to_chat(world, "added")
 
-/obj/item/gun/magic/wand/antag/heretic
-	name = "wand of antag heretic"
-	desc = "This wand uses the powers of bullshit to turn anyone it hits into an antag heretic"
-	color = COLOR_GREEN
-	ammo_type = /obj/item/ammo_casing/magic/antag/heretic
-
-/obj/item/ammo_casing/magic/antag/heretic
-	projectile_type = /obj/projectile/magic/antag/heretic
-
-/obj/projectile/magic/antag/heretic
-	name = "bolt of antag heretic"
-	icon_state = "ion"
-	antag = /datum/antagonist/heretic
-
-/obj/item/gun/magic/wand/antag/cult
-	name = "wand of antag cultist"
-	desc = "This wand uses the powers of bullshit to turn anyone it hits into an antag cultist"
-	color = COLOR_CULT_RED
-	ammo_type = /obj/item/ammo_casing/magic/antag/cult
-
-/obj/item/ammo_casing/magic/antag/cult
-	projectile_type = /obj/projectile/magic/antag/cult
-
-/obj/projectile/magic/antag/cult
-	name = "bolt of antag cult"
-	icon_state = "ion"
-	antag = /datum/antagonist/cult
-
 #endif

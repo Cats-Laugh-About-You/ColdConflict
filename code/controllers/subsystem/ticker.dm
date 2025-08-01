@@ -224,8 +224,6 @@ SUBSYSTEM_DEF(ticker)
 		return TRUE
 	if(GLOB.station_was_nuked)
 		return TRUE
-	if(GLOB.revolution_handler?.result == REVOLUTION_VICTORY)
-		return TRUE
 	return FALSE
 
 /datum/controller/subsystem/ticker/proc/setup()
@@ -736,14 +734,6 @@ SUBSYSTEM_DEF(ticker)
 		if(OPERATIVE_SKIRMISH)
 			news_message = "A skirmish between security forces and Syndicate agents aboard [decoded_station_name] \
 				ended with both sides bloodied but intact."
-		// Revolution victory
-		if(REVS_WIN)
-			news_message = "Company officials have reassured investors that despite a union led revolt \
-				aboard [decoded_station_name] there will be no wage increases for workers."
-		// Revolution defeat
-		if(REVS_LOSE)
-			news_message = "[decoded_station_name] quickly put down a misguided attempt at mutiny. \
-				Remember, unionizing is illegal!"
 		// All wizards (plus apprentices) have been killed
 		if(WIZARD_KILLED)
 			news_message = "Tensions have flared with the Space Wizard Federation following the death \
