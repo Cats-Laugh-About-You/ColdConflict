@@ -99,7 +99,7 @@ export function getDisplayColor(
 ): string {
   const { job, health, orbiters } = item;
 
-  // Things like blob camera, etc
+  // Things like camera, etc
   if (typeof health !== 'number') {
     return override ? 'good' : 'grey';
   }

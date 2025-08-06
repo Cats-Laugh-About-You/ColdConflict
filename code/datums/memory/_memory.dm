@@ -246,7 +246,6 @@
 	var/static/list/something_pool = list(
 		/mob/living/basic/bat,
 		/mob/living/basic/bear,
-		/mob/living/basic/blob_minion/blobbernaut,
 		/mob/living/basic/butterfly,
 		/mob/living/basic/carp,
 		/mob/living/basic/carp/magic,

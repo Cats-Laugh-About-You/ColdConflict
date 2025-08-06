@@ -266,7 +266,6 @@
 		/obj/item/stack/sheet/mineral/bananium = 50,
 		/obj/item/stack/sheet/mineral/wood/fifty = null,
 		/obj/item/stack/sheet/plastic/fifty = null,
-		/obj/item/stack/sheet/runed_metal/fifty = null,
 		/obj/item/stack/rods/fifty = null,
 		/obj/item/stack/sheet/mineral/plastitanium = 50,
 		/obj/item/stack/sheet/mineral/abductor = 50,

@@ -119,13 +119,6 @@
 /// - Monkeys are monkeys, not quite human (balance reasons)
 #define IS_VALID_GHOUL_MOB(mob) (ishuman(mob) && !isskeleton(mob) && !ismonkey(mob))
 
-/// Forces the blob to place the core where they currently are, ignoring any checks.
-#define BLOB_FORCE_PLACEMENT -1
-/// Normal blob placement, does the regular checks to make sure the blob isn't placing itself in an invalid location
-#define BLOB_NORMAL_PLACEMENT 0
-/// Selects a random location for the blob to be placed.
-#define BLOB_RANDOM_PLACEMENT 1
-
 #define CONSTRUCT_JUGGERNAUT "Juggernaut"
 #define CONSTRUCT_WRAITH "Wraith"
 #define CONSTRUCT_ARTIFICER "Artificer"
@@ -280,12 +273,6 @@ GLOBAL_LIST_INIT(ai_employers, list(
 #define IS_WIZARD(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/wizard))
 /// Checks if the given mob is a wizard apprentice
 #define IS_WIZARD_APPRENTICE(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/wizard/apprentice))
-
-/// Checks if the given mob is a revolutionary. Will return TRUE for rev heads as well.
-#define IS_REVOLUTIONARY(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/rev))
-
-/// Checks if the given mob is a head revolutionary.
-#define IS_HEAD_REVOLUTIONARY(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/rev/head))
 
 /// Checks if the given mob is a malf ai.
 #define IS_MALF_AI(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/malf_ai))

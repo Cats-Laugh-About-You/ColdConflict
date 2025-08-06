@@ -262,19 +262,6 @@ repeatable_weight_decrease = 2
 repeatable = 0
 minimum_required_age = 0
 
-["Blob"]
-weight.1 = 0
-weight.2 = 1
-weight.3 = 3
-weight.4 = 3
-min_pop = 30
-blacklisted_roles = []
-min_antag_cap = 1
-max_antag_cap = 1
-repeatable_weight_decrease = 3
-repeatable = 1
-minimum_required_age = 0
-
 ["Xenomorph"]
 weight.1 = 0
 weight.2 = 1
@@ -423,17 +410,6 @@ min_pop = 30
 blacklisted_roles = []
 repeatable_weight_decrease = 2
 repeatable = 0
-minimum_required_age = 0
-
-["Blob Infection"]
-weight.1 = 0
-weight.2 = 1
-weight.3 = 3
-weight.4 = 3
-min_pop = 30
-blacklisted_roles = []
-repeatable_weight_decrease = 3
-repeatable = 1
 minimum_required_age = 0
 
 ["Midround Obsessed"]

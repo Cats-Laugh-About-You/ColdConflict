@@ -12,7 +12,7 @@
 /datum/action/changeling/headcrab/can_be_used_by(mob/living/user)
 	if(HAS_TRAIT(user, TRAIT_TEMPORARY_BODY))
 		return FALSE
-	if(isanimal_or_basicmob(user) && !istype(user, /mob/living/basic/headslug) && !isconstruct(user) && !(user.mob_biotypes & MOB_SPIRIT))
+	if(isanimal_or_basicmob(user) && !istype(user, /mob/living/basic/headslug) && !(user.mob_biotypes & MOB_SPIRIT))
 		return TRUE
 	return ..()
 

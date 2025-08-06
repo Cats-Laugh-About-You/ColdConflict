@@ -59,9 +59,6 @@
 		log_mapping("multiple lattices found in ([loc.x], [loc.y], [loc.z], [get_area(LAT)])")
 		return INITIALIZE_HINT_QDEL
 
-/obj/structure/lattice/blob_act(obj/structure/blob/B)
-	return
-
 /obj/structure/lattice/attackby(obj/item/C, mob/user, list/modifiers, list/attack_modifiers)
 	if(resistance_flags & INDESTRUCTIBLE)
 		return

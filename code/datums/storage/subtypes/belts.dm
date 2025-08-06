@@ -159,14 +159,6 @@
 /datum/storage/mining_belt/primitive
 	max_slots = 5
 
-///Soulstone belt
-/datum/storage/soulstone_belt
-	max_slots = 6
-
-/datum/storage/soulstone_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
-	. = ..()
-	set_holdable(/obj/item/soulstone)
-
 ///Champion belt
 /datum/storage/champion_belt
 	max_slots = 1

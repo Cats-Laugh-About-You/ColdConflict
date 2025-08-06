@@ -48,8 +48,6 @@ GLOBAL_LIST_INIT(spanname_to_formatting, list(
 	"Bad" = "bad",
 	"Big" = "big",
 	"Binary Say" = "binarysay",
-	"Blob" = "blob",
-	"Blob Announce" = "blobannounce",
 	"Blue" = "blue",
 	"Blue Team Radio" = "blueteamradio",
 	"Bold" = "bold",

@@ -134,13 +134,6 @@
 
 	return TRUE
 
-
-/turf/closed/wall/blob_act(obj/structure/blob/B)
-	if(prob(50))
-		dismantle_wall()
-	else
-		add_dent(WALL_DENT_HIT)
-
 /turf/closed/wall/attack_paw(mob/living/user, list/modifiers)
 	user.changeNext_move(CLICK_CD_MELEE)
 	return attack_hand(user, modifiers)
@@ -265,11 +258,6 @@
 		if(prob(30))
 			dismantle_wall()
 
-/turf/closed/wall/narsie_act(force, ignore_mobs, probability = 20)
-	. = ..()
-	if(.)
-		ChangeTurf(/turf/closed/wall/mineral/cult)
-
 /turf/closed/wall/get_dumping_location()
 	return null
 
@@ -316,13 +304,6 @@
 		dent_decals = list(decal)
 
 	add_overlay(dent_decals)
-
-/turf/closed/wall/rust_turf()
-	if(HAS_TRAIT(src, TRAIT_RUSTY))
-		ScrapeAway()
-		return
-
-	return ..()
 
 /turf/closed/wall/metal_foam_base
 	girder_type = /obj/structure/foamedmetal

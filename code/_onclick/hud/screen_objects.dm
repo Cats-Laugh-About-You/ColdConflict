@@ -735,18 +735,6 @@
 	icon = 'icons/hud/screen_cyborg.dmi'
 	screen_loc = ui_borg_health
 
-/atom/movable/screen/healths/blob
-	name = "blob health"
-	icon_state = "block"
-	screen_loc = ui_internal
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-
-/atom/movable/screen/healths/blob/overmind
-	name = "overmind health"
-	icon = 'icons/hud/blob.dmi'
-	icon_state = "corehealth"
-	screen_loc = ui_blobbernaut_overmind_health
-
 /atom/movable/screen/healths/guardian
 	name = "summoner health"
 	icon = 'icons/hud/guardian.dmi'

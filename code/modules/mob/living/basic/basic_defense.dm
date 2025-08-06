@@ -142,12 +142,6 @@
 
 	return TRUE
 
-/mob/living/basic/blob_act(obj/structure/blob/attacking_blob)
-	. = ..()
-	if (!.)
-		return
-	apply_damage(20, damagetype = BRUTE)
-
 /mob/living/basic/do_attack_animation(atom/attacked_atom, visual_effect_icon, used_item, no_effect)
 	if(!no_effect && !visual_effect_icon && melee_damage_upper)
 		if(attack_vis_effect && !iswallturf(attacked_atom)) // override the standard visual effect.

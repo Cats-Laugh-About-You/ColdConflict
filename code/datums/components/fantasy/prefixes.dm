@@ -145,23 +145,6 @@
 	var/obj/item/master = comp.parent
 	master.RemoveElement(/datum/element/venomous)
 
-/datum/fantasy_affix/soul_stealer
-	name = "soul-stealing"
-	placement = AFFIX_PREFIX
-	alignment = AFFIX_GOOD
-
-/datum/fantasy_affix/soul_stealer/validate(obj/item/attached)
-	if(attached.force)
-		return FALSE
-	if(attached.atom_storage)
-		return FALSE
-	return TRUE
-
-/datum/fantasy_affix/soul_stealer/apply(datum/component/fantasy/comp, newName)
-	var/obj/item/master = comp.parent
-	comp.appliedComponents += master.AddComponent(/datum/component/soul_stealer)
-	return "soul-[pick("stealing", "hungering", "devouring")] [newName]"
-
 // On hitting a mob chain lightning will jump to another mob within 2 tiles of the original target
 /datum/fantasy_affix/thunderfury
 	name = "Thunderfury"

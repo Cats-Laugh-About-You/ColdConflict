@@ -184,42 +184,6 @@ GLOBAL_LIST_INIT(dreams, populate_dream_list())
 /datum/dream/hear_something/proc/StopSound(mob/living/carbon/dreamer)
 	SEND_SOUND(dreamer, sound(channel=reserved_sound_channel))
 
-/// Heretics can see dreams about random machinery from the perspective of a random unused influence
-/datum/dream/heretic
-	sleep_until_finished = TRUE
-	/// The influence we will be dreaming about
-	var/obj/effect/heretic_influence/influence
-	/// The distance to the objects visible from the influence during the dream
-	var/dream_view_range = 5
-	var/list/what_you_can_see = list(
-		/obj/item,
-		/obj/structure,
-		/obj/machinery,
-	)
-	var/static/list/what_you_cant_see = typecacheof(list(
-		// Underfloor stuff and default wallmounts
-		/obj/item/radio/intercom,
-		/obj/structure/cable,
-		/obj/structure/disposalpipe/segment,
-		/obj/machinery/atmospherics/pipe/smart/manifold4w,
-		/obj/machinery/atmospherics/components/unary/vent_scrubber,
-		/obj/machinery/atmospherics/components/unary/vent_pump,
-		/obj/machinery/duct,
-		/obj/machinery/navbeacon,
-		/obj/machinery/power/terminal,
-		/obj/machinery/power/apc,
-		/obj/machinery/light_switch,
-		/obj/machinery/light,
-		/obj/machinery/camera,
-		/obj/machinery/door/firedoor,
-		/obj/machinery/firealarm,
-		/obj/machinery/airalarm,
-		/obj/structure/window/fulltile,
-		/obj/structure/window/reinforced/fulltile,
-	))
-	/// Cached list of allowed typecaches for each type in what_you_can_see
-	var/static/list/allowed_typecaches_by_root_type = null
-
 /datum/mood_event/mansus_dream_fatigue
 	description = "I must recover before I can dream of Mansus again."
 	mood_change = -2

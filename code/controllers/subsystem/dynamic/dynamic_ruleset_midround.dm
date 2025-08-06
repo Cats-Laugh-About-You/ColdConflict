@@ -370,42 +370,6 @@
 	else
 		candidate.add_antag_datum(/datum/antagonist/nukeop/clownop, nuke_team) // moves to nuke base for us
 
-/datum/dynamic_ruleset/midround/from_ghosts/blob
-	name = "Blob"
-	config_tag = "Blob"
-	preview_antag_datum = /datum/antagonist/blob
-	midround_type = HEAVY_MIDROUND
-	false_alarm_able = TRUE
-	pref_flag = ROLE_BLOB
-	ruleset_flags = RULESET_INVADER
-	weight = list(
-		DYNAMIC_TIER_LOW = 0,
-		DYNAMIC_TIER_LOWMEDIUM = 1,
-		DYNAMIC_TIER_MEDIUMHIGH = 3,
-		DYNAMIC_TIER_HIGH = 3,
-	)
-	min_pop = 30
-	max_antag_cap = 1
-	repeatable_weight_decrease = 3
-	signup_atom_appearance = /obj/structure/blob/normal
-	/// How many points does the blob spawn with
-	var/starting_points = OVERMIND_STARTING_POINTS
-
-/datum/dynamic_ruleset/midround/from_ghosts/blob/create_ruleset_body()
-	return new /mob/eye/blob(get_blobspawn(), starting_points)
-
-/datum/dynamic_ruleset/midround/from_ghosts/blob/assign_role(datum/mind/candidate)
-	return // everything is handled by blob new()
-
-/datum/dynamic_ruleset/midround/from_ghosts/blob/proc/get_blobspawn()
-	if(!length(GLOB.blobstart))
-		var/obj/effect/landmark/observer_start/default = locate() in GLOB.landmarks_list
-		return get_turf(default)
-
-	return pick(GLOB.blobstart)
-
-/datum/dynamic_ruleset/midround/from_ghosts/blob/false_alarm()
-	priority_announce("Confirmed outbreak of level 5 biohazard aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert", ANNOUNCER_OUTBREAK5)
 
 /datum/dynamic_ruleset/midround/from_ghosts/xenomorph
 	name = "Alien Infestation"
@@ -1097,30 +1061,6 @@
 
 /datum/dynamic_ruleset/midround/from_living/malf_ai/can_be_selected()
 	return ..() && !HAS_TRAIT(SSstation, STATION_TRAIT_HUMAN_AI)
-
-/datum/dynamic_ruleset/midround/from_living/blob
-	name = "Blob Infection"
-	config_tag = "Blob Infection"
-	preview_antag_datum = /datum/antagonist/blob/infection
-	midround_type = HEAVY_MIDROUND
-	pref_flag = ROLE_BLOB_INFECTION
-	jobban_flag = ROLE_BLOB
-	weight = list(
-		DYNAMIC_TIER_LOW = 0,
-		DYNAMIC_TIER_LOWMEDIUM = 1,
-		DYNAMIC_TIER_MEDIUMHIGH = 3,
-		DYNAMIC_TIER_HIGH = 3,
-	)
-	min_pop = 30
-	repeatable_weight_decrease = 3
-
-/datum/dynamic_ruleset/midround/from_living/blob/assign_role(datum/mind/candidate)
-	candidate.add_antag_datum(/datum/antagonist/blob/infection)
-	notify_ghosts(
-		"[candidate.current.real_name] has become a blob host!",
-		source = candidate.current,
-		header = "So Bulbous...",
-	)
 
 /datum/dynamic_ruleset/midround/from_living/obsesed
 	name = "Obsession"

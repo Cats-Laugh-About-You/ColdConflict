@@ -394,10 +394,6 @@
 		return FALSE
 	return TRUE
 
-/obj/item/blob_act(obj/structure/blob/B)
-	if(B && B.loc == loc)
-		atom_destruction(MELEE)
-
 /**Makes cool stuff happen when you suicide with an item
  *
  *Outputs a creative message and then return the damagetype done

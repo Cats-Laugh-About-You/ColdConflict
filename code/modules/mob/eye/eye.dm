@@ -1,4 +1,4 @@
-/// Eye mob, used by cameras and overminds such as blobs.
+/// Eye mob, used by cameras and overminds.
 /mob/eye
 	name = "eye mob"
 	density = FALSE

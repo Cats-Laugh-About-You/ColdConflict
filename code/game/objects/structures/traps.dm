@@ -232,16 +232,3 @@
 /obj/structure/trap/ward/Initialize(mapload)
 	. = ..()
 	QDEL_IN(src, time_between_triggers)
-
-/obj/structure/trap/cult
-	name = "unholy trap"
-	desc = "A trap that rings with unholy energy. You think you hear... chittering?"
-	icon_state = "trap-cult"
-
-/obj/structure/trap/cult/trap_effect(mob/living/victim)
-	to_chat(victim, span_bolddanger("With a crack, the hostile constructs come out of hiding, stunning you!"))
-	victim.electrocute_act(10, src, flags = SHOCK_NOGLOVES) // electrocute act does a message.
-	victim.Paralyze(2 SECONDS)
-	new /mob/living/basic/construct/proteon/hostile(loc)
-	new /mob/living/basic/construct/proteon/hostile(loc)
-	QDEL_IN(src, 3 SECONDS)

@@ -24,8 +24,6 @@
 	switch(loot)
 		if(1)
 			new /obj/item/shared_storage/red(src)
-		if(2)
-			new /obj/item/soulstone/anybody/mining(src)
 		if(3)
 			new /obj/item/organ/cyberimp/arm/toolkit/shard/katana(src)
 		if(4)
@@ -170,13 +168,11 @@
 	name = "puzzling chest"
 
 /obj/structure/closet/crate/necropolis/puzzle/PopulateContents()
-	var/loot = rand(1,3)
+	var/loot = rand(1,2)
 	switch(loot)
 		if(1)
-			new /obj/item/soulstone/anybody/mining(src)
-		if(2)
 			new /obj/item/wisp_lantern(src)
-		if(3)
+		if(2)
 			new /obj/item/prisoncube(src)
 
 /obj/item/skeleton_key

@@ -40,10 +40,6 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 
 	return FALSE
 
-/obj/machinery/gravity_generator/blob_act(obj/structure/blob/B)
-	if(prob(20))
-		set_broken()
-
 /obj/machinery/gravity_generator/zap_act(power, zap_flags)
 	. = ..()
 	if(zap_flags & ZAP_MACHINE_EXPLOSIVE)

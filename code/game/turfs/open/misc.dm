@@ -73,9 +73,6 @@
 	for(var/obj/structure/A in contents)
 		return TRUE
 
-/turf/open/misc/blob_act(obj/structure/blob/B)
-	return
-
 /turf/open/misc/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
 	if(the_rcd.mode == RCD_TURF)
 		if(the_rcd.rcd_design_path != /turf/open/floor/plating/rcd)

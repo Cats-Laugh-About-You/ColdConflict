@@ -466,9 +466,5 @@ GLOBAL_LIST_INIT(typecache_holodeck_linked_floorcheck_ok, typecacheof(list(/turf
 		linked.energy_usage = list(AREA_USAGE_LEN)
 	return ..()
 
-/obj/machinery/computer/holodeck/blob_act(obj/structure/blob/B)
-	emergency_shutdown()
-	return ..()
-
 #undef HOLODECK_CD
 #undef HOLODECK_DMG_CD

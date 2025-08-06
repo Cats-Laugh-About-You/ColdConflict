@@ -60,24 +60,12 @@
 /obj/item/nullrod/proc/on_selected(obj/item/nullrod/old_weapon, mob/living/picker)
 	return
 
-/// Callback for effect remover, invoked when a cult rune is cleared
-/obj/item/nullrod/proc/on_cult_rune_removed(obj/effect/target, mob/living/user)
-	if(!istype(target, /obj/effect/rune))
-		return
-
-	var/obj/effect/rune/target_rune = target
-	if(target_rune.log_when_erased)
-		user.log_message("erased [target_rune.cultist_name] rune using [src]", LOG_GAME)
-	SSshuttle.shuttle_purchase_requirements_met[SHUTTLE_UNLOCK_NARNAR] = TRUE
-
 /obj/item/nullrod/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] is killing [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to get closer to god!"))
 	return (BRUTELOSS|FIRELOSS)
 
 /obj/item/nullrod/attack(mob/living/target_mob, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(!user.mind?.holy_role)
-		return ..()
-	if(!IS_CULTIST(target_mob) || istype(target_mob, /mob/living/carbon/human/cult_ghost))
 		return ..()
 
 	var/old_stat = target_mob.stat
@@ -88,7 +76,7 @@
 
 /obj/item/nullrod/examine(mob/user)
 	. = ..()
-	if(!IS_CULTIST(user) || !GET_ATOM_BLOOD_DNA_LENGTH(src))
+	if(!GET_ATOM_BLOOD_DNA_LENGTH(src))
 		return
 
 	var/num_slain = LAZYLEN(cultists_slain)
@@ -270,25 +258,6 @@
 	worn_icon_state = "spellblade"
 	hitsound = 'sound/items/weapons/rapierhit.ogg'
 	menu_description = "A sharp blade which partially penetrates armor. Very effective at butchering bodies. Can be worn on the back."
-
-/obj/item/nullrod/vibro/talking
-	name = "possessed blade"
-	desc = "When the station falls into chaos, it's nice to have a friend by your side."
-	icon = 'icons/obj/weapons/sword.dmi'
-	icon_state = "talking_sword"
-	inhand_icon_state = "talking_sword"
-	icon_angle = 45
-	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
-	worn_icon_state = "talking_sword"
-	attack_verb_continuous = list("chops", "slices", "cuts")
-	attack_verb_simple= list("chop", "slice", "cut")
-	hitsound = 'sound/items/weapons/rapierhit.ogg'
-	menu_description = "A sharp blade which partially penetrates armor. Able to awaken a friendly spirit to provide guidance. Very effective at butchering bodies. Can be worn on the back."
-
-/obj/item/nullrod/vibro/talking/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/spirit_holding)
 
 /obj/item/nullrod/vibro/talking/chainsword
 	name = "possessed chainsaw sword"
@@ -900,10 +869,6 @@
 		sneak_attack_fail_message = TRUE
 
 	else if(living_target.incorporeal_move >= 1 && !HAS_TRAIT(living_target, TRAIT_REVENANT_REVEALED)) // WE CAN'T SNEAK ATTACK INCORPOREAL JERKS. BUT WE CAN SNEAK ATTACK REVEALED REVENANTS BECAUSE DUH, NULLROD.
-		successful_sneak_attack = FALSE
-		sneak_attack_fail_message = TRUE
-
-	else if(HAS_TRAIT(living_target, TRAIT_HERETIC_SUMMON) && prob(50)) // IT IS HARD TO SNEAK ATTACK SOMETHING WITH TOO MANY REDUNDANT EVERYTHINGS.
 		successful_sneak_attack = FALSE
 		sneak_attack_fail_message = TRUE
 

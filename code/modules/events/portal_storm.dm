@@ -14,23 +14,6 @@
 		/mob/living/basic/trooper/syndicate/ranged/space = 2,
 	)
 
-/datum/round_event_control/portal_storm_narsie
-	name = "Portal Storm: Constructs"
-	typepath = /datum/round_event/portal_storm/portal_storm_narsie
-	weight = 0
-	max_occurrences = 0
-	category = EVENT_CATEGORY_ENTITIES
-	description = "Nar'sie constructs pour out of portals."
-	min_wizard_trigger_potency = 5
-	max_wizard_trigger_potency = 7
-
-/datum/round_event/portal_storm/portal_storm_narsie
-	boss_types = list(/mob/living/basic/construct/artificer/hostile = 6)
-	hostile_types = list(
-		/mob/living/basic/construct/juggernaut/hostile = 8,
-		/mob/living/basic/construct/wraith/hostile = 6,
-	)
-
 /datum/round_event/portal_storm
 	start_when = 7
 	end_when = 999

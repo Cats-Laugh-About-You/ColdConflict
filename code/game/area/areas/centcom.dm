@@ -288,7 +288,7 @@
 	ambience_index = AMBIENCE_RUINS
 	always_unpowered = FALSE
 	requires_power = TRUE
-	area_flags = UNIQUE_AREA | BLOBS_ALLOWED
+	area_flags = UNIQUE_AREA
 
 /area/centcom/asteroid/nearstation/bomb_site
 	name = "\improper Bomb Testing Asteroid"

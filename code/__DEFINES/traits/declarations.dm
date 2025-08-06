@@ -1187,8 +1187,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_CHANGELING_HIVEMIND_MUTE "ling_mute"
 /// This guy is a hulk! (Bulky and green, lacks tact)
 #define TRAIT_HULK "hulk"
-/// Isn't attacked harmfully by blob structures
-#define TRAIT_BLOB_ALLY "blob_ally"
 /// Has the chuuni component
 #define TRAIT_CHUUNIBYOU "chuunibyou"
 /// Has splattercasting

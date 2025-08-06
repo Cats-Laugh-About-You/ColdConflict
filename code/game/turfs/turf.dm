@@ -625,11 +625,6 @@ GLOBAL_LIST_EMPTY(station_turfs)
 /turf/proc/acid_melt()
 	return
 
-/// Override this to change behaviour when being rusted by a heretic
-/turf/proc/rust_turf()
-	if(HAS_TRAIT(src, TRAIT_RUSTY))
-		return
-
 /turf/handle_fall(mob/faller)
 	if(has_gravity(src))
 		playsound(src, SFX_BODYFALL, 50, TRUE)

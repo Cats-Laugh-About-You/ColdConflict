@@ -532,7 +532,7 @@ ADMIN_VERB(secrets, R_NONE, "Secrets", "Abuse harder than you ever have before w
 				if(are_we_antagstacking != "Confirm")
 					return
 
-			var/chosen_antag = tgui_input_list(usr, "Choose antag", "Chose antag", list(ROLE_TRAITOR, ROLE_CHANGELING, ROLE_HERETIC, ROLE_CULTIST, ROLE_NINJA, ROLE_WIZARD, ROLE_NIGHTMARE))
+			var/chosen_antag = tgui_input_list(usr, "Choose antag", "Chose antag", list(ROLE_TRAITOR, ROLE_CHANGELING, ROLE_NINJA, ROLE_WIZARD, ROLE_NIGHTMARE))
 			if(!chosen_antag)
 				return
 			var/objective = tgui_input_text(usr, "Enter an objective", "Objective")
@@ -628,32 +628,6 @@ ADMIN_VERB(secrets, R_NONE, "Secrets", "Abuse harder than you ever have before w
 			message_admins("[key_name_admin(holder)] has Un-Fully Immersed \
 				everyone!")
 			log_admin("[key_name(holder)] has Un-Fully Immersed everyone.")
-		if("makeNerd")
-			var/spawnpoint = pick(GLOB.blobstart)
-			var/list/mob/dead/observer/candidates
-			var/mob/dead/observer/chosen_candidate
-			var/mob/living/basic/drone/nerd
-			var/teamsize
-
-			teamsize = input(usr, "How many drones?", "N.E.R.D. team size", 2) as num|null
-
-			if(teamsize <= 0)
-				return FALSE
-
-			candidates = SSpolling.poll_ghost_candidates("Do you wish to be considered for a [span_notice("Nanotrasen emergency response drone")]?", check_jobban = ROLE_DRONE, alert_pic = /mob/living/basic/drone/classic, role_name_text = "nanotrasen emergency response drone")
-
-			if(length(candidates) == 0)
-				return FALSE
-
-			while(length(candidates) && teamsize)
-				chosen_candidate = pick(candidates)
-				candidates -= chosen_candidate
-				nerd = new /mob/living/basic/drone/classic(spawnpoint)
-				nerd.PossessByPlayer(chosen_candidate.key)
-				nerd.log_message("has been selected as a Nanotrasen emergency response drone.", LOG_GAME)
-				teamsize--
-
-			return TRUE
 		if("ctf_instagib")
 			if(!is_funmin)
 				return
@@ -786,9 +760,6 @@ ADMIN_VERB(secrets, R_NONE, "Secrets", "Abuse harder than you ever have before w
 			if(ROLE_CHANGELING)
 				var/datum/antagonist/changeling/antag_datum = new
 				antag_datum.give_objectives = keep_generic_objecives
-				assign_admin_objective_and_antag(player, antag_datum)
-			if(ROLE_CULTIST)
-				var/datum/antagonist/cult/antag_datum = new
 				assign_admin_objective_and_antag(player, antag_datum)
 			if(ROLE_NINJA)
 				var/datum/antagonist/ninja/antag_datum = new

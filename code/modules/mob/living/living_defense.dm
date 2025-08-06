@@ -596,35 +596,6 @@
 	gib()
 	return 20
 
-/mob/living/narsie_act()
-	if(HAS_TRAIT(src, TRAIT_GODMODE) || QDELETED(src))
-		return
-
-	if(GLOB.cult_narsie && GLOB.cult_narsie.souls_needed[src])
-		GLOB.cult_narsie.souls_needed -= src
-		GLOB.cult_narsie.souls += 1
-		if((GLOB.cult_narsie.souls == GLOB.cult_narsie.soul_goal) && (GLOB.cult_narsie.resolved == FALSE))
-			GLOB.cult_narsie.resolved = TRUE
-			sound_to_playing_players('sound/announcer/alarm/nuke_alarm.ogg', 70)
-			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(cult_ending_helper), CULT_VICTORY_MASS_CONVERSION), 12 SECONDS)
-			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(ending_helper)), 27 SECONDS)
-	if(client)
-		make_new_construct(/mob/living/basic/construct/harvester, src, cultoverride = TRUE)
-	else
-		switch(rand(1, 4))
-			if(1)
-				new /mob/living/basic/construct/juggernaut/hostile(get_turf(src))
-			if(2)
-				new /mob/living/basic/construct/wraith/hostile(get_turf(src))
-			if(3)
-				new /mob/living/basic/construct/artificer/hostile(get_turf(src))
-			if(4)
-				new /mob/living/basic/construct/proteon/hostile(get_turf(src))
-	spawn_dust()
-	investigate_log("has been gibbed by Nar'Sie.", INVESTIGATE_DEATHS)
-	gib()
-	return TRUE
-
 //called when the mob receives a bright flash
 /mob/living/proc/flash_act(intensity = 1, override_blindness_check = 0, affect_silicon = 0, visual = 0, type = /atom/movable/screen/fullscreen/flash, length = 2.5 SECONDS)
 	if(HAS_TRAIT(src, TRAIT_NOFLASH))

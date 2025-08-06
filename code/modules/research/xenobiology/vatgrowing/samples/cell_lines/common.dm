@@ -228,7 +228,7 @@
 
 
 ///////////////////////////////////////////
-/// SLIMES, OOZES & BLOBS ///
+/// SLIMES, OOZES///
 //////////////////////////////////////////
 
 /datum/micro_organism/cell_line/slime
@@ -248,45 +248,6 @@
 
 	virus_suspectibility = 0
 	resulting_atom = /mob/living/basic/slime
-
-/datum/micro_organism/cell_line/blob_spore //nuisance cell line
-	desc = "Immature blob spores"
-	required_reagents = list(/datum/reagent/consumable/nutriment/protein)
-
-	supplementary_reagents = list(
-		/datum/reagent/consumable/nutriment/vitamin = 2,
-		/datum/reagent/consumable/eggrot = 2,
-		/datum/reagent/medicine/c2/synthflesh = 1,
-		/datum/reagent/consumable/liquidgibs = 1,
-		/datum/reagent/sulfur = 1)
-
-	suppressive_reagents = list(
-		/datum/reagent/consumable/tinlux = -6,
-		/datum/reagent/lead = -4, //neurotoxin, works because spores are smort
-		/datum/reagent/napalm = -4,
-		/datum/reagent/medicine/psicodine = -2) //Blob zombies likely wouldn't appreciate psicodine so why this is here
-
-	virus_suspectibility = 0
-	resulting_atom = /mob/living/basic/blob_minion/spore/independent
-
-/datum/micro_organism/cell_line/blobbernaut
-	desc = "Blobular myocytes"
-	required_reagents = list(
-		/datum/reagent/consumable/nutriment/protein,
-		/datum/reagent/medicine/c2/synthflesh,
-		/datum/reagent/sulfur) //grind flares to get this
-
-	supplementary_reagents = list(
-		/datum/reagent/growthserum = 3,
-		/datum/reagent/consumable/nutriment/vitamin = 2,
-		/datum/reagent/consumable/liquidgibs = 2,
-		/datum/reagent/consumable/eggyolk = 2,
-		/datum/reagent/consumable/shamblers = 1)
-
-	suppressive_reagents = list(/datum/reagent/consumable/tinlux = -6)
-
-	virus_suspectibility = 0
-	resulting_atom = /mob/living/basic/blob_minion/blobbernaut/independent
 
 /datum/micro_organism/cell_line/gelatinous_cube
 	desc = "Cubic ooze particles"

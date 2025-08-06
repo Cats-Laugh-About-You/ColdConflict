@@ -15,7 +15,6 @@
 		/atom/movable/screen,
 		/obj/effect,
 		/obj/energy_ball,
-		/obj/narsie,
 		/obj/singularity,
 	))
 

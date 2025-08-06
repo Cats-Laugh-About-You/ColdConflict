@@ -85,7 +85,6 @@
 /mob/living/basic/pet/cat/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/obeys_commands, pet_commands)
-	AddElement(/datum/element/cultist_pet, pet_cult_icon_state = cult_icon_state)
 	AddElement(/datum/element/wears_collar, collar_icon_state = collar_icon_state, collar_resting_icon_state = TRUE)
 	AddElement(/datum/element/ai_retaliate)
 	AddElement(/datum/element/pet_bonus, "purr", /datum/mood_event/pet_animal)

@@ -35,7 +35,6 @@
 	. = ..()
 	desc = "The word '[pick(bruh_moment)]' is scribbled on it in crayon."
 
-///Here we generate some smoke and also damage blobs??? for some reason. Honestly not sure why we do that.
 /obj/item/grenade/smokebomb/detonate(mob/living/lanced_by)
 	. = ..()
 	if(!.)
@@ -47,7 +46,4 @@
 	smoke.set_up(4, holder = src, location = src)
 	smoke.start()
 	qdel(smoke) //And deleted again. Sad really.
-	for(var/obj/structure/blob/blob in view(8, src))
-		var/damage = round(30/(get_dist(blob, src) + 1))
-		blob.take_damage(damage, BURN, MELEE, 0)
 	qdel(src)

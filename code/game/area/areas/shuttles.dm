@@ -166,7 +166,6 @@
 
 /area/shuttle/escape
 	name = "Emergency Shuttle"
-	area_flags = BLOBS_ALLOWED
 	area_limited_icon_smoothing = /area/shuttle/escape
 	flags_1 = CAN_BE_DIRTY_1
 	area_flags = CULT_PERMITTED

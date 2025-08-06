@@ -4,7 +4,6 @@ GLOBAL_LIST_INIT(animatable_blacklist, typecacheof(list(
 	/obj/structure/table,
 	/obj/structure/cable,
 	/obj/structure/window,
-	/obj/structure/blob,
 )))
 
 /mob/living/basic/mimic

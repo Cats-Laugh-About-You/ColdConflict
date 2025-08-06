@@ -120,11 +120,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/fireaxecabinet, 32)
 		held_item.forceMove(loc)
 	new /obj/item/wallframe/fireaxecabinet(loc)
 
-/obj/structure/fireaxecabinet/blob_act(obj/structure/blob/B)
-	if(held_item)
-		held_item.forceMove(loc)
-	qdel(src)
-
 /obj/structure/fireaxecabinet/attack_hand(mob/user, list/modifiers)
 	. = ..()
 	if(.)

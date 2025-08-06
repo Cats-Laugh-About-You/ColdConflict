@@ -21,9 +21,6 @@
 	sprayer = null
 	return ..()
 
-/obj/effect/decal/chempuff/blob_act(obj/structure/blob/B)
-	return
-
 /obj/effect/decal/chempuff/proc/end_life(delay = 0.5 SECONDS)
 	QDEL_IN(src, delay) //Gotta let it stop drifting
 	animate(src, alpha = 0, time = delay)

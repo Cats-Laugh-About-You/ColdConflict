@@ -513,11 +513,6 @@ GLOBAL_VAR(station_nuke_source)
 	else
 		. = timer_set
 
-/obj/machinery/nuclearbomb/blob_act(obj/structure/blob/attacking_blob)
-	if(exploding)
-		return
-	qdel(src)
-
 /obj/machinery/nuclearbomb/zap_act(power, zap_flags)
 	. = ..()
 	if(zap_flags & ZAP_MACHINE_EXPLOSIVE)

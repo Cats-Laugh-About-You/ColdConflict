@@ -12,7 +12,6 @@
 
 /datum/component/supermatter_crystal/Initialize(datum/callback/tool_act_callback, datum/callback/consume_callback)
 
-	RegisterSignal(parent, COMSIG_ATOM_BLOB_ACT, PROC_REF(blob_hit))
 	RegisterSignal(parent, COMSIG_ATOM_ATTACK_PAW, PROC_REF(paw_hit))
 	RegisterSignal(parent, COMSIG_ATOM_ATTACK_ANIMAL, PROC_REF(animal_hit))
 	RegisterSignal(parent, COMSIG_ATOM_HULK_ATTACK, PROC_REF(hulk_hit))
@@ -35,7 +34,6 @@
 
 /datum/component/supermatter_crystal/UnregisterFromParent(force, silent)
 	var/list/signals_to_remove = list(
-		COMSIG_ATOM_BLOB_ACT,
 		COMSIG_ATOM_ATTACK_PAW,
 		COMSIG_ATOM_ATTACK_ANIMAL,
 		COMSIG_ATOM_HULK_ATTACK,
@@ -50,22 +48,6 @@
 	)
 
 	UnregisterSignal(parent, signals_to_remove)
-
-/datum/component/supermatter_crystal/proc/blob_hit(datum/source, obj/structure/blob/blob)
-	SIGNAL_HANDLER
-	var/atom/atom_source = source
-	if(!blob || isspaceturf(atom_source)) //does nothing in space
-		return
-	playsound(get_turf(atom_source), 'sound/effects/supermatter.ogg', 50, TRUE)
-	consume_returns(damage_increase = blob.get_integrity() * 0.05)
-	if(blob.get_integrity() > 100)
-		blob.visible_message(span_danger("\The [blob] strikes at \the [atom_source] and flinches away!"),
-			span_hear("You hear a loud crack as you are washed with a wave of heat."))
-		blob.take_damage(100, BURN)
-	else
-		blob.visible_message(span_danger("\The [blob] strikes at \the [atom_source] and rapidly flashes to ash."),
-			span_hear("You hear a loud crack as you are washed with a wave of heat."))
-		consume(atom_source, blob)
 
 /datum/component/supermatter_crystal/proc/paw_hit(datum/source, mob/user, list/modifiers)
 	SIGNAL_HANDLER
