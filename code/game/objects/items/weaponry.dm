@@ -226,10 +226,6 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	START_PROCESSING(SSobj, src)
 
 /obj/item/claymore/highlander/Destroy()
-	if(nuke_disk)
-		nuke_disk.forceMove(get_turf(src))
-		nuke_disk.visible_message(span_warning("The nuke disk is vulnerable!"))
-		nuke_disk = null
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
@@ -262,8 +258,6 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 /obj/item/claymore/highlander/examine(mob/user)
 	. = ..()
 	. += "It has [!notches ? "nothing" : "[notches] notches"] scratched into the blade."
-	if(nuke_disk)
-		. += span_boldwarning("It's holding the nuke disk!")
 
 /obj/item/claymore/highlander/attack(mob/living/target, mob/living/user)
 	. = ..()
@@ -910,16 +904,6 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	. = ..()
 	AddComponent(/datum/component/anti_magic, MAGIC_RESISTANCE|MAGIC_RESISTANCE_HOLY)
 	AddElement(/datum/element/bane, mob_biotypes = MOB_SPIRIT, damage_multiplier = 0, added_damage = 25, requires_combat_mode = FALSE)
-
-/obj/item/melee/skateboard/holyboard/proc/on_cult_rune_removed(obj/effect/target, mob/living/user)
-	SIGNAL_HANDLER
-	if(!istype(target, /obj/effect/rune))
-		return
-
-	var/obj/effect/rune/target_rune = target
-	if(target_rune.log_when_erased)
-		user.log_message("erased [target_rune.cultist_name] rune using [src]", LOG_GAME)
-	SSshuttle.shuttle_purchase_requirements_met[SHUTTLE_UNLOCK_NARNAR] = TRUE
 
 /obj/item/melee/baseball_bat
 	name = "baseball bat"

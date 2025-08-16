@@ -363,18 +363,6 @@
 	new /obj/item/reagent_containers/hypospray/medipen/stimulants(src)
 	new /obj/item/grenade/syndieminibomb(src)
 
-// For ClownOps.
-/obj/item/storage/backpack/duffelbag/clown/syndie
-	storage_type = /datum/storage/duffel/syndicate
-
-/obj/item/storage/backpack/duffelbag/clown/syndie/PopulateContents()
-	new /obj/item/modular_computer/pda/clown(src)
-	new /obj/item/clothing/under/rank/civilian/clown(src)
-	new /obj/item/clothing/shoes/clown_shoes(src)
-	new /obj/item/clothing/mask/gas/clown_hat(src)
-	new /obj/item/bikehorn(src)
-	new /obj/item/implanter/sad_trombone(src)
-
 /obj/item/storage/backpack/henchmen
 	name = "wings"
 	desc = "Granted to the henchmen who deserve it. This probably doesn't include you."

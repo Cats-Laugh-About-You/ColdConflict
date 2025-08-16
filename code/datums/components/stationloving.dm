@@ -54,11 +54,7 @@
 
 	var/target_turf = length(GLOB.the_station_areas) ? get_safe_random_station_turf(GLOB.the_station_areas) : find_safe_turf() //Fallback. Mostly for debug maps.
 
-	if(!target_turf)
-		if(GLOB.blobstart.len > 0)
-			target_turf = get_turf(pick(GLOB.blobstart))
-		else
-			CRASH("Unable to find a blobstart landmark for [type] to relocate [parent].")
+
 
 	var/atom/movable/movable_parent = parent
 	playsound(movable_parent, 'sound/machines/synth/synth_no.ogg', 5, TRUE)

@@ -56,14 +56,6 @@
 	glow_color = "blue"
 	id = "deathsquad"
 
-/datum/pod_style/cultist
-	name = "bloody supply pod"
-	ui_name = "Cultist"
-	desc = "A Nanotrasen supply pod covered in scratch-marks, blood, and strange runes."
-	decal_icon = "cultist"
-	glow_color = "red"
-	id = "cultist"
-
 /datum/pod_style/missile
 	name = "cruise missile"
 	ui_name = "Missile"

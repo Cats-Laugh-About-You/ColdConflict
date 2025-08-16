@@ -21,7 +21,6 @@
 	liver_traits = list(TRAIT_ENGINEER_METABOLISM)
 
 	display_order = JOB_DISPLAY_ORDER_STATION_ENGINEER
-	bounty_types = CIV_JOB_ENG
 	departments_list = list(
 		/datum/job_department/engineering,
 		)

@@ -255,24 +255,6 @@ GLOBAL_DATUM_INIT(orbit_menu, /datum/orbit_menu, new)
 
 		return list(misc, critical)
 
-	// Display the nuke timer
-	if(istype(atom_poi, /obj/machinery/nuclearbomb))
-		var/obj/machinery/nuclearbomb/bomb = atom_poi
-
-		if(bomb.timing)
-			misc["extra"] = "Timer: [bomb.countdown?.displayed_text]s"
-			critical = TRUE
-
-		return list(misc, critical)
-
-	// Display the holder if its a nuke disk
-	if(istype(atom_poi, /obj/item/disk/nuclear))
-		var/obj/item/disk/nuclear/disk = atom_poi
-		var/mob/holder = disk.pulledby || get(disk, /mob)
-		misc["extra"] = "Location: [holder?.real_name || "Unsecured"]"
-
-		return list(misc, critical)
-
 	// Display singuloths if they exist
 	if(istype(atom_poi, /obj/singularity))
 		var/obj/singularity/singulo = atom_poi

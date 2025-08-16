@@ -19,7 +19,6 @@
 			as well as causing significant demoralization amongst Nanotrasen crew."
 	item = /obj/item/mod/control/pre_equipped/infiltrator
 	cost = 6
-	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS
 
 /datum/uplink_item/suits/space_suit
 	name = "Syndicate Space Suit"
@@ -34,7 +33,6 @@
 	desc = "The feared MODsuit of a Syndicate agent. Features armoring and a set of inbuilt modules."
 	item = /obj/item/mod/control/pre_equipped/traitor
 	cost = 8
-	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS //you can't buy it in nuke, because the elite modsuit costs the same while being better
 
 //---- MODULES
 

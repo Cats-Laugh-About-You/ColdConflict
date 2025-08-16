@@ -825,22 +825,6 @@
 			"summon_icon_state": "monkey"
 		},
 		{
-			"id": "nukeop",
-			"name": "Nuclear Operative",
-			"desc": "The frontline grunts of the syndicate army, Nuclear Operatives are typically well trained and equipped for their grim duty.",
-			"rules": "On Play: Gain +1/+1 until the end of the turn",
-			"icon_state": "nukie_red",
-			"power": "3",
-			"resolve": "3",
-			"faction": "Syndicate",
-			"summoncost": "3",
-			"cardtype": "Creature",
-			"cardsubtype": "Syndicate Cybersun",
-			"rarity": "rare",
-			"summon_icon_file": "icons/obj/toys/tcgsummons.dmi",
-			"summon_icon_state": "syndicate_space_shotgun"
-		},
-		{
 			"id": "paramed",
 			"name": "Paramedic",
 			"desc": "Nanotrasen encourages all paramedics to think of others before themselves- if this means running through a plasma fire to save a colleague, so be it.",

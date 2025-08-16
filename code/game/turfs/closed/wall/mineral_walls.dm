@@ -274,12 +274,6 @@
 	custom_materials = list(/datum/material/titanium = SHEET_MATERIAL_AMOUNT*2)
 	rust_resistance = RUST_RESISTANCE_TITANIUM
 
-/turf/closed/wall/mineral/titanium/rust_turf()
-	if(HAS_TRAIT(src, TRAIT_RUSTY))
-		ChangeTurf(/turf/closed/wall/rust)
-		return
-	return ..()
-
 /turf/closed/wall/mineral/titanium/nodiagonal
 	icon = 'icons/turf/walls/shuttle_wall.dmi'
 	icon_state = "map-shuttle_nd"
@@ -321,12 +315,6 @@
 	canSmoothWith = SMOOTH_GROUP_SURVIVAL_TITANIUM_POD
 	rust_resistance = RUST_RESISTANCE_TITANIUM
 
-/turf/closed/wall/mineral/titanium/rust_turf()
-	if(HAS_TRAIT(src, TRAIT_RUSTY))
-		ChangeTurf(/turf/closed/wall/rust)
-		return
-	return ..()
-
 /////////////////////Plastitanium walls/////////////////////
 
 /turf/closed/wall/mineral/plastitanium
@@ -344,13 +332,6 @@
 	custom_materials = list(/datum/material/alloy/plastitanium = SHEET_MATERIAL_AMOUNT*2)
 	rust_resistance = RUST_RESISTANCE_TITANIUM
 
-/turf/closed/wall/mineral/plastitanium/rust_turf()
-	if(HAS_TRAIT(src, TRAIT_RUSTY))
-		ChangeTurf(/turf/closed/wall/rust)
-		return
-	return ..()
-
-
 /turf/closed/wall/mineral/plastitanium/nodiagonal
 	icon = 'icons/turf/walls/plastitanium_wall.dmi'
 	icon_state = "map-shuttle_nd"
@@ -363,12 +344,6 @@
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_DIAGONAL_CORNERS
 	fixed_underlay = list("space" = TRUE)
 	rust_resistance = RUST_RESISTANCE_TITANIUM
-
-/turf/closed/wall/mineral/plastitanium/rust_turf()
-	if(HAS_TRAIT(src, TRAIT_RUSTY))
-		ChangeTurf(/turf/closed/wall/rust)
-		return
-	return ..()
 
 
 /turf/closed/wall/mineral/plastitanium/explosive/ex_act(severity)

@@ -81,9 +81,6 @@ FLOOR SAFES
 			to_chat(user, span_warning("You can't put [attacking_item] into the safe while it is closed!"))
 			return
 
-/obj/structure/safe/blob_act(obj/structure/blob/B)
-	return
-
 /obj/structure/safe/ex_act(severity, target)
 	if(((severity == EXPLODE_HEAVY && target == src) || severity == EXPLODE_DEVASTATE) && explosion_count < BROKEN_THRESHOLD)
 		explosion_count++

@@ -186,15 +186,6 @@ If the scythe isn't empowered when you sheath it, you take a heap of damage and 
 		original_force = null
 	empowerment = SCYTHE_WEAK
 
-/obj/item/vorpalscythe/proc/on_cult_rune_removed(obj/effect/target, mob/living/user)
-	if(!istype(target, /obj/effect/rune))
-		return
-
-	var/obj/effect/rune/target_rune = target
-	if(target_rune.log_when_erased)
-		user.log_message("erased [target_rune.cultist_name] rune using [src]", LOG_GAME)
-	SSshuttle.shuttle_purchase_requirements_met[SHUTTLE_UNLOCK_NARNAR] = TRUE
-
 #undef SCYTHE_WEAK
 #undef SCYTHE_SATED
 #undef SCYTHE_EMPOWERED

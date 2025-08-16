@@ -268,9 +268,6 @@
 	if(check_holidays(APRIL_FOOLS))
 		icon_state = "fuel_fools"
 
-/obj/structure/reagent_dispensers/fueltank/blob_act(obj/structure/blob/B)
-	boom()
-
 /obj/structure/reagent_dispensers/fueltank/ex_act()
 	boom()
 	return TRUE
@@ -389,11 +386,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/reagent_dispensers/wall/peppertank, 3
 	icon_state = "beer"
 	reagent_id = /datum/reagent/consumable/ethanol/beer
 	openable = TRUE
-
-/obj/structure/reagent_dispensers/beerkeg/blob_act(obj/structure/blob/B)
-	explosion(src, heavy_impact_range = 3, light_impact_range = 5, flame_range = 10, flash_range = 7)
-	if(!QDELETED(src))
-		qdel(src)
 
 /obj/structure/reagent_dispensers/wall/virusfood
 	name = "virus food dispenser"

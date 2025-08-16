@@ -313,24 +313,6 @@
 	worn_icon_state = "ebelt"
 	storage_type = /datum/storage/mining_belt/primitive
 
-/obj/item/storage/belt/soulstone
-	name = "soul stone belt"
-	desc = "Designed for ease of access to the shards during a fight, as to not let a single enemy spirit slip away."
-	icon_state = "soulstonebelt"
-	inhand_icon_state = "soulstonebelt"
-	worn_icon_state = "soulstonebelt"
-	drop_sound = 'sound/items/handling/toolbelt_drop.ogg'
-	pickup_sound = 'sound/items/handling/toolbelt_pickup.ogg'
-	storage_type = /datum/storage/soulstone_belt
-
-/obj/item/storage/belt/soulstone/full/PopulateContents()
-	for(var/i in 1 to 6)
-		new /obj/item/soulstone/mystic(src)
-
-/obj/item/storage/belt/soulstone/full/chappy/PopulateContents()
-	for(var/i in 1 to 6)
-		new /obj/item/soulstone/anybody/chaplain(src)
-
 /obj/item/storage/belt/champion
 	name = "championship belt"
 	desc = "Proves to the world that you are the strongest!"

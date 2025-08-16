@@ -39,12 +39,8 @@ SUBSYSTEM_DEF(economy)
 	var/station_target_buffer = 0
 	/// A var that displays the result of inflation_value for easier debugging and tracking.
 	var/inflation_value = 1
-	/// How many civilain bounties have been completed so far this shift? Affects civilian budget payout values.
-	var/civ_bounty_tracker = 0
 	/// Contains the message to send to newscasters about price inflation and earnings, updated on price_update()
 	var/earning_report
-	///The modifier multiplied to the value of bounties paid out.
-	var/bounty_modifier = 1
 	///The modifier multiplied to the value of cargo pack prices.
 	var/pack_price_modifier = 1
 	/**

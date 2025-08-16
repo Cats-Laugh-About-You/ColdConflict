@@ -61,30 +61,6 @@
 /area/shuttle/syndicate/airlock
 	name = "Syndicate Infiltrator Airlock"
 
-////////////////////////////Pirate Shuttle////////////////////////////
-
-/area/shuttle/pirate
-	name = "Pirate Shuttle"
-	requires_power = TRUE
-
-/area/shuttle/pirate/flying_dutchman
-	name = "Flying Dutchman"
-	requires_power = FALSE
-
-////////////////////////////Bounty Hunter Shuttles////////////////////////////
-
-/area/shuttle/hunter
-	name = "Hunter Shuttle"
-
-/area/shuttle/hunter/russian
-	name = "Russian Cargo Hauler"
-	requires_power = TRUE
-
-/area/shuttle/hunter/mi13_foodtruck
-	name = "Perfectly Ordinary Food Truck"
-	requires_power = TRUE
-	ambience_index = AMBIENCE_DANGER
-
 ////////////////////////////White Ship////////////////////////////
 
 /area/shuttle/abandoned
@@ -166,7 +142,6 @@
 
 /area/shuttle/escape
 	name = "Emergency Shuttle"
-	area_flags = BLOBS_ALLOWED
 	area_limited_icon_smoothing = /area/shuttle/escape
 	flags_1 = CAN_BE_DIRTY_1
 	area_flags = CULT_PERMITTED

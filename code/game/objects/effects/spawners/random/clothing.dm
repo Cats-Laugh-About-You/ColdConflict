@@ -30,13 +30,6 @@
 		/obj/item/clothing/head/costume/rabbitears,
 	)
 
-/obj/effect/spawner/random/clothing/pirate_or_bandana
-	name = "pirate hat or bandana spawner"
-	loot = list(
-		/obj/item/clothing/head/costume/pirate,
-		/obj/item/clothing/head/costume/pirate/bandana,
-	)
-
 /obj/effect/spawner/random/clothing/twentyfive_percent_cyborg_mask
 	name = "25% cyborg mask spawner"
 	spawn_loot_chance = 25

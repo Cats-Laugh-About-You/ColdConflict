@@ -22,10 +22,6 @@
 	name = "Resonator Blast Mod Disk"
 	modkit_design = /datum/design/unique_modkit/resonator_blast
 
-/obj/item/disk/design_disk/modkit_disc/bounty
-	name = "Death Syphon Mod Disk"
-	modkit_design = /datum/design/unique_modkit/bounty
-
 // Wisp Lantern
 /obj/item/wisp_lantern
 	name = "spooky lantern"

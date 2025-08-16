@@ -264,36 +264,6 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	GLOB.wizardstart += loc
 	return INITIALIZE_HINT_QDEL
 
-/obj/effect/landmark/start/nukeop
-	name = "nukeop"
-	icon = 'icons/effects/landmarks_static.dmi'
-	icon_state = "snukeop_spawn"
-
-/obj/effect/landmark/start/nukeop/Initialize(mapload)
-	..()
-	GLOB.nukeop_start += loc
-	return INITIALIZE_HINT_QDEL
-
-/obj/effect/landmark/start/nukeop_leader
-	name = "nukeop leader"
-	icon = 'icons/effects/landmarks_static.dmi'
-	icon_state = "snukeop_leader_spawn"
-
-/obj/effect/landmark/start/nukeop_leader/Initialize(mapload)
-	..()
-	GLOB.nukeop_leader_start += loc
-	return INITIALIZE_HINT_QDEL
-
-/obj/effect/landmark/start/nukeop_overwatch
-	name = "nukeop overwatch"
-	icon = 'icons/effects/landmarks_static.dmi'
-	icon_state = "snukeop_leader_spawn"
-
-/obj/effect/landmark/start/nukeop_overwatch/Initialize(mapload)
-	..()
-	GLOB.nukeop_overwatch_start += loc
-	return INITIALIZE_HINT_QDEL
-
 // Must be immediate because players will
 // join before SSatom initializes everything.
 INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)

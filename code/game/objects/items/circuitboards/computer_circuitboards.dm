@@ -363,10 +363,6 @@
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
 	build_path = /obj/machinery/computer/shuttle/white_ship/bridge
 
-/obj/item/circuitboard/computer/bountypad
-	name = "Bounty Pad"
-	build_path = /obj/machinery/computer/piratepad_control/civilian
-
 /obj/item/circuitboard/computer/tram_controls
 	name = "Tram Controls"
 	build_path = /obj/machinery/computer/tram_controls

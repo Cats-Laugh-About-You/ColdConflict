@@ -7,9 +7,7 @@
 		/obj/item/clothing/shoes/clown_shoes = 1,
 	)
 	blacklist = list(
-		/obj/item/clothing/shoes/clown_shoes/combat,
 		/obj/item/clothing/shoes/clown_shoes/banana_shoes,
-		/obj/item/clothing/shoes/clown_shoes/banana_shoes/combat,
 		/obj/item/clothing/shoes/clown_shoes/jester,
 		/obj/item/clothing/shoes/clown_shoes/meown_shoes,
 		/obj/item/clothing/shoes/clown_shoes/moffers,

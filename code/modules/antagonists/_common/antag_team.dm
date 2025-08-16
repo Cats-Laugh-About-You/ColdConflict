@@ -97,11 +97,8 @@ GLOBAL_LIST_EMPTY(antagonist_teams)
 
 /// Builds section for the team
 /datum/team/proc/antag_listing_entry()
-	//NukeOps:
 	// Jim (Status) FLW PM TP
 	// Joe (Status) FLW PM TP
-	//Disk:
-	// Deep Space FLW
 	var/list/parts = list()
 	parts += "<b>[antag_listing_name()]</b><br>"
 	parts += "<table cellspacing=5>"

@@ -12,11 +12,6 @@
 	name = "Small Freighter"
 	description = "Small freight vessel, starts near blacked-out with 3 Syndicate Commandos and 1 Syndicate Stormtrooper, alongside a large hull breach."
 
-/datum/map_template/shuttle/ruin/pirate_cutter
-	suffix = "pirate_cutter"
-	name = "Pirate Cutter"
-	description = "Small pirate vessel with ballistic turrets. Spawns with 3 pirate mobs, one of which drops an energy cutlass."
-
 /datum/map_template/shuttle/ruin/syndicate_dropship
 	suffix = "syndicate_dropship"
 	name = "Syndicate Dropship"

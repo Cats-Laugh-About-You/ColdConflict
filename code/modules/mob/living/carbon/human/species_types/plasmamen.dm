@@ -51,21 +51,6 @@
 	// This effects how fast body temp stabilizes, also if cold resit is lost on the mob
 	bodytemp_cold_damage_limit = (BODYTEMP_COLD_DAMAGE_LIMIT - 50) // about -50c
 
-	outfit_override_registry = list(
-		/datum/outfit/syndicate = /datum/outfit/syndicate/plasmaman,
-		/datum/outfit/syndicate/full = /datum/outfit/syndicate/full/plasmaman,
-		/datum/outfit/syndicate/leader = /datum/outfit/syndicate/leader/plasmaman,
-		/datum/outfit/syndicate/reinforcement = /datum/outfit/syndicate/reinforcement/plasmaman,
-		/datum/outfit/syndicate/reinforcement/cybersun = /datum/outfit/syndicate/reinforcement/plasmaman,
-		/datum/outfit/syndicate/reinforcement/donk = /datum/outfit/syndicate/reinforcement/plasmaman,
-		/datum/outfit/syndicate/reinforcement/gorlex = /datum/outfit/syndicate/reinforcement/plasmaman,
-		/datum/outfit/syndicate/reinforcement/interdyne = /datum/outfit/syndicate/reinforcement/plasmaman,
-		/datum/outfit/syndicate/reinforcement/mi13 = /datum/outfit/syndicate/reinforcement/plasmaman,
-		/datum/outfit/syndicate/reinforcement/waffle = /datum/outfit/syndicate/reinforcement/plasmaman,
-		/datum/outfit/syndicate/support = /datum/outfit/syndicate/support/plasmaman,
-		/datum/outfit/syndicate/full/loneop = /datum/outfit/syndicate/full/plasmaman/loneop,
-	)
-
 	/// If the bones themselves are burning clothes won't help you much
 	var/internal_fire = FALSE
 

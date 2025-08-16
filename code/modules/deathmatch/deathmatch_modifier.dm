@@ -394,7 +394,6 @@
 /datum/deathmatch_modifier/drop_pod/monsters/populate_contents()
 	contents = list(
 		/mob/living/basic/ant = 2,
-		/mob/living/basic/construct/proteon = 2,
 		/mob/living/basic/dark_wizard = 2,
 		/mob/living/basic/flesh_spider = 2,
 		/mob/living/basic/garden_gnome = 2,

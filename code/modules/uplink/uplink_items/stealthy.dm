@@ -14,7 +14,6 @@
 	item = /obj/item/gun/syringe/syndicate
 	cost = 4
 	surplus = 50
-	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS
 
 /datum/uplink_item/stealthy_weapons/dehy_carp
 	name = "Dehydrated Space Carp"
@@ -50,7 +49,6 @@
 	item = /obj/item/suppressor
 	cost = 3
 	surplus = 10
-	purchasable_from = ~UPLINK_CLOWN_OPS
 
 /datum/uplink_item/stealthy_weapons/holster
 	name = "Syndicate Holster"
@@ -66,7 +64,6 @@
 			falls asleep, they will be able to move and act."
 	item = /obj/item/pen/sleepy
 	cost = 4
-	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 
 /datum/uplink_item/stealthy_weapons/origami_kit
@@ -76,7 +73,6 @@
 	item = /obj/item/storage/box/syndie_kit/origami_bundle
 	cost = 4
 	surplus = 0
-	purchasable_from = ~UPLINK_SERIOUS_OPS //clown ops intentionally left in, because that seems like some s-tier shenanigans.
 
 
 /datum/uplink_item/stealthy_weapons/martialarts
@@ -88,7 +84,6 @@
 	population_minimum = TRAITOR_POPULATION_LOWPOP
 	cost = 17
 	surplus = 0
-	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS
 
 /datum/uplink_item/stealthy_weapons/crossbow
 	name = "Miniature Energy Crossbow"
@@ -101,7 +96,6 @@
 	item = /obj/item/gun/energy/recharge/ebow
 	cost = 10
 	surplus = 50
-	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS
 
 /datum/uplink_item/stealthy_weapons/contrabaton
 	name = "Contractor Baton"
@@ -112,4 +106,4 @@
 	cost = 7
 	surplus = 50
 	limited_stock = 1
-	purchasable_from = UPLINK_TRAITORS | UPLINK_SPY
+	purchasable_from = UPLINK_TRAITORS

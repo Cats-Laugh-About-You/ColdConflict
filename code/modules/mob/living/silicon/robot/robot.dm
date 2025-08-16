@@ -1026,7 +1026,6 @@
 	lamp_doom = FALSE
 	if(connected_ai)
 		connected_ai.connected_robots |= src
-		lamp_doom = connected_ai.doomsday_device ? TRUE : FALSE
 	toggle_headlamp(FALSE, TRUE)
 
 /mob/living/silicon/robot/get_exp_list(minutes)

@@ -22,7 +22,6 @@
  * Toy Daggers
  * Squeaky Brain
  * Broken Radio
- * Fake heretic codex
  * Fake Pierced Reality
  * Intento
  */

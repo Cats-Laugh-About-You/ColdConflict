@@ -37,7 +37,7 @@
 #define TOUCH (1<<0)
 /// Used for ingesting the reagents. Food and drinks.
 #define INGEST (1<<1)
-/// Used by foams, sprays, and blob attacks.
+/// Used by foams, and sprays.
 #define VAPOR (1<<2)
 /// Used by medical patches and gels.
 #define PATCH (1<<3)

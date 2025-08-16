@@ -59,7 +59,6 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(
 	var/static/list/desired_perches = typecacheof(list(
 		/obj/machinery/computer,
 		/obj/machinery/dna_scannernew,
-		/obj/machinery/nuclearbomb,
 		/obj/machinery/recharge_station,
 		/obj/machinery/smartfridge,
 		/obj/machinery/suit_storage_unit,

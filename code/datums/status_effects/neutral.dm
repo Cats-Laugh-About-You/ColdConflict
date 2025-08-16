@@ -33,37 +33,6 @@
 	if(istype(attacking_item, /obj/item/kinetic_crusher))
 		total_damage += damage_dealt
 
-/datum/status_effect/syphon_mark
-	id = "syphon_mark"
-	duration = 50
-	status_type = STATUS_EFFECT_MULTIPLE
-	alert_type = null
-	on_remove_on_mob_delete = TRUE
-	var/obj/item/borg/upgrade/modkit/bounty/reward_target
-
-/datum/status_effect/syphon_mark/on_creation(mob/living/new_owner, obj/item/borg/upgrade/modkit/bounty/new_reward_target)
-	. = ..()
-	if(.)
-		reward_target = new_reward_target
-
-/datum/status_effect/syphon_mark/on_apply()
-	if(owner.stat == DEAD)
-		return FALSE
-	return ..()
-
-/datum/status_effect/syphon_mark/proc/get_kill()
-	if(!QDELETED(reward_target))
-		reward_target.get_kill(owner)
-
-/datum/status_effect/syphon_mark/tick(seconds_between_ticks)
-	if(owner.stat == DEAD)
-		get_kill()
-		qdel(src)
-
-/datum/status_effect/syphon_mark/on_remove()
-	get_kill()
-	. = ..()
-
 /atom/movable/screen/alert/status_effect/in_love
 	name = "In Love"
 	desc = "You feel so wonderfully in love!"

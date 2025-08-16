@@ -77,9 +77,6 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	// "Into the sunset" force escaping for forced escape success
 	if(escapee.force_escaped)
 		return TRUE
-	// Station destroying events (blob, cult, nukies)? Just let them win, even if there was no hope of escape
-	if(SSticker.force_ending || GLOB.station_was_nuked)
-		return TRUE
 	// Escape hasn't happened yet
 	if(SSshuttle.emergency.mode != SHUTTLE_ENDGAME)
 		return FALSE
@@ -613,8 +610,6 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	admin_grantable = TRUE
 
 /datum/objective/nuclear/check_completion()
-	if(GLOB.station_was_nuked)
-		return TRUE
 	return FALSE
 
 GLOBAL_LIST_EMPTY(possible_items)

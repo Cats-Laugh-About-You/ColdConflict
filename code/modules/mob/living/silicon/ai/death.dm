@@ -31,8 +31,6 @@
 	GLOB.shuttle_caller_list -= src
 	SSshuttle.autoEvac()
 
-	ShutOffDoomsdayDevice()
-
 	if(gibbed && drop_mmi)
 		make_mmi_drop_and_transfer()
 
@@ -40,9 +38,3 @@
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(explosion), loc, 3, 6, 12, null, 15), 1 SECONDS)
 
 	SSblackbox.ReportDeath(src)
-
-/mob/living/silicon/ai/proc/ShutOffDoomsdayDevice()
-	if(nuking)
-		nuking = FALSE
-	if(doomsday_device)
-		qdel(doomsday_device)

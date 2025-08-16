@@ -35,8 +35,6 @@
 // Defines for use with `export_item_and_contents()`, aka the export code that sells the items.
 /// Default export define, these are things that are sold to centcom.
 #define EXPORT_MARKET_STATION "supply"
-/// Export market for pirates.
-#define EXPORT_MARKET_PIRACY "piracy"
 
 ///Used by coupons to define that they're cursed
 #define COUPON_OMEN "omen"

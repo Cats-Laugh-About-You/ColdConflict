@@ -9,7 +9,6 @@
 	exp_requirements = 60
 	exp_required_type = EXP_TYPE_CREW
 	exp_granted_type = EXP_TYPE_CREW
-	bounty_types = CIV_JOB_ROBO
 	config_tag = "ROBOTICIST"
 
 	outfit = /datum/outfit/job/roboticist

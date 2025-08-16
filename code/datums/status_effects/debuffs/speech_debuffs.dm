@@ -266,11 +266,3 @@
 	text_modification_file = "slurring_cult_text.json"
 
 	tts_filter = "rubberband=pitch=0.5,vibrato=5"
-
-/datum/status_effect/speech/slurring/heretic
-	id = "heretic_slurring"
-	common_prob = 50
-	uncommon_prob = 20
-	replacement_prob = 30
-	doubletext_prob = 5
-	text_modification_file = "slurring_heretic_text.json"

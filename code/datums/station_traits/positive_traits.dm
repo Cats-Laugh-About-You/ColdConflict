@@ -60,17 +60,6 @@
 	report_message = "The internals boxes for your crew have been upsized and filled with bonus equipment."
 	trait_to_give = STATION_TRAIT_PREMIUM_INTERNALS
 
-/datum/station_trait/bountiful_bounties
-	name = "Bountiful bounties"
-	trait_type = STATION_TRAIT_POSITIVE
-	weight = 5
-	cost = STATION_TRAIT_COST_LOW
-	show_in_report = TRUE
-	report_message = "It seems collectors in this system are extra keen to on bounties, and will pay more to see their completion."
-
-/datum/station_trait/bountiful_bounties/on_round_start()
-	SSeconomy.bounty_modifier *= 1.2
-
 ///A positive station trait that scatters a bunch of lit glowsticks throughout maintenance
 /datum/station_trait/glowsticks
 	name = "Glowsticks party"

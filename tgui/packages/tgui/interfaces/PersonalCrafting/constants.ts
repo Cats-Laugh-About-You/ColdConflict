@@ -46,7 +46,6 @@ export const CATEGORY_ICONS_CRAFTING = {
   Containers: 'briefcase',
   Tools: 'screwdriver-wrench',
   Entertainment: 'masks-theater',
-  'Blood Cult': 'users',
 } as const;
 
 export const CATEGORY_ICONS_COOKING = {

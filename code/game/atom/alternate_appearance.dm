@@ -177,14 +177,6 @@ GLOBAL_LIST_EMPTY(active_alternate_appearances)
 /datum/atom_hud/alternate_appearance/basic/observers/mobShouldSee(mob/M)
 	return isobserver(M)
 
-/datum/atom_hud/alternate_appearance/basic/noncult
-
-/datum/atom_hud/alternate_appearance/basic/noncult/mobShouldSee(mob/M)
-	return !IS_CULTIST(M)
-
-/datum/atom_hud/alternate_appearance/basic/has_antagonist/cult
-	antag_datum_type = /datum/antagonist/cult
-
 /datum/atom_hud/alternate_appearance/basic/blessed_aware
 	signals_registering = list(
 		COMSIG_MOB_ANTAGONIST_REMOVED,

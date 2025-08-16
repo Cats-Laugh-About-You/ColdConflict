@@ -472,7 +472,7 @@
 	icon_state = "narsian"
 	icon_living = "narsian"
 	icon_dead = "narsian_dead"
-	faction = list(FACTION_NEUTRAL, FACTION_CULT)
+	faction = FACTION_NEUTRAL
 	speak_emote = list("growls", "barks ominously")
 	gold_core_spawnable = NO_SPAWN
 	can_be_shaved = FALSE

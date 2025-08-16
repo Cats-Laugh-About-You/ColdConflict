@@ -42,7 +42,6 @@
 	var/confirm = tgui_alert(malf, "Are you sure that you want to shunt? This will take you out of your core!", "Shunt to [name]?", list("Yes", "No"))
 	if(confirm != "Yes")
 		return
-	malf.ShutOffDoomsdayDevice()
 	occupier = malf
 	if (isturf(malf.loc)) // create a deactivated AI core if the AI isn't coming from an emergency mech shunt
 		malf.linked_core = new /obj/structure/ai_core/deactivated(malf.loc)
@@ -53,8 +52,6 @@
 	malf.shunted = TRUE
 	occupier.eyeobj.name = "[occupier.name] (AI Eye)"
 	occupier.eyeobj.forceMove(src.loc)
-	for(var/obj/item/pinpointer/nuke/disk_pinpointers in GLOB.pinpointer_list)
-		disk_pinpointers.switch_mode_to(TRACK_MALF_AI) //Pinpointer will track the shunted AI
 	var/datum/action/innate/core_return/return_action = new
 	return_action.Grant(occupier)
 	SEND_SIGNAL(src, COMSIG_SILICON_AI_OCCUPY_APC, occupier)
@@ -80,11 +77,6 @@
 		occupier = null
 	else
 		stack_trace("An AI: [occupier] has vacated an APC with no linked core and without being gibbed.")
-
-	if(!occupier.nuking) //Pinpointers go back to tracking the nuke disk, as long as the AI (somehow) isn't mid-nuking.
-		for(var/obj/item/pinpointer/nuke/disk_pinpointers in GLOB.pinpointer_list)
-			disk_pinpointers.switch_mode_to(TRACK_NUKE_DISK)
-			disk_pinpointers.alert = FALSE
 
 /obj/machinery/power/apc/transfer_ai(interaction, mob/user, mob/living/silicon/ai/AI, obj/item/aicard/card)
 	. = ..()

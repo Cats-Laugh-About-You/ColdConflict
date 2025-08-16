@@ -256,10 +256,6 @@
 		"min_players": 10,
 		"weight": 5
 	},
-	"Blob": {
-		"min_players": 20,
-		"weight": 10
-	},
 	"Changeling Meteor": {
 		"min_players": 20,
 		"weight": 8

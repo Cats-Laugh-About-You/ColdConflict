@@ -41,9 +41,6 @@
 /obj/item/circuitboard/computer/caravan/trade1
 	build_path = /obj/machinery/computer/shuttle/caravan/trade1
 
-/obj/item/circuitboard/computer/caravan/pirate
-	build_path = /obj/machinery/computer/shuttle/caravan/pirate
-
 /obj/item/circuitboard/computer/caravan/syndicate1
 	build_path = /obj/machinery/computer/shuttle/caravan/syndicate1
 
@@ -62,10 +59,8 @@
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/caravan/Initialize(mapload)
 	. = ..()
-	GLOB.jam_on_wardec += src
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/caravan/Destroy()
-	GLOB.jam_on_wardec -= src
 	return ..()
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/caravan/trade1
@@ -79,29 +74,6 @@
 	x_offset = -5
 	y_offset = -5
 	designate_time = 100
-
-/obj/machinery/computer/shuttle/caravan/pirate
-	name = "Pirate Cutter Shuttle Console"
-	desc = "Used to control the Pirate Cutter."
-	icon_screen = "syndishuttle"
-	icon_keyboard = "syndie_key"
-	light_color = COLOR_SOFT_RED
-	circuit = /obj/item/circuitboard/computer/caravan/pirate
-	shuttleId = "caravanpirate"
-	possible_destinations = "caravanpirate_custom;caravanpirate_ambush"
-
-/obj/machinery/computer/camera_advanced/shuttle_docker/caravan/pirate
-	name = "Pirate Cutter Navigation Computer"
-	desc = "Used to designate a precise transit location for the Pirate Cutter."
-	icon_screen = "syndishuttle"
-	icon_keyboard = "syndie_key"
-	shuttleId = "caravanpirate"
-	lock_override = NONE
-	shuttlePortId = "caravanpirate_custom"
-	jump_to_ports = list("caravanpirate_ambush" = 1)
-	view_range = 6.5
-	x_offset = 3
-	y_offset = -6
 
 /obj/machinery/computer/shuttle/caravan/syndicate1
 	name = "Syndicate Fighter Shuttle Console"

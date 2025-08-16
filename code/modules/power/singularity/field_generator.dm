@@ -176,12 +176,6 @@ no power level overlay is currently in the overlays list.
 	if(!anchored)
 		step(src, get_dir(user, src))
 
-/obj/machinery/field/generator/blob_act(obj/structure/blob/B)
-	if(active)
-		return FALSE
-	else
-		return ..()
-
 /obj/machinery/field/generator/bullet_act(obj/projectile/considered_bullet)
 	if(considered_bullet.armor_flag != BULLET)
 		power = min(power + considered_bullet.damage, field_generator_max_power)
@@ -376,7 +370,7 @@ no power level overlay is currently in the overlays list.
 	if(connected_gens.len < 2)
 		return
 	var/connected_gen_counter
-	for(connected_gen_counter = 1; connected_gen_counter < connected_gens.len, connected_gen_counter++)
+	for(connected_gen_counter = 1; connected_gen_counter < connected_gens.len; connected_gen_counter++)
 
 		var/list/connected_gen_list = ((connected_gens[connected_gen_counter].connected_gens & connected_gens[connected_gen_counter+1].connected_gens)^src)
 		if(!connected_gen_list.len)

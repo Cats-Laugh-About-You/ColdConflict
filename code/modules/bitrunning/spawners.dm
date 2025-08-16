@@ -67,9 +67,7 @@
 	id = /obj/item/card/id/advanced
 	id_trim = /datum/id_trim/pirate
 	uniform = /obj/item/clothing/under/costume/pirate
-	suit = /obj/item/clothing/suit/costume/pirate/armored
 	glasses = /obj/item/clothing/glasses/eyepatch
-	head = /obj/item/clothing/head/costume/pirate/bandana/armored
 	shoes = /obj/item/clothing/shoes/pirate/armored
 
 /obj/effect/mob_spawn/ghost_role/human/virtual_domain/pirate/special(mob/living/spawned_mob, mob/mob_possessor)

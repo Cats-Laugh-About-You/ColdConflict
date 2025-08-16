@@ -261,13 +261,6 @@
 	qdel(src)
 	return new_slime
 
-/mob/proc/become_overmind(starting_points = OVERMIND_STARTING_POINTS)
-	var/mob/eye/blob/B = new /mob/eye/blob(get_turf(src), starting_points)
-	B.PossessByPlayer(key)
-	. = B
-	qdel(src)
-
-
 /mob/living/carbon/human/proc/corgize()
 	if(HAS_TRAIT(src, TRAIT_NO_TRANSFORM))
 		return
@@ -403,9 +396,6 @@
 	if(!MP)
 		return FALSE //Sanity, this should never happen.
 
-	if(ispath(MP, /mob/living/basic/construct))
-		return FALSE //Verbs do not appear for players.
-
 //Good mobs!
 	if(ispath(MP, /mob/living/basic/pet/cat))
 		return TRUE
@@ -416,8 +406,6 @@
 	if(ispath(MP, /mob/living/basic/carp))
 		return TRUE
 	if(ispath(MP, /mob/living/basic/mushroom))
-		return TRUE
-	if(ispath(MP, /mob/living/basic/shade))
 		return TRUE
 	if(ispath(MP, /mob/living/basic/killer_tomato))
 		return TRUE

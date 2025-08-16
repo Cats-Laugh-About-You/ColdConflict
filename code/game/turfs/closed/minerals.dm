@@ -269,10 +269,6 @@
 
 	return TRUE
 
-/turf/closed/mineral/blob_act(obj/structure/blob/B)
-	if(prob(50))
-		gets_drilled()
-
 /turf/closed/mineral/random
 	/// What are the base odds that this turf spawns a mineral in the wall on initialize?
 	var/mineralChance = 13

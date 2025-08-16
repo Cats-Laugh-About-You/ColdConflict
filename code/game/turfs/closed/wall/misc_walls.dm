@@ -1,34 +1,3 @@
-/turf/closed/wall/mineral/cult
-	name = "runed metal wall"
-	desc = "A cold metal wall engraved with indecipherable symbols. Studying them causes your head to pound."
-	icon = 'icons/turf/walls/cult_wall.dmi'
-	icon_state = "cult_wall-0"
-	base_icon_state = "cult_wall"
-	turf_flags = IS_SOLID
-	smoothing_flags = SMOOTH_BITMASK
-	canSmoothWith = null
-	sheet_type = /obj/item/stack/sheet/runed_metal
-	sheet_amount = 1
-	girder_type = /obj/structure/girder/cult
-
-/turf/closed/wall/mineral/cult/Initialize(mapload)
-	new /obj/effect/temp_visual/cult/turf(src)
-	. = ..()
-
-/turf/closed/wall/mineral/cult/devastate_wall()
-	new sheet_type(get_turf(src), sheet_amount)
-
-/turf/closed/wall/mineral/cult/artificer
-	name = "runed stone wall"
-	desc = "A cold stone wall engraved with indecipherable symbols. Studying them causes your head to pound."
-
-/turf/closed/wall/mineral/cult/artificer/break_wall()
-	new /obj/effect/temp_visual/cult/turf(get_turf(src))
-	return null //excuse me we want no runed metal here
-
-/turf/closed/wall/mineral/cult/artificer/devastate_wall()
-	new /obj/effect/temp_visual/cult/turf(get_turf(src))
-
 /turf/closed/wall/ice
 	icon = 'icons/turf/walls/icedmetal_wall.dmi'
 	icon_state = "icedmetal_wall-0"

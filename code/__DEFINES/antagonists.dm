@@ -37,13 +37,6 @@
 	APPRENTICE_HEALING, \
 )
 
-//Pirates
-
-///Minimum amount the pirates will demand
-#define PAYOFF_MIN 20000
-///How long pirates will wait for a response before attacking
-#define RESPONSE_MAX_TIME 2 MINUTES
-
 /// How long till a spessman should come back after being captured and sent to the holding facility (which some antags use)
 #define COME_BACK_FROM_CAPTURE_TIME 6 MINUTES
 
@@ -119,13 +112,6 @@
 /// - Monkeys are monkeys, not quite human (balance reasons)
 #define IS_VALID_GHOUL_MOB(mob) (ishuman(mob) && !isskeleton(mob) && !ismonkey(mob))
 
-/// Forces the blob to place the core where they currently are, ignoring any checks.
-#define BLOB_FORCE_PLACEMENT -1
-/// Normal blob placement, does the regular checks to make sure the blob isn't placing itself in an invalid location
-#define BLOB_NORMAL_PLACEMENT 0
-/// Selects a random location for the blob to be placed.
-#define BLOB_RANDOM_PLACEMENT 1
-
 #define CONSTRUCT_JUGGERNAUT "Juggernaut"
 #define CONSTRUCT_WRAITH "Wraith"
 #define CONSTRUCT_ARTIFICER "Artificer"
@@ -165,9 +151,6 @@
 
 /// JSON string file for all of our heretic influence flavors
 #define HERETIC_INFLUENCE_FILE "antagonist_flavor/heretic_influences.json"
-
-/// JSON file containing spy objectives
-#define SPY_OBJECTIVE_FILE "antagonist_flavor/spy_objective.json"
 
 ///employers that are from the syndicate
 GLOBAL_LIST_INIT(syndicate_employers, list(
@@ -270,9 +253,6 @@ GLOBAL_LIST_INIT(ai_employers, list(
 /// Checks if the given mob is a changeling
 #define IS_CHANGELING(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/changeling))
 
-/// Checks if the given mob is a nuclear operative
-#define IS_NUKE_OP(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/nukeop))
-
 //Tells whether or not someone is a space ninja
 #define IS_SPACE_NINJA(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/ninja))
 
@@ -281,17 +261,8 @@ GLOBAL_LIST_INIT(ai_employers, list(
 /// Checks if the given mob is a wizard apprentice
 #define IS_WIZARD_APPRENTICE(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/wizard/apprentice))
 
-/// Checks if the given mob is a revolutionary. Will return TRUE for rev heads as well.
-#define IS_REVOLUTIONARY(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/rev))
-
-/// Checks if the given mob is a head revolutionary.
-#define IS_HEAD_REVOLUTIONARY(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/rev/head))
-
 /// Checks if the given mob is a malf ai.
 #define IS_MALF_AI(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/malf_ai))
-
-/// Checks if the given mob is a spy!
-#define IS_SPY(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/spy))
 
 /// List of human antagonist types which don't spawn directly on the space station
 GLOBAL_LIST_INIT(human_invader_antagonists, list(
@@ -299,8 +270,6 @@ GLOBAL_LIST_INIT(human_invader_antagonists, list(
 	/datum/antagonist/fugitive,
 	/datum/antagonist/fugitive_hunter,
 	/datum/antagonist/ninja,
-	/datum/antagonist/nukeop,
-	/datum/antagonist/pirate,
 	/datum/antagonist/wizard,
 ))
 
@@ -315,8 +284,6 @@ GLOBAL_LIST_INIT(human_invader_antagonists, list(
 #define OBJECTIVE_ITEM_TYPE_NORMAL "normal"
 /// Only appears in traitor objectives
 #define OBJECTIVE_ITEM_TYPE_TRAITOR "traitor"
-/// Only appears for spy bounties
-#define OBJECTIVE_ITEM_TYPE_SPY "spy"
 
 // Progression traitor defines
 
@@ -382,14 +349,12 @@ GLOBAL_LIST_INIT(human_invader_antagonists, list(
 #define ANTAG_GROUP_ARACHNIDS "Arachnid Infestation"
 #define ANTAG_GROUP_ASHWALKERS "Ash Walkers"
 #define ANTAG_GROUP_BIOHAZARDS "Biohazards"
-#define ANTAG_GROUP_CLOWNOPS "Clown Operatives"
 #define ANTAG_GROUP_ERT "Emergency Response Team"
 #define ANTAG_GROUP_GLITCH "Digital Anomalies"
 #define ANTAG_GROUP_HORRORS "Eldritch Horrors"
 #define ANTAG_GROUP_LEVIATHANS "Spaceborne Leviathans"
 #define ANTAG_GROUP_NINJAS "Ninja Clan"
 #define ANTAG_GROUP_OVERGROWTH "Invasive Overgrowth"
-#define ANTAG_GROUP_PIRATES "Pirate Crew"
 #define ANTAG_GROUP_SYNDICATE "Syndicate"
 #define ANTAG_GROUP_WIZARDS "Wizard Federation"
 #define ANTAG_GROUP_XENOS "Xenomorph Infestation"
@@ -440,14 +405,6 @@ GLOBAL_LIST_INIT(human_invader_antagonists, list(
 #define BATON_MODES 4
 
 #define FREEDOM_IMPLANT_CHARGES 4
-
-// Spy bounty difficulties
-/// Can easily be accomplished by any job without any specialized tools, people won't really miss these things
-#define SPY_DIFFICULTY_EASY "Easy"
-/// Requires some specialized tools, knowledge, or access to accomplish, may require getting into conflict with the crew
-#define SPY_DIFFICULTY_MEDIUM "Medium"
-/// Very difficult to accomplish, almost guaranteed to require crew conflict
-#define SPY_DIFFICULTY_HARD "Hard"
 
 /// Camera net used by battle royale objective
 #define BATTLE_ROYALE_CAMERA_NET "battle_royale_camera_net"

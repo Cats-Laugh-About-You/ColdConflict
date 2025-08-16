@@ -80,8 +80,6 @@
 
 /mob/living/simple_animal/bot/secbot/beepsky/officer/Initialize(mapload)
 	. = ..()
-	// Beepsky hates people scanning them
-	RegisterSignal(src, COMSIG_MOVABLE_SPY_STEALING, PROC_REF(retaliate_async))
 
 /mob/living/simple_animal/bot/secbot/beepsky/ofitser
 	name = "Prison Ofitser"

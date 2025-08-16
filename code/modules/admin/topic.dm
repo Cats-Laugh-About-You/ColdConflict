@@ -1163,15 +1163,6 @@
 		else
 			to_chat(usr, "You may only use this when the game is running.", confidential = TRUE)
 
-	else if(href_list["set_selfdestruct_code"])
-		if(!check_rights(R_ADMIN))
-			return
-		var/code = random_nukecode()
-		for(var/obj/machinery/nuclearbomb/selfdestruct/SD as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/nuclearbomb/selfdestruct))
-			SD.r_code = code
-		message_admins("[key_name_admin(usr)] has set the self-destruct \
-			code to \"[code]\".")
-
 	else if(href_list["add_station_goal"])
 		if(!check_rights(R_ADMIN))
 			return
@@ -1480,16 +1471,6 @@
 				heart_recepient.receive_heart(usr)
 			else
 				return
-
-	else if(href_list["force_war"])
-		if(!check_rights(R_ADMIN))
-			return
-		var/obj/item/nuclear_challenge/button = locate(href_list["force_war"])
-		button.force_war()
-
-	else if(href_list["give_reinforcement"])
-		var/datum/team/nuclear/nuketeam = locate(href_list["give_reinforcement"]) in GLOB.antagonist_teams
-		nuketeam.admin_spawn_reinforcement(usr)
 
 	else if (href_list["interview"])
 		if(!check_rights(R_ADMIN))

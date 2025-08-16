@@ -294,8 +294,6 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 		if(!GLOB.chaplain_altars.len && istype(current_area, /area/station/service/chapel))
 			make_new_altar(bible_smacked, user)
 			return ITEM_INTERACT_SUCCESS
-		for(var/obj/effect/rune/nearby_runes in range(2, user))
-			nearby_runes.SetInvisibility(INVISIBILITY_NONE, id=type, priority=INVISIBILITY_PRIORITY_BASIC_ANTI_INVISIBILITY)
 		bible_smacked.balloon_alert(user, "floor smacked!")
 		return ITEM_INTERACT_SUCCESS
 
@@ -320,21 +318,6 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 		other_bible.deity_name = deity_name
 		return ITEM_INTERACT_SUCCESS
 
-	if(istype(bible_smacked, /obj/item/melee/cultblade/haunted) && !IS_CULTIST(user))
-		var/obj/item/melee/cultblade/haunted/sword_smacked = bible_smacked
-		if(!sword_smacked.bound)
-			sword_smacked.balloon_alert(user, "must be bound!")
-			return ITEM_INTERACT_BLOCKING
-		var/obj/item/melee/cultblade/haunted/sword = bible_smacked
-		sword.balloon_alert(user, "exorcising...")
-		playsound(src,'sound/effects/hallucinations/veryfar_noise.ogg',40,TRUE)
-		if(do_after(user, 12 SECONDS, target = sword))
-			playsound(src,'sound/effects/pray_chaplain.ogg',60,TRUE)
-			new /obj/item/nullrod/nullblade(get_turf(sword))
-			user.visible_message(span_notice("[user] exorcises [sword]!"))
-			qdel(sword)
-			return ITEM_INTERACT_SUCCESS
-		return ITEM_INTERACT_BLOCKING
 	return NONE
 
 /obj/item/book/bible/booze

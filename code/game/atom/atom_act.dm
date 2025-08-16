@@ -46,17 +46,6 @@
 	return //For handling the effects of explosions on contents that would not normally be effected
 
 /**
- * React to a hit by a blob objecd
- *
- * default behaviour is to send the [COMSIG_ATOM_BLOB_ACT] signal
- */
-/atom/proc/blob_act(obj/structure/blob/attacking_blob)
-	var/blob_act_result = SEND_SIGNAL(src, COMSIG_ATOM_BLOB_ACT, attacking_blob)
-	if (blob_act_result & COMPONENT_CANCEL_BLOB_ACT)
-		return FALSE
-	return TRUE
-
-/**
  * React to an EMP of the given severity
  *
  * Default behaviour is to send the [COMSIG_ATOM_PRE_EMP_ACT] and [COMSIG_ATOM_EMP_ACT] signal

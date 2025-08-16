@@ -364,7 +364,6 @@ GLOBAL_LIST_INIT(rarity_loot, list(//rare: really good items
 		/obj/item/book/granter/crafting_recipe/trash_cannon = 1,
 		/obj/item/book/granter/crafting_recipe/dusting/laser_musket_prime = 1,
 		/obj/item/book/granter/sign_language = 1,
-		/obj/item/disk/nuclear/fake = 1,
 		/obj/item/disk/surgery/advanced_plastic_surgery = 1,
 		/obj/item/skillchip/brainwashing = 1,
 		/obj/item/skillchip/intj = 1,
@@ -377,7 +376,6 @@ GLOBAL_LIST_INIT(rarity_loot, list(//rare: really good items
 
 
 GLOBAL_LIST_INIT(oddity_loot, list(//oddity: strange or crazy items
-		/obj/effect/rune/teleport = 1,
 		/obj/item/clothing/head/helmet/abductor = 1,
 		/obj/item/clothing/shoes/jackboots/fast = 1,
 		/obj/item/clothing/suit/armor/reactive/table = 1,

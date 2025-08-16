@@ -125,7 +125,7 @@ GLOBAL_LIST_INIT(backpacklist, list(
 //Uplink spawn loc
 #define UPLINK_PDA "PDA"
 #define UPLINK_RADIO "Radio"
-#define UPLINK_PEN "Pen" //like a real spy!
+#define UPLINK_PEN "Pen"
 #define UPLINK_IMPLANT "Implant"
 
 	//Female Uniforms

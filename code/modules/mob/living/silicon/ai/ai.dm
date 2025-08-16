@@ -126,7 +126,6 @@
 	QDEL_NULL(eyeobj) // No AI, no Eye
 	QDEL_NULL(spark_system)
 	QDEL_NULL(malf_picker)
-	QDEL_NULL(doomsday_device)
 	QDEL_NULL(robot_control)
 	QDEL_NULL(aiMulti)
 	QDEL_NULL(alert_control)
@@ -347,7 +346,6 @@
 
 /mob/living/silicon/ai/proc/ai_mob_to_structure()
 	disconnect_shell()
-	ShutOffDoomsdayDevice()
 	var/obj/structure/ai_core/deactivated/ai_core = new(get_turf(src), /* skip_mmi_creation = */ TRUE)
 	if(make_mmi_drop_and_transfer(ai_core.core_mmi, the_core = ai_core))
 		qdel(src)
@@ -767,7 +765,6 @@
 	if(!mind)
 		balloon_alert(user, "no intelligence detected!") // average tg coder am i right
 		return
-	ShutOffDoomsdayDevice()
 	var/obj/structure/ai_core/new_core = new /obj/structure/ai_core/deactivated(loc, posibrain_inside)//Spawns a deactivated terminal at AI location.
 	new_core.circuit.battery = battery
 	ai_restore_power()//So the AI initially has power.
@@ -924,16 +921,6 @@
 		return
 
 	malf_picker.processing_time += max(0, 9 - hacked_apcs.len) // Less resources for each apc hacked, 9 instead of 10 is because you will get 1 as soon as the hacked apc processes
-	var/area/apcarea = apc.area
-	var/datum/ai_module/malf/destructive/nuke_station/doom_n_boom = locate(/datum/ai_module/malf/destructive/nuke_station) in malf_picker.possible_modules["Destructive Modules"]
-	if(doom_n_boom && (is_type_in_list (apcarea, doom_n_boom.discount_areas)) && !(is_type_in_list (apcarea, doom_n_boom.hacked_command_areas)))
-		doom_n_boom.hacked_command_areas += apcarea
-		doom_n_boom.cost = max(50, 130 - (length(doom_n_boom.hacked_command_areas) * 20))
-		var/datum/antagonist/malf_ai/malf_ai_datum = mind.has_antag_datum(/datum/antagonist/malf_ai)
-		if(malf_ai_datum)
-			malf_ai_datum.update_static_data_for_all_viewers()
-		else //combat software AIs use a different UI
-			malf_picker.update_static_data_for_all_viewers()
 	if(apc.malfai) // another malf hacked this one; counter-hack!
 		to_chat(apc.malfai, span_warning("An adversarial subroutine has counter-hacked [apc]!"))
 		apc.malfai.hacked_apcs -= apc

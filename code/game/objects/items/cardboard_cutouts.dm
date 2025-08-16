@@ -256,26 +256,8 @@
 /datum/cardboard_cutout/traitor/get_name()
 	return pick("Unknown", "Captain")
 
-/datum/cardboard_cutout/nuclear_operative
-	name = "Nuclear Operative"
-	applied_name = "Unknown"
-	applied_desc = "A cardboard cutout of a nuclear operative."
-	outfit = /datum/outfit/syndicate/full
-
 /datum/cardboard_cutout/nuclear_operative/get_name()
 	return pick("Unknown", "COMMS", "Telecomms", "AI", "stealthy op", "STEALTH", "sneakybeaky", "MEDIC", "Medic")
-
-/datum/cardboard_cutout/cultist
-	name = "Cultist"
-	applied_name = "Unknown"
-	applied_desc = "A cardboard cutout of a cultist."
-	outfit = /datum/outfit/cult_cutout
-
-/datum/cardboard_cutout/revolutionary
-	name = "Revolutionary"
-	applied_name = "Unknown"
-	applied_desc = "A cardboard cutout of a revolutionary."
-	outfit = /datum/outfit/rev_cutout
 
 /datum/cardboard_cutout/wizard
 	name = "Wizard"
@@ -366,12 +348,6 @@
 	applied_name = "Unknown"
 	applied_desc = "A cardboard cutout of a Changeling."
 	outfit = /datum/outfit/changeling
-
-/datum/cardboard_cutout/pirate
-	name = "Pirate"
-	applied_name = "Unknown"
-	applied_desc = "A cardboard cutout of a space pirate."
-	outfit = /datum/outfit/pirate/space/captain/cardboard
 
 /datum/cardboard_cutout/ninja
 	name = "Space Ninja"

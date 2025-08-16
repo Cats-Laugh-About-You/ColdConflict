@@ -67,7 +67,6 @@ GLOBAL_LIST_INIT(mystery_box_extended, list(
 
 GLOBAL_LIST_INIT(mystery_magic, list(
 	/obj/item/gun/magic/wand/arcane_barrage,
-	/obj/item/gun/magic/wand/arcane_barrage/blood,
 	/obj/item/gun/magic/wand/fireball,
 	/obj/item/gun/magic/wand/resurrection,
 	/obj/item/gun/magic/wand/teleport,
@@ -101,10 +100,6 @@ GLOBAL_LIST_INIT(mystery_fishing, list(
 	/obj/item/food/rationpack,
 	/obj/item/food/canned/squid_ink,
 	/obj/item/reagent_containers/cup/glass/bottle/rum/aged,
-	/obj/item/storage/bag/money/dutchmen,
-	/obj/item/language_manual/piratespeak,
-	/obj/item/clothing/head/costume/pirate/armored,
-	/obj/item/clothing/suit/costume/pirate/armored,
 	/obj/structure/cannon/mystery_box,
 	/obj/item/stack/cannonball/trashball/four,
 	/obj/item/stack/cannonball/four,

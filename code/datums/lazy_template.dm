@@ -127,10 +127,6 @@
 	key = LAZY_TEMPLATE_KEY_ABDUCTOR_SHIPS
 	map_name = "abductor_ships"
 
-/datum/lazy_template/heretic_sacrifice_room
-	key = LAZY_TEMPLATE_KEY_HERETIC_SACRIFICE
-	map_name = "heretic_sacrifice"
-
 /datum/lazy_template/voidwalker_void
 	key = LAZY_TEMPLATE_KEY_VOIDWALKER_VOID
 	map_name = "voidwalker_void"
