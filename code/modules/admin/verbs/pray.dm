@@ -27,11 +27,6 @@
 		prayer_type = "CHAPLAIN PRAYER"
 		if(GLOB.deity)
 			deity = GLOB.deity
-	else if(IS_CULTIST(usr))
-		cross.icon_state = "tome"
-		font_color = "red"
-		prayer_type = "CULTIST PRAYER"
-		deity = "Nar'Sie"
 	else if(isliving(usr))
 		var/mob/living/L = usr
 		if(HAS_TRAIT(L, TRAIT_SPIRITUAL))
@@ -70,17 +65,6 @@
 	for(var/client/staff as anything in GLOB.admins)
 		if(staff?.prefs.read_preference(/datum/preference/toggle/comms_notification))
 			SEND_SOUND(staff, sound('sound/misc/server-ready.ogg'))
-	to_chat(GLOB.admins, msg, type = MESSAGE_TYPE_PRAYER, confidential = TRUE)
-	for(var/obj/machinery/computer/communications/console in GLOB.shuttle_caller_list)
-		console.override_cooldown()
-
-/// Used by communications consoles to request the nuclear launch codes
-/proc/nuke_request(text, mob/sender)
-	var/msg = copytext_char(sanitize(text), 1, MAX_MESSAGE_LEN)
-	GLOB.requests.nuke_request(sender.client, msg)
-	msg = span_adminnotice("<b><font color=orange>NUKE CODE REQUEST:</font>[ADMIN_FULLMONTY(sender)] [ADMIN_CENTCOM_REPLY(sender)] [ADMIN_SET_SD_CODE]:</b> [msg]")
-	for(var/client/staff as anything in GLOB.admins)
-		SEND_SOUND(staff, sound('sound/misc/server-ready.ogg'))
 	to_chat(GLOB.admins, msg, type = MESSAGE_TYPE_PRAYER, confidential = TRUE)
 	for(var/obj/machinery/computer/communications/console in GLOB.shuttle_caller_list)
 		console.override_cooldown()

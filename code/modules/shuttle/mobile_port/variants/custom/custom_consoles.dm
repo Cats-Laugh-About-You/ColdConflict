@@ -63,10 +63,8 @@
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/custom/Initialize(mapload)
 	. = ..()
-	GLOB.jam_on_wardec += src
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/custom/Destroy()
-	GLOB.jam_on_wardec -= src
 	return ..()
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/custom/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)

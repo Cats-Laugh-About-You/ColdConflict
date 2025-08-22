@@ -110,21 +110,6 @@
 	timeout = 3 SECONDS
 	hidden = TRUE
 
-/datum/mood_event/revolution
-	description = "VIVA LA REVOLUTION!"
-	mood_change = 3
-	hidden = TRUE
-
-/datum/mood_event/cult
-	description = "I have seen the truth, praise the almighty one!"
-	mood_change = 10 //maybe being a cultist isn't that bad after all
-	hidden = TRUE
-
-/datum/mood_event/heretics
-	description = "THE HIGHER I RISE, THE MORE I SEE."
-	mood_change = 10 //maybe being a heretic isnt that bad after all
-	hidden = TRUE
-
 /datum/mood_event/rift_fishing
 	description = "THE MORE I FISH, THE HIGHER I RISE."
 	mood_change = 7

@@ -18,14 +18,11 @@
 #define CELL_LINE_TABLE_SLUDGE "cell_line_sludge_table"
 #define CELL_LINE_TABLE_MOLD "cell_line_mold_table"
 #define CELL_LINE_TABLE_MOIST "cell_line_moist_table"
-#define CELL_LINE_TABLE_BLOB "cell_line_blob_table"
 #define CELL_LINE_TABLE_CLOWN "cell_line_clown_table"
 #define CELL_LINE_TABLE_ALGAE "cell_line_algae_table"
 
 //! Biopsy cell line types
 #define CELL_LINE_TABLE_BEAR "cell_line_bear_table"
-#define CELL_LINE_TABLE_BLOBBERNAUT "cell_line_blobbernaut_table"
-#define CELL_LINE_TABLE_BLOBSPORE "cell_line_blobspore_table"
 #define CELL_LINE_TABLE_CARP "cell_line_carp_table"
 #define CELL_LINE_TABLE_CAT "cell_line_cat_table"
 #define CELL_LINE_TABLE_CHICKEN "cell_line_chicken_table"

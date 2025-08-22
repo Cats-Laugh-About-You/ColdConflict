@@ -9,11 +9,8 @@ GLOBAL_LIST_EMPTY(stealthminID) //reference list with IDs that store ckeys, for 
 /// List of types of abstract mob which shouldn't usually exist in the world on its own if we're spawning random mobs
 GLOBAL_LIST_INIT(abstract_mob_types, list(
 	/mob/living/basic,
-	/mob/living/basic/blob_minion,
 	/mob/living/basic/bot,
-	/mob/living/basic/construct,
 	/mob/living/basic/guardian,
-	/mob/living/basic/heretic_summon,
 	/mob/living/basic/mimic, // Cannot exist if spawned without being passed an item reference
 	/mob/living/basic/mining,
 	/mob/living/basic/pet,
@@ -72,9 +69,6 @@ GLOBAL_LIST_EMPTY(current_living_antags)
 
 /// All observers with clients that joined as observers.
 GLOBAL_LIST_EMPTY(current_observers_list)
-
-/// All living mobs which can hear blob telepathy
-GLOBAL_LIST_EMPTY(blob_telepathy_mobs)
 
 /// All "living" (because revenants are in between mortal planes or whatever) mobs that can hear revenants
 GLOBAL_LIST_EMPTY(revenant_relay_mobs)

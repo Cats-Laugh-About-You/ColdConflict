@@ -71,10 +71,7 @@
 
 /// Remove the antagonists that should not persist when being borged
 /datum/mind/proc/remove_antags_for_borging()
-	remove_antag_datum(/datum/antagonist/cult)
-
-	var/datum/antagonist/rev/revolutionary = has_antag_datum(/datum/antagonist/rev)
-	revolutionary?.remove_revolutionary()
+	remove_antag_datum(/datum/antagonist/revenant)
 
 /**
  * Gets an item that can be used as an uplink somewhere on the mob's person.
@@ -171,19 +168,6 @@
 
 /// Link a new mobs mind to the creator of said mob. They will join any team they are currently on, and will only switch teams when their creator does.
 /datum/mind/proc/enslave_mind_to_creator(mob/living/creator)
-	if(IS_CULTIST(creator))
-		add_antag_datum(/datum/antagonist/cult)
-
-	else if(IS_REVOLUTIONARY(creator))
-		var/datum/antagonist/rev/converter = creator.mind.has_antag_datum(/datum/antagonist/rev,TRUE)
-		converter.add_revolutionary(src, stun = FALSE, mute = FALSE)
-
-	else if(IS_NUKE_OP(creator))
-		var/datum/antagonist/nukeop/converter = creator.mind.has_antag_datum(/datum/antagonist/nukeop,TRUE)
-		var/datum/antagonist/nukeop/N = new()
-		N.send_to_spawnpoint = FALSE
-		N.nukeop_outfit = null
-		add_antag_datum(N,converter.nuke_team)
 
 	enslaved_to = WEAKREF(creator)
 

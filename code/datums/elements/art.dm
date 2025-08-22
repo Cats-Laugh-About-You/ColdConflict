@@ -55,12 +55,8 @@
 
 /datum/element/art/rev/apply_moodlet(atom/source, mob/living/user, impress)
 	var/msg
-	if(user.mind?.has_antag_datum(/datum/antagonist/rev))
-		user.add_mood_event("artgreat", /datum/mood_event/artgreat)
-		msg = "What \a [pick("masterpiece", "chef-d'oeuvre")] [source.p_theyre()]. So [pick("subversive", "revolutionary", "unitizing", "egalitarian")]!"
-	else
-		user.add_mood_event("artbad", /datum/mood_event/artbad)
-		msg = "Wow, [source.p_they()] sucks."
+	user.add_mood_event("artbad", /datum/mood_event/artbad)
+	msg = "Wow, [source.p_they()] sucks."
 
 	user.visible_message(span_notice("[user] stops to inspect [source]."), \
 		span_notice("You appraise [source], inspecting the fine craftsmanship of the proletariat... [msg]"))

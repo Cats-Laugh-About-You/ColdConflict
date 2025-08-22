@@ -513,10 +513,6 @@ DEFINE_BITFIELD(turret_flags, list(
 					if(assess_perp(occupant) >= 4)
 						targets += mech
 
-	if((turret_flags & TURRET_FLAG_SHOOT_ANOMALOUS) && GLOB.blobs.len && (mode == TURRET_LETHAL))
-		for(var/obj/structure/blob/B in view(scan_range, base))
-			targets += B
-
 	if(targets.len)
 		tryToShootAt(targets)
 	else if(!always_up)
@@ -820,7 +816,6 @@ DEFINE_BITFIELD(turret_flags, list(
 	stun_projectile = /obj/projectile/bullet/c10mm/ap
 	stun_projectile_sound = 'sound/items/weapons/gun/smg/shot.ogg'
 	armor_type = /datum/armor/syndicate_turret
-	faction = list(FACTION_PIRATE)
 
 /obj/machinery/porta_turret/syndicate/shuttle
 	scan_range = 9

@@ -40,7 +40,6 @@
 				"batons",
 				"blood cult",
 				"coders",
-				"heretics",
 				"myself",
 				"revenants",
 				"revs",

@@ -133,7 +133,6 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 #define isdullahan(A) (is_species(A, /datum/species/dullahan))
 #define ismonkey(A) (is_species(A, /datum/species/monkey))
 #define isandroid(A) (is_species(A, /datum/species/android))
-#define isnightmare(A) (is_species(A, /datum/species/shadow/nightmare))
 
 
 //More carbon mobs
@@ -216,8 +215,6 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 
 //Eye mobs
 #define iseyemob(A) (istype(A, /mob/eye))
-
-#define isovermind(A) (istype(A, /mob/eye/blob))
 
 #define iscameramob(A) (istype(A, /mob/eye/camera))
 

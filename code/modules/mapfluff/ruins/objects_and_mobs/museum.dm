@@ -55,18 +55,6 @@
 	icon_state = "preservedborer"
 	density = TRUE
 
-/obj/structure/fluff/balloon_nuke
-	name = "nuclear balloon explosive"
-	desc = "You probably shouldn't stick around to see if this is inflated."
-	icon = /obj/machinery/nuclearbomb::icon
-	icon_state = /obj/machinery/nuclearbomb::icon_state
-	density = TRUE
-	max_integrity = 5 //one tap
-
-/obj/structure/fluff/balloon_nuke/atom_destruction()
-	playsound(loc, 'sound/effects/cartoon_sfx/cartoon_pop.ogg', 75, vary = TRUE)
-	..()
-
 /obj/structure/fluff/fake_camera
 	name = /obj/machinery/camera::name
 	desc = /obj/machinery/camera::desc

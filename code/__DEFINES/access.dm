@@ -187,9 +187,7 @@
 /// SYNDICATE
 #define ACCESS_SYNDICATE "syndicate"
 #define ACCESS_SYNDICATE_LEADER "syndicate_leader"
-/// BLOODCULT
-	//Special, for anything that's basically internal
-#define ACCESS_BLOODCULT "bloodcult"
+
 /// HUNTERS
 #define ACCESS_HUNTER "hunter"
 
@@ -403,11 +401,6 @@
 	ACCESS_AWAY_SCIENCE, \
 	ACCESS_AWAY_SEC, \
 	ACCESS_AWAY_SUPPLY, \
-)
-
-/// Weird internal Cult access that prevents non-cult from using their doors.  Do not use direct, access via SSid_access.get_flag_access_list(ACCESS_FLAG_SPECIAL)
-#define CULT_ACCESS list( \
-	ACCESS_BLOODCULT, \
 )
 
 /// Name for the Global region.

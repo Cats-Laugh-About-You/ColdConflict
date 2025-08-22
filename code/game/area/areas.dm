@@ -24,7 +24,7 @@
 	/// This uses the same nested list format as turfs_by_zlevel
 	var/list/list/turf/turfs_to_uncontain_by_zlevel = list()
 
-	var/area_flags = VALID_TERRITORY | BLOBS_ALLOWED | UNIQUE_AREA | CULT_PERMITTED
+	var/area_flags = VALID_TERRITORY | UNIQUE_AREA | CULT_PERMITTED
 
 	///Do we have an active fire alarm?
 	var/fire = FALSE
@@ -585,7 +585,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	power_light = FALSE
 	power_environ = FALSE
 	always_unpowered = FALSE
-	area_flags &= ~(VALID_TERRITORY|BLOBS_ALLOWED|CULT_PERMITTED)
+	area_flags &= ~(VALID_TERRITORY)
 	require_area_resort()
 /**
  * Set the area size of the area

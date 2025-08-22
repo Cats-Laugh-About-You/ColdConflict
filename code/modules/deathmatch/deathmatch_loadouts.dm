@@ -231,7 +231,6 @@
 	head = /obj/item/reagent_containers/cup/bucket
 	shoes = /obj/item/clothing/shoes/chameleon/noslip
 	l_hand = /obj/item/pushbroom
-	l_pocket = /obj/item/reagent_containers/spray/waterflower/lube
 	backpack_contents = list(
 		/obj/item/grenade/chem_grenade/cleaner = 2,
 		/obj/item/restraints/legcuffs/beartrap = 3,
@@ -267,30 +266,6 @@
 	back = /obj/item/spear
 	belt = /obj/item/gun/magic/hook
 	head = /obj/item/clothing/head/utility/welding
-
-/datum/outfit/deathmatch_loadout/battler/clown
-	name = "DM: Clown"
-	display_name = "Clown (Man Of Honk)"
-	desc = "Who called this honking clown"
-
-	uniform = /datum/outfit/job/clown::uniform
-	belt = /datum/outfit/job/clown::belt
-	shoes = /datum/outfit/job/clown::shoes
-	mask = /datum/outfit/job/clown::mask
-	l_pocket = /datum/outfit/job/clown::l_pocket
-	back = /datum/outfit/job/clown::backpack
-	box = /datum/outfit/job/clown::box
-	implants = list(/obj/item/implant/sad_trombone)
-	l_pocket = /obj/item/melee/energy/sword/bananium
-	r_pocket = /obj/item/shield/energy/bananium
-	gloves = /obj/item/clothing/gloves/tackler/rocket
-	backpack_contents = list(
-		/obj/item/reagent_containers/spray/waterflower = 1,
-		/obj/item/instrument/bikehorn = 1,
-		/obj/item/bikehorn/airhorn = 1,
-		/obj/item/food/grown/banana = 3,
-		/obj/item/food/pie/cream = 2,
-		)
 
 /datum/outfit/deathmatch_loadout/battler/tgcoder //tg doesnt stand for tgstation dont ask
 	name = "Deathmatch: Coder"
@@ -677,16 +652,6 @@
 	r_hand = /obj/item/gun/energy/alien
 	belt = /obj/item/gun/energy/shrink_ray
 
-/datum/outfit/deathmatch_loadout/battler/clown/upgraded
-	name = "Deathmatch: Clown (Syndicate Gear)"
-	display_name = "Clown Commando"
-	desc = "They were bound to show up sooner or later."
-
-	shoes = /obj/item/clothing/shoes/clown_shoes/combat
-	r_hand = /obj/item/pneumatic_cannon/pie/selfcharge
-	l_hand = /obj/item/bikehorn/golden
-	box = /obj/item/storage/box/hug/reverse_revolver
-
 	backpack_contents = list(
 		/obj/item/paperplane/syndicate = 1,
 		/obj/item/restraints/legcuffs/bola/tactical = 1,
@@ -694,7 +659,6 @@
 		/obj/item/food/grown/banana = 1,
 		/obj/item/food/pie/cream = 1,
 		/obj/item/dnainjector/clumsymut,
-		/obj/item/sbeacondrop/clownbomb,
 		)
 
 /datum/outfit/deathmatch_loadout/mime
@@ -922,84 +886,6 @@
 /datum/outfit/deathmatch_loadout/cultish/pre_equip(mob/living/carbon/human/user, visuals_only)
 	. = ..()
 	ADD_TRAIT(user, TRAIT_ACT_AS_CULTIST, REF(src))
-	user.AddElement(/datum/element/cult_halo, initial_delay = 0 SECONDS)
-	user.AddElement(/datum/element/cult_eyes, initial_delay = 0 SECONDS)
-
-// Cultist Invoker, has all the balanced cult gear
-
-/datum/outfit/deathmatch_loadout/cultish/invoker
-	name = "Deathmatch: Cultist Invoker"
-	display_name = "Cultist Invoker"
-	desc = "Prove Nar'sie's superiority with your well-balanced set of equipment."
-	//species_override = /datum/species/plasmaman
-
-	head = /obj/item/clothing/head/hooded/cult_hoodie/cult_shield
-	glasses = /obj/item/clothing/glasses/hud/health/night/cultblind
-	suit = /obj/item/clothing/suit/hooded/cultrobes/cult_shield // the dreaded return!
-	suit_store = /obj/item/melee/cultblade
-	uniform = /obj/item/clothing/under/color/black
-	id_trim = null
-	belt = /obj/item/melee/cultblade/dagger
-	l_pocket = /obj/item/flashlight/flare/culttorch
-	r_pocket = /obj/item/flashlight/flare/culttorch
-	gloves = /obj/item/clothing/gloves/color/black
-	shoes = /obj/item/clothing/shoes/cult/alt
-	l_hand = /obj/item/shield/mirror // the dreaded return!!
-
-	back = /obj/item/storage/backpack/cultpack
-
-	backpack_contents = list(
-		/obj/item/reagent_containers/cup/beaker/unholywater,
-		/obj/item/reagent_containers/cup/beaker/unholywater,
-	)
-
-// Cultist Artificer, gets all the balanced cult magicks
-
-/datum/outfit/deathmatch_loadout/cultish/artificer
-	name = "Deathmatch: Cultist Artificer"
-	display_name = "Cultist Artificer"
-	desc = "Prove Nar'sie's superiority with your well-balanced blood magicks."
-	//species_override = /datum/species/plasmaman
-
-	head = /obj/item/clothing/head/hooded/cult_hoodie/berserkerhood
-	suit = /obj/item/clothing/suit/hooded/cultrobes/berserker
-	uniform = /obj/item/clothing/under/color/red
-	id_trim = null
-	belt = /obj/item/melee/cultblade/dagger
-	l_pocket = /obj/item/flashlight/flare/culttorch
-	r_pocket = /obj/item/flashlight/flare/culttorch
-	gloves = /obj/item/clothing/gloves/color/red
-	shoes = /obj/item/clothing/shoes/cult
-	l_hand = null
-
-	back = /obj/item/storage/backpack/cultpack
-
-	backpack_contents = list(
-		/obj/item/restraints/legcuffs/bola/cult,
-		/obj/item/reagent_containers/cup/beaker/unholywater,
-		/obj/item/reagent_containers/cup/beaker/unholywater,
-	)
-
-	spells_to_add = list(
-		/datum/action/innate/cult/blood_spell/horror,
-		/datum/action/innate/cult/blood_spell/stun,
-		/datum/action/innate/cult/blood_spell/stun,
-		/datum/action/innate/cult/blood_spell/manipulation,
-	)
-
-/datum/outfit/deathmatch_loadout/cultish/artificer/post_equip(mob/living/carbon/human/user, visuals_only)
-	. = ..()
-	var/datum/action/innate/cult/blood_spell/manipulation/magick = locate() in user.get_all_contents()
-	magick.charges = 300
-
-/datum/outfit/deathmatch_loadout/heresy
-	/// Grants the effects of these knowledges to the DMer
-	var/list/knowledge_to_grant
-
-/datum/outfit/deathmatch_loadout/heresy/pre_equip(mob/living/carbon/human/user, visuals_only)
-	. = ..()
-	ADD_TRAIT(user, TRAIT_ACT_AS_HERETIC, REF(src))
-	user.AddElement(/datum/element/leeching_walk)
 
 // Chaplain! No spells (other than smoke), but strong armor and weapons, and immune to others' spells
 

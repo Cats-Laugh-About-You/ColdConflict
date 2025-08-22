@@ -866,7 +866,6 @@
 		/obj/item/card/emag,
 		/obj/item/crowbar/cyborg,
 		/obj/item/extinguisher/mini,
-		/obj/item/pinpointer/syndicate_cyborg,
 	)
 	cyborg_base_icon = "synd_sec"
 	model_select_icon = "malf"
@@ -897,7 +896,6 @@
 		/obj/item/emergency_bed/silicon,
 		/obj/item/crowbar/cyborg,
 		/obj/item/extinguisher/mini,
-		/obj/item/pinpointer/syndicate_cyborg,
 		/obj/item/stack/medical/gauze,
 		/obj/item/stack/medical/bone_gel,
 		/obj/item/gun/medbeam,
@@ -928,8 +926,6 @@
 		/obj/item/construction/rtd/borg,
 		/obj/item/dest_tagger/borg,
 		/obj/item/stack/cable_coil,
-		/obj/item/pinpointer/syndicate_cyborg,
-		/obj/item/borg_chameleon,
 		/obj/item/card/emag,
 	)
 	cyborg_base_icon = "synd_engi"
@@ -942,7 +938,6 @@
 	name = "Highlander"
 	basic_modules = list(
 		/obj/item/claymore/highlander/robot,
-		/obj/item/pinpointer/nuke,
 	)
 	model_select_icon = "kilt"
 	cyborg_base_icon = "kilt"
@@ -957,13 +952,10 @@
 	robot.scrambledcodes = TRUE
 	robot.maxHealth = 50 //DIE IN THREE HITS, LIKE A REAL SCOT
 	robot.break_cyborg_slot(3) //YOU ONLY HAVE TWO ITEMS ANYWAY
-	var/obj/item/pinpointer/nuke/diskyfinder = locate(/obj/item/pinpointer/nuke) in basic_modules
-	diskyfinder.attack_self(robot)
 
 /obj/item/robot_model/syndicate/kiltborg/do_transform_delay() //AUTO-EQUIPPING THESE TOOLS ANY EARLIER CAUSES RUNTIMES OH YEAH
 	. = ..()
 	robot.equip_to_slot(locate(/obj/item/claymore/highlander/robot) in basic_modules, 1)
-	robot.equip_to_slot(locate(/obj/item/pinpointer/nuke) in basic_modules, 2)
 	robot.place_on_head(new /obj/item/clothing/head/beret/highlander(robot)) //THE ONLY PART MORE IMPORTANT THAN THE SWORD IS THE HAT
 	ADD_TRAIT(robot.hat, TRAIT_NODROP, HIGHLANDER_TRAIT)
 

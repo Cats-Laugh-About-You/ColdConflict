@@ -121,25 +121,6 @@ ADMIN_VERB(cmd_admin_add_freeform_ai_law, R_ADMIN, "Add Custom AI Law", "Add a c
 
 	BLACKBOX_LOG_ADMIN_VERB("Add Custom AI Law")
 
-ADMIN_VERB(toggle_nuke, R_DEBUG|R_ADMIN, "Toggle Nuke", "Arm or disarm a nuke.", ADMIN_CATEGORY_EVENTS)
-	var/list/nukes = list()
-	for (var/obj/machinery/nuclearbomb/bomb in world)
-		nukes += bomb
-	var/obj/machinery/nuclearbomb/nuke = tgui_input_list(user, "", "Toggle Nuke", nukes)
-	if (isnull(nuke))
-		return
-	if(!nuke.timing)
-		var/newtime = tgui_input_number(user, "Set activation timer.", "Activate Nuke", nuke.timer_set)
-		if(!newtime)
-			return
-		nuke.timer_set = newtime
-	nuke.toggle_nuke_safety()
-	nuke.toggle_nuke_armed()
-
-	log_admin("[key_name(user)] [nuke.timing ? "activated" : "deactivated"] a nuke at [AREACOORD(nuke)].")
-	message_admins("[ADMIN_LOOKUPFLW(user)] [nuke.timing ? "activated" : "deactivated"] a nuke at [ADMIN_VERBOSEJMP(nuke)].")
-	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Nuke", "[nuke.timing]")) // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
-
 ADMIN_VERB(change_sec_level, R_ADMIN, "Set Security Level", "Changes the security level. Announcement effects only.", ADMIN_CATEGORY_EVENTS)
 	var/level = tgui_input_list(user, "Select Security Level:", "Set Security Level", SSsecurity_level.available_levels)
 

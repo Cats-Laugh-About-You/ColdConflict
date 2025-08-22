@@ -11,7 +11,7 @@ SUBSYSTEM_DEF(ticker)
 	var/current_state = GAME_STATE_STARTUP
 	/// Boolean to track if round should be forcibly ended next ticker tick.
 	/// Set by admin intervention ([ADMIN_FORCE_END_ROUND])
-	/// or a "round-ending" event, like summoning Nar'Sie, a blob victory, the nuke going off, etc. ([FORCE_END_ROUND])
+	/// or a "round-ending" event, like summoning Nar'Sie, the nuke going off, etc. ([FORCE_END_ROUND])
 	var/force_ending = END_ROUND_AS_NORMAL
 	/// If TRUE, there is no lobby phase, the game starts immediately.
 	var/start_immediately = FALSE
@@ -221,10 +221,6 @@ SUBSYSTEM_DEF(ticker)
 	if(!setup_done)
 		return FALSE
 	if(SSshuttle.emergency && (SSshuttle.emergency.mode == SHUTTLE_ENDGAME))
-		return TRUE
-	if(GLOB.station_was_nuked)
-		return TRUE
-	if(GLOB.revolution_handler?.result == REVOLUTION_VICTORY)
 		return TRUE
 	return FALSE
 
@@ -702,28 +698,6 @@ SUBSYSTEM_DEF(ticker)
 			else
 				news_message = "The crew of [decoded_station_name] has been \
 					evacuated amid unconfirmed reports of enemy activity."
-		// A blob won
-		if(BLOB_WIN)
-			news_message = "[decoded_station_name] was overcome by an unknown biological outbreak, killing \
-				all crew on board. Don't let it happen to you! Remember, a clean work station is a safe work station."
-		// A blob was destroyed
-		if(BLOB_DESTROYED)
-			news_message = "[decoded_station_name] is currently undergoing decontamination procedures \
-				after the destruction of a biological hazard. As a reminder, any crew members experiencing \
-				cramps or bloating should report immediately to security for incineration."
-		// A certain percentage of all cultists managed to escape at the end of round
-		if(CULT_ESCAPE)
-			news_message = "Security Alert: A group of religious fanatics have escaped from [decoded_station_name]."
-		// Cult was completely or almost completely wiped out
-		if(CULT_FAILURE)
-			news_message = "Following the dismantling of a restricted cult aboard [decoded_station_name], \
-				we would like to remind all employees that worship outside of the Chapel is strictly prohibited, \
-				and cause for termination."
-		// Cult summoned Nar'sie
-		if(CULT_SUMMON)
-			news_message = "Company officials would like to clarify that [decoded_station_name] was scheduled \
-				to be decommissioned following meteor damage earlier this year. Earlier reports of an \
-				unknowable eldritch horror were made in error."
 		// Nuke detonated, but missed the station entirely
 		if(NUKE_MISS)
 			news_message = "The Syndicate have bungled a terrorist attack [decoded_station_name], \
@@ -736,34 +710,14 @@ SUBSYSTEM_DEF(ticker)
 		if(OPERATIVE_SKIRMISH)
 			news_message = "A skirmish between security forces and Syndicate agents aboard [decoded_station_name] \
 				ended with both sides bloodied but intact."
-		// Revolution victory
-		if(REVS_WIN)
-			news_message = "Company officials have reassured investors that despite a union led revolt \
-				aboard [decoded_station_name] there will be no wage increases for workers."
-		// Revolution defeat
-		if(REVS_LOSE)
-			news_message = "[decoded_station_name] quickly put down a misguided attempt at mutiny. \
-				Remember, unionizing is illegal!"
 		// All wizards (plus apprentices) have been killed
 		if(WIZARD_KILLED)
 			news_message = "Tensions have flared with the Space Wizard Federation following the death \
 				of one of their members aboard [decoded_station_name]."
 		// The station was nuked generically
 		if(STATION_NUKED)
-			// There was a blob on board, guess it was nuked to stop it
-			if(length(GLOB.overminds))
-				for(var/mob/eye/blob/overmind as anything in GLOB.overminds)
-					if(overmind.max_count < overmind.announcement_size)
-						continue
-
-					news_message = "[decoded_station_name] is currently undergoing decontanimation after a controlled \
-						burst of radiation was used to remove a biological ooze. All employees were safely evacuated prior, \
-						and are enjoying a relaxing vacation."
-					break
-			// A self destruct or something else
-			else
-				news_message = "[decoded_station_name] activated its self-destruct device for unknown reasons. \
-					Attempts to clone the Captain for arrest and execution are underway."
+			news_message = "[decoded_station_name] activated its self-destruct device for unknown reasons. \
+				Attempts to clone the Captain for arrest and execution are underway."
 		// The emergency escape shuttle was hijacked
 		if(SHUTTLE_HIJACK)
 			news_message = "During routine evacuation procedures, the emergency shuttle of [decoded_station_name] \

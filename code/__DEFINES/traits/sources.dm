@@ -31,7 +31,6 @@
 /// Any traits given through a smite.
 #define SMITE_TRAIT "smite"
 #define CHANGELING_TRAIT "changeling"
-#define CULT_TRAIT "cult"
 #define LICH_TRAIT "lich"
 ///Comes from a holy source.
 #define HOLY_TRAIT "holy"
@@ -288,9 +287,6 @@
 /// Trait granted by [mob/living/silicon/ai]
 /// Applied when the ai anchors itself
 #define AI_ANCHOR_TRAIT "ai_anchor"
-
-/// Trait from [/datum/antagonist/nukeop/clownop]
-#define CLOWNOP_TRAIT "clownop"
 
 #define ANALYZER_TRAIT "analyzer_trait"
 

@@ -86,7 +86,7 @@
 			SendToStation()
 		return
 
-	var/found_awake = PersonCheck() || NukeDiskCheck()
+	var/found_awake = PersonCheck()
 	if(mode == SHUTTLE_CALL)
 		if(found_awake)
 			SendToStation()
@@ -114,12 +114,6 @@
 			return TRUE
 	return FALSE
 
-/obj/docking_port/mobile/arrivals/proc/NukeDiskCheck()
-	for (var/obj/item/disk/nuclear/N in SSpoints_of_interest.real_nuclear_disks)
-		if (get_area(N) in areas)
-			return TRUE
-	return FALSE
-
 /obj/docking_port/mobile/arrivals/proc/SendToStation()
 	var/dockTime = CONFIG_GET(number/arrivals_shuttle_dock_window)
 	if(mode == SHUTTLE_CALL && timeLeft(1) > dockTime)
@@ -136,8 +130,6 @@
 			var/cancel_reason
 			if(PersonCheck())
 				cancel_reason = "lifeform dectected on board"
-			else if(NukeDiskCheck())
-				cancel_reason = "critical station device detected on board"
 			if(cancel_reason)
 				mode = SHUTTLE_IDLE
 				if(console)

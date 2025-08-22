@@ -271,9 +271,6 @@
 	greyscale_config = /datum/greyscale_config/tablet/stripe_thick
 	greyscale_colors = "#a80001#5C070F#000000"
 	long_ranged = TRUE
-	starting_programs = list(
-		/datum/computer_file/program/radar/fission360,
-	)
 
 /obj/item/modular_computer/pda/nukeops/Initialize(mapload)
 	. = ..()

@@ -200,9 +200,6 @@
 #define ui_ghost_language_menu "SOUTH: 6, CENTER+4:22"
 #define ui_ghost_floor_changer "SOUTH: 6, CENTER+4:7"
 
-//Blobbernauts
-#define ui_blobbernaut_overmind_health "EAST-1:28,CENTER+0:19"
-
 // Defines relating to action button positions
 
 /// Whatever the base action datum thinks is best

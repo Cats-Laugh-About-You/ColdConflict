@@ -27,11 +27,9 @@
 	paycheck = PAYCHECK_COMMAND
 	paycheck_department = ACCOUNT_MED
 
-	mind_traits = list(HEAD_OF_STAFF_MIND_TRAITS)
 	liver_traits = list(TRAIT_MEDICAL_METABOLISM, TRAIT_ROYAL_METABOLISM)
 
 	display_order = JOB_DISPLAY_ORDER_CHIEF_MEDICAL_OFFICER
-	bounty_types = CIV_JOB_MED
 
 	mail_goodies = list(
 		/obj/effect/spawner/random/medical/organs = 10,

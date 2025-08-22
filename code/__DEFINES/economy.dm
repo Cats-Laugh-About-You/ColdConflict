@@ -53,23 +53,6 @@
 /// The special account ID for admins using debug cards.
 #define ADMIN_ACCOUNT_ID "ADMIN!"
 
-//Defines that set what kind of civilian bounties should be applied mid-round.
-#define CIV_JOB_BASIC 1
-#define CIV_JOB_ROBO 2
-#define CIV_JOB_CHEF 3
-#define CIV_JOB_SEC 4
-#define CIV_JOB_DRINK 5
-#define CIV_JOB_CHEM 6
-#define CIV_JOB_VIRO 7
-#define CIV_JOB_SCI 8
-#define CIV_JOB_ENG 9
-#define CIV_JOB_MINE 10
-#define CIV_JOB_MED 11
-#define CIV_JOB_GROW 12
-#define CIV_JOB_ATMOS 13
-#define CIV_JOB_BITRUN 14
-#define CIV_JOB_RANDOM 15
-
 //These defines are to be used to with the payment component, determines which lines will be used during a transaction. If in doubt, go with clinical.
 #define PAYMENT_CLINICAL "clinical"
 #define PAYMENT_FRIENDLY "friendly"

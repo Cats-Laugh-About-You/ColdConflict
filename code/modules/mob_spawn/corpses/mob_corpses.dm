@@ -119,67 +119,6 @@
 	head = /obj/item/clothing/head/hooded/chaplain_hood
 	back = /obj/item/storage/backpack/cultpack
 
-/obj/effect/mob_spawn/corpse/human/pirate
-	name = "Pirate"
-	skin_tone = "caucasian1" //all pirates are white because it's easier that way
-	outfit = /datum/outfit/piratecorpse
-	hairstyle = "Bald"
-	facial_hairstyle = "Shaved"
-
-/datum/outfit/piratecorpse
-	name = "Pirate Corpse"
-	uniform = /obj/item/clothing/under/costume/pirate
-	shoes = /obj/item/clothing/shoes/jackboots
-
-/obj/effect/mob_spawn/corpse/human/pirate/melee
-	name = "Pirate Swashbuckler"
-	outfit = /datum/outfit/piratecorpse/melee
-
-/datum/outfit/piratecorpse/melee
-	name = "Pirate Swashbuckler Corpse"
-	glasses = /obj/item/clothing/glasses/eyepatch
-	head = /obj/item/clothing/head/costume/pirate/bandana/armored
-
-/obj/effect/mob_spawn/corpse/human/pirate/melee/space
-	name = "Pirate Swashbuckler - Space"
-	outfit = /datum/outfit/piratecorpse/melee/space
-
-/datum/outfit/piratecorpse/melee/space
-	name = "Pirate Swashbuckler Corpse - Space"
-	suit = /obj/item/clothing/suit/space/pirate
-	head = /obj/item/clothing/head/helmet/space/pirate/bandana
-	back = /obj/item/tank/jetpack/carbondioxide
-
-/obj/effect/mob_spawn/corpse/human/pirate/ranged
-	name = "Pirate Gunner"
-	outfit = /datum/outfit/piratecorpse/ranged
-
-/datum/outfit/piratecorpse/ranged
-	name = "Pirate Gunner Corpse"
-	glasses = /obj/item/clothing/glasses/eyepatch
-	suit = /obj/item/clothing/suit/costume/pirate/armored
-	head = /obj/item/clothing/head/costume/pirate/armored
-
-/obj/effect/mob_spawn/corpse/human/pirate/ranged/space
-	name = "Pirate Gunner - Space"
-	outfit = /datum/outfit/piratecorpse/ranged/space
-
-/datum/outfit/piratecorpse/ranged/space
-	name = "Pirate Gunner Corpse - Space"
-	suit = /obj/item/clothing/suit/space/pirate
-	head = /obj/item/clothing/head/helmet/space/pirate
-	back = /obj/item/tank/jetpack/carbondioxide
-
-/obj/effect/mob_spawn/corpse/human/old_pirate_captain
-	name = "Pirate Captain Skeleton"
-	outfit = /datum/outfit/piratecorpse/captain
-	mob_species = /datum/species/skeleton
-
-/datum/outfit/piratecorpse/captain
-	glasses = /obj/item/clothing/glasses/eyepatch
-	head = /obj/item/clothing/head/costume/pirate
-	suit = /obj/item/clothing/suit/costume/pirate
-
 /obj/effect/mob_spawn/corpse/human/russian
 	name = "Russian"
 	outfit = /datum/outfit/russiancorpse

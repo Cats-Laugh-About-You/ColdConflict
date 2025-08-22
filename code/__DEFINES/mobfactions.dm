@@ -89,14 +89,5 @@
 #define FACTION_RAPTOR "raptor"
 ///holy faction, for anything part of the church
 #define FACTION_HOLY "holy"
-// Antagonist factions
-
-/// Cultists and their constructs
-#define FACTION_CULT "cult"
-/// Define for the heretic faction applied to heretics and heretic mobs.
-#define FACTION_HERETIC "heretics"
-/// Mainly used by pirate simplemobs. However I placed them here instead, as its also used by players
-#define FACTION_PIRATE "pirate"
-
 /// Generates a mob faction for the passed owner, used by stabilized pink extracts
 #define FACTION_PINK_EXTRACT(owner) "pink_[owner]"

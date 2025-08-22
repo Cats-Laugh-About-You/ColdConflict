@@ -87,23 +87,6 @@
 	stock_max = 1
 	availability_prob = 25
 
-/datum/market_item/misc/holywater
-	name = "Flask of holy water"
-	desc = "Father Lootius' own brand of ready-made holy water."
-	item = /obj/item/reagent_containers/cup/glass/bottle/holywater
-
-	price_min = CARGO_CRATE_VALUE * 2
-	price_max = CARGO_CRATE_VALUE * 3
-	stock_max = 3
-	availability_prob = 40
-
-/datum/market_item/misc/holywater/spawn_item(loc, datum/market_purchase/purchase)
-	if (prob(6.66))
-		item = /obj/item/reagent_containers/cup/beaker/unholywater
-	else
-		item = initial(item)
-	return ..()
-
 /datum/market_item/misc/strange_seed
 	name = "Strange Seeds"
 	desc = "An Exotic Variety of seed that can contain anything from glow to acid."

@@ -135,27 +135,6 @@
 	if(hugger == parent)
 		return
 
-	if(isnightmare(hugger))
-		var/lit_tiles = 0
-		var/unlit_tiles = 0
-
-		for(var/turf/open/turf_to_check in range(1, source))
-			var/light_amount = turf_to_check.get_lumcount()
-			if(light_amount > LIGHTING_TILE_IS_DARK)
-				lit_tiles++
-			else
-				unlit_tiles++
-
-		if(lit_tiles < unlit_tiles)
-			source.Knockdown(0.5 SECONDS)
-			terror_buildup += HUG_TERROR_AMOUNT
-			source.visible_message(
-				span_warning("[source] recoils in fear as [hugger] waves [hugger.p_their()] arms and shrieks at [source.p_them()]!"),
-				span_boldwarning("The shadows lash out at you, and you drop to the ground in fear!"),
-				span_hear("You hear someone shriek in fear. How embarassing!"),
-				)
-			return COMPONENT_BLOCK_MISC_HELP
-
 	for (var/datum/brain_trauma/mild/phobia/phobia in source.get_traumas())
 		if (!phobia.is_scary_mob(hugger))
 			continue

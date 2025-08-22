@@ -745,16 +745,6 @@
 		/obj/item/stack/sheet/glass = 1,
 		/obj/item/vending_refill/donksnackvendor = 1)
 
-/obj/item/circuitboard/machine/bountypad
-	name = "Civilian Bounty Pad"
-	greyscale_colors = CIRCUIT_COLOR_GENERIC
-	build_path = /obj/machinery/piratepad/civilian
-	req_components = list(
-		/datum/stock_part/card_reader = 1,
-		/datum/stock_part/scanning_module = 1,
-		/datum/stock_part/micro_laser = 1
-	)
-
 /obj/item/circuitboard/machine/fax
 	name = "Fax Machine"
 	greyscale_colors = CIRCUIT_COLOR_GENERIC

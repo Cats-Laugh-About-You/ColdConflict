@@ -85,8 +85,6 @@
 	parent.AddElement(/datum/element/bsa_blocker)
 	RegisterSignal(parent, COMSIG_ATOM_BSA_BEAM, PROC_REF(bluespace_reaction))
 
-	RegisterSignal(parent, COMSIG_ATOM_BLOB_ACT, PROC_REF(block_blob))
-
 	RegisterSignals(parent, list(
 		COMSIG_ATOM_ATTACK_ANIMAL,
 		COMSIG_ATOM_ATTACK_HAND,
@@ -125,7 +123,6 @@
 		COMSIG_ATOM_ATTACK_ANIMAL,
 		COMSIG_ATOM_ATTACK_HAND,
 		COMSIG_ATOM_ATTACK_PAW,
-		COMSIG_ATOM_BLOB_ACT,
 		COMSIG_ATOM_BSA_BEAM,
 		COMSIG_ATOM_PRE_BULLET_ACT,
 		COMSIG_ATOM_BUMPED,
@@ -145,11 +142,6 @@
 			move()
 		eat()
 		digest() // Try and process as much as you can with the time we have left
-
-/datum/component/singularity/proc/block_blob()
-	SIGNAL_HANDLER
-
-	return COMPONENT_CANCEL_BLOB_ACT
 
 /// Triggered when something enters the component's parent.
 /datum/component/singularity/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)

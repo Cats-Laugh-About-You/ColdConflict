@@ -45,7 +45,7 @@
 
 	if (ishuman(owner))
 		var/mob/living/carbon/human/as_human = owner
-		if(as_human.dna?.species.id in list(SPECIES_SHADOW, SPECIES_NIGHTMARE))
+		if(as_human.dna?.species.id in list(SPECIES_SHADOW))
 			return FALSE
 
 	if (meson_negated && (owner.sight & SEE_TURFS))

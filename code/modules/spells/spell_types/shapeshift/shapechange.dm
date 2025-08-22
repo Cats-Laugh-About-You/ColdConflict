@@ -13,7 +13,6 @@
 
 	possible_shapes = list(
 		/mob/living/basic/carp/magic/chaos,
-		/mob/living/basic/construct/juggernaut/mystic,
 		/mob/living/basic/mouse,
 		/mob/living/basic/pet/dog/corgi,
 		/mob/living/basic/spider/giant/viper/wizard,

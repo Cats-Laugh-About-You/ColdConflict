@@ -7,7 +7,6 @@
 %A% %ADJECTIVE% armblade
 %A% %ADJECTIVE% bear
 %A% %ADJECTIVE% bee
-%A% %ADJECTIVE% blob
 %A% %ADJECTIVE% bottle
 %A% %ADJECTIVE% chemist
 %A% %ADJECTIVE% corgi
@@ -46,7 +45,6 @@
 %A% %ADJECTIVE% monkey
 %A% %ADJECTIVE% monster
 %A% %ADJECTIVE% moth
-%A% %ADJECTIVE% nightmare
 %A% %ADJECTIVE% ninja
 %A% %ADJECTIVE% ocean
 %A% %ADJECTIVE% pill

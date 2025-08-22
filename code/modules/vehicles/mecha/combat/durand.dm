@@ -116,14 +116,6 @@ Expects a turf. Returns true if the attack should be blocked, false if not.*/
 		return shield.attack_generic(user, damage_amount, damage_type, damage_flag, sound_effect, armor_penetration)
 	return ..()
 
-/obj/vehicle/sealed/mecha/durand/blob_act(obj/structure/blob/B)
-	if(defense_check(B.loc))
-		log_message("Attack by blob. Attacker - [B].", LOG_MECHA, color="red")
-		log_message("Attack absorbed by defense field.", LOG_MECHA, color="orange")
-		shield.blob_act(B)
-	else
-		. = ..()
-
 /obj/vehicle/sealed/mecha/durand/attackby(obj/item/W as obj, mob/user as mob, list/modifiers, list/attack_modifiers)
 	if(defense_check(user.loc))
 		log_message("Attack absorbed by defense field. Attacker - [user], with [W]", LOG_MECHA, color="orange")

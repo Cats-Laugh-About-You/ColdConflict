@@ -95,7 +95,6 @@ SUBSYSTEM_DEF(id_access)
 	for(var/access in accesses_by_flag["[ACCESS_FLAG_AWAY]"])
 		flags_by_access |= list("[access]" = ACCESS_FLAG_AWAY)
 
-	accesses_by_flag["[ACCESS_FLAG_SPECIAL]"] = CULT_ACCESS
 	for(var/access in accesses_by_flag["[ACCESS_FLAG_SPECIAL]"])
 		flags_by_access |= list("[access]" = ACCESS_FLAG_SPECIAL)
 
@@ -111,7 +110,6 @@ SUBSYSTEM_DEF(id_access)
 /// Populates the region lists with data about which accesses correspond to which regions.
 /datum/controller/subsystem/id_access/proc/setup_region_lists()
 	accesses_by_region[REGION_ALL_STATION] = REGION_ACCESS_ALL_STATION
-	accesses_by_region[REGION_ALL_GLOBAL] = REGION_ACCESS_ALL_GLOBAL
 	accesses_by_region[REGION_GENERAL] = REGION_ACCESS_GENERAL
 	accesses_by_region[REGION_SECURITY] = REGION_ACCESS_SECURITY
 	accesses_by_region[REGION_MEDBAY] = REGION_ACCESS_MEDBAY

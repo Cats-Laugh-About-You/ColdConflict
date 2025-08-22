@@ -266,7 +266,6 @@
 		/obj/item/stack/sheet/mineral/bananium = 50,
 		/obj/item/stack/sheet/mineral/wood/fifty = null,
 		/obj/item/stack/sheet/plastic/fifty = null,
-		/obj/item/stack/sheet/runed_metal/fifty = null,
 		/obj/item/stack/rods/fifty = null,
 		/obj/item/stack/sheet/mineral/plastitanium = 50,
 		/obj/item/stack/sheet/mineral/abductor = 50,
@@ -393,14 +392,6 @@
 	new /obj/item/coin/gold(src)
 	new /obj/item/coin/gold(src)
 	new /obj/item/coin/adamantine(src)
-
-///Used in the dutchmen pirate shuttle.
-/obj/item/storage/bag/money/dutchmen/PopulateContents()
-	for(var/iteration in 1 to 9)
-		new /obj/item/coin/silver/doubloon(src)
-	for(var/iteration in 1 to 9)
-		new /obj/item/coin/gold/doubloon(src)
-	new /obj/item/coin/adamantine/doubloon(src)
 
 /obj/item/storage/bag/bio
 	name = "bio bag"

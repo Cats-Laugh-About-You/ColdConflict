@@ -19,10 +19,6 @@
 		zMove(DOWN, z_move_flags = ZMOVE_ALLOW_ANCHORED)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
-/obj/effect/decal/blob_act(obj/structure/blob/B)
-	if(B && B.loc == loc)
-		qdel(src)
-
 ///Checks if we are allowed to be in `here_turf`, and returns that result. Subtypes should override this when necessary.
 /obj/effect/decal/proc/NeverShouldHaveComeHere(turf/here_turf)
 	return isclosedturf(here_turf) || (isgroundlessturf(here_turf) && !GET_TURF_BELOW(here_turf))

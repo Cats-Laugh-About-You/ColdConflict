@@ -40,23 +40,11 @@
 	)
 	species_exception = list(/datum/species/golem)
 
-/obj/item/clothing/suit/costume/pirate/armored
-	armor_type = /datum/armor/pirate_armored
-	strip_delay = 40
-	equip_delay_other = 20
-	species_exception = null
-
 /obj/item/clothing/suit/costume/pirate/captain
 	name = "pirate captain coat"
 	desc = "Yarr."
 	icon_state = "hgpirate"
 	inhand_icon_state = null
-
-/obj/item/clothing/suit/costume/pirate/captain/armored
-	armor_type = /datum/armor/pirate_armored
-	strip_delay = 40
-	equip_delay_other = 20
-	species_exception = null
 
 /obj/item/clothing/suit/costume/cyborg_suit
 	name = "cyborg suit"

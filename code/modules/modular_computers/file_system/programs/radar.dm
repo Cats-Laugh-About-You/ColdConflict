@@ -316,97 +316,6 @@
 		)
 		objects += list(tool_information)
 
-////////////////////////
-//Nuke Disk Finder App//
-////////////////////////
-
-///A program that tracks nukes and nuclear accessories
-/datum/computer_file/program/radar/fission360
-	filename = "fission360"
-	filedesc = "Fission360"
-	program_open_overlay = "radarsyndicate"
-	extended_desc = "This program allows for tracking of nuclear authorization disks and warheads."
-	program_flags = PROGRAM_ON_SYNDINET_STORE
-	tgui_id = "NtosRadarSyndicate"
-	program_icon = "bomb"
-	arrowstyle = "ntosradarpointerS.png"
-	pointercolor = "red"
-	circuit_comp_type = /obj/item/circuit_component/mod_program/radar/nukie
-
-/datum/computer_file/program/radar/fission360/on_start(mob/living/user)
-	. = ..()
-	if(!.)
-		return
-
-	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_DEVICE_ARMED, PROC_REF(on_nuke_armed))
-
-/datum/computer_file/program/radar/fission360/kill_program(mob/user)
-	UnregisterSignal(SSdcs, COMSIG_GLOB_NUKE_DEVICE_ARMED)
-	return ..()
-
-/datum/computer_file/program/radar/fission360/Destroy()
-	UnregisterSignal(SSdcs, COMSIG_GLOB_NUKE_DEVICE_ARMED)
-	return ..()
-
-/datum/computer_file/program/radar/fission360/find_atom()
-	return ..() || SSpoints_of_interest.get_poi_atom_by_ref(selected)
-
-/datum/computer_file/program/radar/fission360/scan()
-	objects = list()
-
-	// All the nukes
-	for(var/obj/machinery/nuclearbomb/nuke as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/nuclearbomb))
-		var/list/nuke_info = list(
-			ref = REF(nuke),
-			name = nuke.name,
-			)
-		objects += list(nuke_info)
-
-	// Dat fukken disk
-	var/obj/item/disk/nuclear/disk = locate() in SSpoints_of_interest.real_nuclear_disks
-	var/list/disk_info = list(
-		ref = REF(disk),
-		name = "Nuke Auth. Disk",
-		)
-	objects += list(disk_info)
-
-	// The infiltrator
-	var/obj/docking_port/mobile/infiltrator = SSshuttle.getShuttle("syndicate")
-	var/list/ship_info = list(
-		ref = REF(infiltrator),
-		name = "Infiltrator",
-		)
-	objects += list(ship_info)
-
-///Shows how long until the nuke detonates, if one is active.
-/datum/computer_file/program/radar/fission360/on_examine(obj/item/modular_computer/source, mob/user)
-	var/list/examine_list = list()
-
-	for(var/obj/machinery/nuclearbomb/bomb as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/nuclearbomb))
-		if(bomb.timing)
-			examine_list += span_danger("Extreme danger. Arming signal detected. Time remaining: [bomb.get_time_left()].")
-	return examine_list
-
-/*
- * Signal proc for [COMSIG_GLOB_NUKE_DEVICE_ARMED].
- * Warns anyone nearby or holding the computer that a nuke was armed.
- */
-/datum/computer_file/program/radar/fission360/proc/on_nuke_armed(datum/source, obj/machinery/nuclearbomb/bomb)
-	SIGNAL_HANDLER
-
-	if(!computer)
-		return
-
-	playsound(computer, 'sound/items/nuke_toy_lowpower.ogg', 50, FALSE)
-	if(isliving(computer.loc))
-		to_chat(computer.loc, span_userdanger("Your [computer.name] vibrates and lets out an ominous alarm. Uh oh."))
-	else
-		computer.audible_message(
-			span_danger("[computer] vibrates and lets out an ominous alarm. Uh oh."),
-			span_notice("[computer] begins to vibrate rapidly. Wonder what that means..."),
-		)
-
-
 /**
  * Base circuit for the radar program.
  * The abstract radar doesn't have this, nor this one is associated to it, so
@@ -514,17 +423,6 @@
 
 /obj/item/circuit_component/mod_program/radar/janitor/can_track(datum/source, atom/signal, signal_turf, computer_turf)
 	if(target.value in GLOB.janitor_devices)
-		return NONE
-	return ..()
-/obj/item/circuit_component/mod_program/radar/nukie
-	associated_program = /datum/computer_file/program/radar/fission360
-
-/obj/item/circuit_component/mod_program/radar/nukie/can_track(datum/source, atom/signal, signal_turf, computer_turf)
-	if(target.value in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/nuclearbomb))
-		return NONE
-	if(target.value in SSpoints_of_interest.real_nuclear_disks)
-		return NONE
-	if(target.value == SSshuttle.getShuttle("syndicate"))
 		return NONE
 	return ..()
 

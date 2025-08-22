@@ -402,9 +402,6 @@
 
 	return jointext(check_list, "<br>")
 
-/obj/item/bodypart/blob_act()
-	receive_damage(max_damage, wound_bonus = CANT_WOUND)
-
 /obj/item/bodypart/attack(mob/living/carbon/victim, mob/user)
 	SHOULD_CALL_PARENT(TRUE)
 

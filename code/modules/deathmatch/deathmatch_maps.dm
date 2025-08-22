@@ -116,7 +116,6 @@
 	allowed_loadouts = list(
 		/datum/outfit/deathmatch_loadout/battler/soldier, // First because its a good and easy loadout and is picked by default
 		/datum/outfit/deathmatch_loadout/battler/bloodminer,
-		/datum/outfit/deathmatch_loadout/battler/clown,
 		/datum/outfit/deathmatch_loadout/battler/cowboy,
 		/datum/outfit/deathmatch_loadout/battler/druid,
 		/datum/outfit/deathmatch_loadout/battler/enginer,
@@ -197,7 +196,6 @@
 		/datum/outfit/deathmatch_loadout/tider,
 		/datum/outfit/deathmatch_loadout/abductor,
 		/datum/outfit/deathmatch_loadout/chef/upgraded,
-		/datum/outfit/deathmatch_loadout/battler/clown/upgraded,
 		/datum/outfit/deathmatch_loadout/mime,
 		/datum/outfit/deathmatch_loadout/pete,
 	)
@@ -228,19 +226,6 @@
 	)
 	map_name = "lattice_battles"
 	key = "lattice_battles"
-
-/datum/lazy_template/deathmatch/ragnarok
-	name = "Ragnarok"
-	desc = "Cultists, heretics, and chaplains all duking it out in the jungle to retrieve the McGuffin."
-	max_players = 8
-	allowed_loadouts = list(
-		/datum/outfit/deathmatch_loadout/cultish/invoker,
-		/datum/outfit/deathmatch_loadout/cultish/artificer,
-		/datum/outfit/deathmatch_loadout/holy_crusader,
-		/datum/outfit/deathmatch_loadout/clock_cult,
-	)
-	map_name = "ragnarok"
-	key = "ragnarok"
 
 /datum/turf_reservation/indestructible_plating
 	turf_type = /turf/open/indestructible/plating //a little hacky but i guess it has to be done

@@ -99,7 +99,6 @@
 	item = /obj/item/computer_disk/syndicate/camera_app
 	cost = 1
 	surplus = 90
-	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS
 
 /datum/uplink_item/device_tools/military_belt
 	name = "Chest Rig"
@@ -114,15 +113,6 @@
 	item = /obj/item/card/emag/doorjack
 	cost = 3
 
-/datum/uplink_item/device_tools/fakenucleardisk
-	name = "Decoy Nuclear Authentication Disk"
-	desc = "It's just a normal disk. Visually it's identical to the real deal, but it won't hold up under closer scrutiny by the Captain. \
-			Don't try to give this to us to complete your objective, we know better!"
-	item = /obj/item/disk/nuclear/fake
-	cost = 1
-	surplus = 1
-	uplink_item_flags = NONE
-
 /datum/uplink_item/device_tools/frame
 	name = "F.R.A.M.E. disk"
 	desc = "When inserted into a tablet, this cartridge gives you five messenger viruses which \
@@ -132,7 +122,6 @@
 	item = /obj/item/computer_disk/virus/frame
 	cost = 4
 	restricted = TRUE
-	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS
 
 /datum/uplink_item/device_tools/frame/spawn_item(spawn_path, mob/user, datum/uplink_handler/uplink_handler, atom/movable/source)
 	. = ..()
@@ -148,7 +137,6 @@
 	cost = 1
 	surplus = 0
 	restricted = TRUE
-	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS
 
 /datum/uplink_item/device_tools/failsafe/spawn_item(spawn_path, mob/user, datum/uplink_handler/uplink_handler, atom/movable/source)
 	var/datum/component/uplink/uplink = source.GetComponent(/datum/component/uplink)
@@ -183,7 +171,6 @@
 			and wavelength, which controls the delay before the effect kicks in."
 	item = /obj/item/healthanalyzer/rad_laser
 	cost = 3
-	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS
 
 /datum/uplink_item/device_tools/suspiciousphone
 	name = "Protocol CRAB-17 Phone"
@@ -256,7 +243,6 @@
 	item = /obj/item/sbeacondrop
 	cost = 4
 	surplus = 0 // not while there isnt one on any station
-	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS
 
 /datum/uplink_item/device_tools/powersink
 	name = "Power Sink"

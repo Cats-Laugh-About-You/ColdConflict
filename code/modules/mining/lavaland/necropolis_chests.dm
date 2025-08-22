@@ -24,8 +24,6 @@
 	switch(loot)
 		if(1)
 			new /obj/item/shared_storage/red(src)
-		if(2)
-			new /obj/item/soulstone/anybody/mining(src)
 		if(3)
 			new /obj/item/organ/cyberimp/arm/toolkit/shard/katana(src)
 		if(4)
@@ -35,7 +33,7 @@
 		if(6)
 			new /obj/item/clothing/gloves/gauntlets(src)
 		if(7)
-			mod = rand(1,4)
+			mod = rand(1,3)
 			switch(mod)
 				if(1)
 					new /obj/item/disk/design_disk/modkit_disc/resonator_blast(src)
@@ -43,8 +41,6 @@
 					new /obj/item/disk/design_disk/modkit_disc/rapid_repeater(src)
 				if(3)
 					new /obj/item/disk/design_disk/modkit_disc/mob_and_turf_aoe(src)
-				if(4)
-					new /obj/item/disk/design_disk/modkit_disc/bounty(src)
 		if(8)
 			new /obj/item/rod_of_asclepius(src)
 		if(9)
@@ -170,13 +166,11 @@
 	name = "puzzling chest"
 
 /obj/structure/closet/crate/necropolis/puzzle/PopulateContents()
-	var/loot = rand(1,3)
+	var/loot = rand(1,2)
 	switch(loot)
 		if(1)
-			new /obj/item/soulstone/anybody/mining(src)
-		if(2)
 			new /obj/item/wisp_lantern(src)
-		if(3)
+		if(2)
 			new /obj/item/prisoncube(src)
 
 /obj/item/skeleton_key

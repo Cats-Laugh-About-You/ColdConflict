@@ -81,7 +81,7 @@
 /obj/machinery/computer/communications/syndicate/get_communication_players()
 	var/list/targets = list()
 	for(var/mob/target in GLOB.player_list)
-		if(target.stat == DEAD || target.z == z || target.mind?.has_antag_datum(/datum/antagonist/battlecruiser))
+		if(target.stat == DEAD || target.z == z)
 			targets += target
 	return targets
 
@@ -117,22 +117,6 @@
 		return ..()
 
 /obj/machinery/computer/communications/emag_act(mob/user, obj/item/card/emag/emag_card)
-	if(istype(emag_card, /obj/item/card/emag/battlecruiser))
-		var/obj/item/card/emag/battlecruiser/caller_card = emag_card
-		if (user)
-			if(!IS_TRAITOR(user))
-				to_chat(user, span_danger("You get the feeling this is a bad idea."))
-				return FALSE
-		if(battlecruiser_called)
-			if (user)
-				to_chat(user, span_danger("The card reports a long-range message already sent to the Syndicate fleet...?"))
-			return FALSE
-		battlecruiser_called = TRUE
-		caller_card.use_charge(user)
-		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(summon_battlecruiser), caller_card.team), rand(20 SECONDS, 1 MINUTES))
-		playsound(src, 'sound/machines/terminal/terminal_alert.ogg', 50, FALSE)
-		return TRUE
-
 	if(obj_flags & EMAGGED)
 		return FALSE
 	obj_flags |= EMAGGED
@@ -293,18 +277,6 @@
 			if (!authenticated(user) || HAS_SILICON_ACCESS(user) || syndicate)
 				return
 			SSshuttle.cancelEvac(user)
-		if ("requestNukeCodes")
-			if (!authenticated_as_non_silicon_captain(user))
-				return
-			if (!COOLDOWN_FINISHED(src, important_action_cooldown))
-				return
-			var/reason = trim(html_encode(params["reason"]), MAX_MESSAGE_LEN)
-			nuke_request(reason, user)
-			to_chat(user, span_notice("Request sent."))
-			user.log_message("has requested the nuclear codes from CentCom with reason \"[reason]\"", LOG_SAY)
-			priority_announce("The codes for the on-station nuclear self-destruct have been requested by [user]. Confirmation or denial of this request will be sent shortly.", "Nuclear Self-Destruct Codes Requested", SSstation.announcer.get_rand_report_sound())
-			playsound(src, 'sound/machines/terminal/terminal_prompt.ogg', 50, FALSE)
-			COOLDOWN_START(src, important_action_cooldown, IMPORTANT_ACTION_COOLDOWN)
 		if ("restoreBackupRoutingData")
 			if (!authenticated_as_non_silicon_captain(user))
 				return
@@ -531,7 +503,6 @@
 				data["canMakeAnnouncement"] = FALSE
 				data["canMessageAssociates"] = FALSE
 				data["canRecallShuttles"] = !HAS_SILICON_ACCESS(user)
-				data["canRequestNuke"] = FALSE
 				data["canSendToSectors"] = FALSE
 				data["canSetAlertLevel"] = FALSE
 				data["canToggleEmergencyAccess"] = FALSE
@@ -548,7 +519,6 @@
 
 				if (authenticated_as_non_silicon_captain(user))
 					data["canMessageAssociates"] = TRUE
-					data["canRequestNuke"] = TRUE
 
 				if (can_send_messages_to_other_sectors(user))
 					data["canSendToSectors"] = TRUE
@@ -851,13 +821,6 @@
 	message_admins("[ADMIN_LOOKUPFLW(hacker)] hacked a [name] located at [ADMIN_VERBOSEJMP(src)], resulting in: [picked_option]!")
 	hacker.log_message("hacked a communications console, resulting in: [picked_option].", LOG_GAME, log_globally = TRUE)
 	switch(picked_option)
-		if(HACK_PIRATE) // Triggers pirates, which the crew may be able to pay off to prevent
-			var/list/pirate_rulesets = list(
-				/datum/dynamic_ruleset/midround/pirates,
-				/datum/dynamic_ruleset/midround/pirates/heavy,
-			)
-			SSdynamic.force_run_midround(pick(pirate_rulesets))
-
 		if(HACK_FUGITIVES) // Triggers fugitives, which can cause confusion / chaos as the crew decides which side help
 			priority_announce(
 				"Attention crew: sector monitoring reports a jump-trace from an unidentified vessel destined for your system. Prepare for probable contact.",

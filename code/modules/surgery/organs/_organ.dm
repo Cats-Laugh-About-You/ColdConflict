@@ -368,7 +368,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
  * If you want a carbon to have a trait that normally blocks an organ but still want the organ. Attach the trait to the organ using the organ_traits var
  * Arguments:
  * owner_species - species, needed to return the mutant slot as true or false. stomach set to null means it shouldn't have one.
- * owner_mob - for more specific checks, like nightmares.
+ * owner_mob - for more specific checks.
  */
 /obj/item/organ/proc/get_availability(datum/species/owner_species, mob/living/owner_mob)
 	return TRUE

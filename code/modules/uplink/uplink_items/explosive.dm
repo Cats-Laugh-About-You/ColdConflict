@@ -27,7 +27,6 @@
 	item = /obj/item/grenade/c4/x4
 	cost = 2
 	limited_stock = 5
-	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS //nukies get their own version
 
 /datum/uplink_item/explosives/c4bag
 	name = "Bag of C-4 explosives"
@@ -36,7 +35,6 @@
 	cost = 5 // 50% discount!
 	cant_discount = TRUE
 	limited_stock = 2
-	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS //nukies get their own version
 
 /datum/uplink_item/explosives/frag
 	name = "Frag Grenade"
@@ -44,7 +42,6 @@
 	item = /obj/item/grenade/frag
 	cost = 1
 	limited_stock = 10
-	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS //nukies get a whole box of these at once at a considerable discount.
 
 /datum/uplink_item/explosives/detomatix
 	name = "Detomatix disk"
@@ -82,7 +79,6 @@
 	cost = 2
 	limited_stock = 4
 	surplus = 8
-	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS /// Ops get their own version.
 
 /datum/uplink_item/explosives/syndicate_minibomb
 	name = "Syndicate Minibomb"
@@ -92,14 +88,12 @@
 	item = /obj/item/grenade/syndieminibomb
 	cost = 2
 	limited_stock = 4
-	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS /// Ops get their own version.
 
 /datum/uplink_item/explosives/syndicate_bomb/emp
 	name = "Syndicate EMP Bomb"
 	desc = "A variation of the syndicate bomb designed to produce a large EMP effect."
 	item = /obj/item/sbeacondrop/emp
 	cost = 7
-	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS /// Ops get their own version.
 	limited_discount_stock = 4
 
 /datum/uplink_item/explosives/syndicate_bomb/emp/New()
@@ -118,7 +112,6 @@
 	progression_minimum = 30 MINUTES
 	item = /obj/item/sbeacondrop/bomb
 	cost = 11
-	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS /// Ops get their own version.
 	limited_discount_stock = 4
 
 /datum/uplink_item/explosives/syndicate_bomb/New()
@@ -132,4 +125,3 @@
 	item = /obj/item/storage/box/syndie_kit/feral_cat_grenades
 	surplus = 30
 	limited_stock = 2
-	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS

@@ -21,7 +21,6 @@
 		/obj/item/stack/rods = 5,
 		/obj/item/stack/sheet/plasteel = 2,
 		/obj/item/stack/sheet/bronze = 2,
-		/obj/item/stack/sheet/runed_metal = 1,
 		/obj/item/stack/sheet/titaniumglass = 2,
 		exotic_material = 2 // this needs to be refactored properly
 	)
@@ -396,10 +395,6 @@
 	var/remains = pick(/obj/item/stack/rods, /obj/item/stack/sheet/iron)
 	new remains(loc)
 
-/obj/structure/girder/narsie_act()
-	new /obj/structure/girder/cult(loc)
-	qdel(src)
-
 /obj/structure/girder/displaced
 	name = "displaced girder"
 	icon = 'icons/obj/structures.dmi'
@@ -434,54 +429,6 @@
 
 /obj/structure/girder/tram/corner
 	name = "tram frame corner"
-
-//////////////////////////////////////////// cult girder //////////////////////////////////////////////
-
-/obj/structure/girder/cult
-	name = "runed girder"
-	desc = "Framework made of a strange and shockingly cold metal. It doesn't seem to have any bolts."
-	icon = 'icons/obj/antags/cult/structures.dmi'
-	icon_state= "cultgirder"
-	can_displace = FALSE
-	smoothing_flags = NONE
-	smoothing_groups = null
-	canSmoothWith = null
-
-/obj/structure/girder/cult/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
-	add_fingerprint(user)
-	if(W.tool_behaviour == TOOL_WELDER)
-		if(!W.tool_start_check(user, amount=1))
-			return
-
-		balloon_alert(user, "slicing apart...")
-		if(W.use_tool(src, user, 40, volume=50))
-			var/obj/item/stack/sheet/runed_metal/R = new(drop_location(), 1)
-			transfer_fingerprints_to(R)
-			qdel(src)
-
-	else if(istype(W, /obj/item/stack/sheet/runed_metal))
-		var/obj/item/stack/sheet/runed_metal/R = W
-		var/amount = construction_cost[R.type]
-		if(R.get_amount() < amount)
-			balloon_alert(user, "need [amount] sheet!")
-			return
-		balloon_alert(user, "adding plating...")
-		if(do_after(user, 5 SECONDS, target = src))
-			if(R.get_amount() < amount)
-				return
-			R.use(amount)
-			var/turf/T = get_turf(src)
-			T.place_on_top(/turf/closed/wall/mineral/cult)
-			qdel(src)
-
-	else
-		return ..()
-
-/obj/structure/girder/cult/narsie_act()
-	return
-
-/obj/structure/girder/cult/atom_deconstruct(disassembled = TRUE)
-	new /obj/item/stack/sheet/runed_metal(drop_location())
 
 /obj/structure/girder/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
 	switch(the_rcd.mode)

@@ -99,12 +99,6 @@
 	end_create_message = "dispenses a suspicious drone shell."
 	starting_amount = SHEET_MATERIAL_AMOUNT * 12.5
 
-/obj/machinery/drone_dispenser/syndrone/badass //Please forgive me
-	name = "badass syndrone shell dispenser"
-	desc = "A suspicious machine that will create Syndicate exterminator drones when supplied with iron and glass. Disgusting. This one seems ominous."
-	dispense_type = list(/obj/effect/mob_spawn/ghost_role/drone/syndrone/badass)
-	end_create_message = "dispenses an ominous suspicious drone shell."
-
 // I don't need your forgiveness, this is awesome.
 /obj/machinery/drone_dispenser/snowflake
 	name = "snowflake drone shell dispenser"

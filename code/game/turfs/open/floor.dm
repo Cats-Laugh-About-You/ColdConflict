@@ -90,9 +90,6 @@
 	for(var/obj/structure/A in contents)
 		return 1
 
-/turf/open/floor/blob_act(obj/structure/blob/B)
-	return
-
 /turf/open/floor/attack_paw(mob/user, list/modifiers)
 	return attack_hand(user, modifiers)
 
@@ -191,12 +188,6 @@
 	if(sheer)
 		if(has_tile())
 			remove_tile(null, TRUE, TRUE, TRUE)
-
-
-/turf/open/floor/narsie_act(force, ignore_mobs, probability = 20)
-	. = ..()
-	if(.)
-		ChangeTurf(/turf/open/floor/engine/cult, flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/acid_melt()
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
@@ -362,12 +353,6 @@
 				return FALSE
 			return TRUE
 	return FALSE
-
-/turf/open/floor/rust_turf()
-	if(HAS_TRAIT(src, TRAIT_RUSTY))
-		return
-	ChangeTurf(/turf/open/floor/plating)
-	return ..()
 
 /turf/open/floor/material
 	name = "floor"

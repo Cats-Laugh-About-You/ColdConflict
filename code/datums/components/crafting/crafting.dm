@@ -417,8 +417,6 @@
 /datum/component/personal_crafting/proc/is_recipe_available(datum/crafting_recipe/recipe, mob/user)
 	if((recipe.crafting_flags & CRAFT_MUST_BE_LEARNED) && !(recipe.type in user?.mind?.learned_recipes)) //User doesn't actually know how to make this.
 		return FALSE
-	if (recipe.category == CAT_CULT && !IS_CULTIST(user)) // Skip blood cult recipes if not cultist
-		return FALSE
 	return TRUE
 
 /datum/component/personal_crafting/proc/component_ui_interact(atom/movable/screen/craft/image, location, control, params, user)

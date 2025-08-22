@@ -276,14 +276,6 @@
 	dangerous = TRUE //these are literally bombs so....
 	discountable = SUPPLY_PACK_RARE_DISCOUNTABLE
 
-/datum/supply_pack/imports/shambler_evil
-	name = "Shamber's Juice Eldritch Energy! Crate"
-	desc = "~J'I'CE!~"
-	cost = CARGO_CRATE_VALUE * 50
-	contains = list(/obj/item/reagent_containers/cup/soda_cans/shamblers/eldritch = 1)
-	crate_name = "illegal shambler's juice crate"
-	contraband = TRUE
-
 /datum/supply_pack/imports/hide
 	name = "Animal Hide Crate"
 	desc = "Want to not bother slaughtering a bunch of innocent creatures? Here, have some animal pelts! \

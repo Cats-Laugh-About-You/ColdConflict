@@ -282,10 +282,3 @@
 	id = "resonatormod"
 	materials = list(/datum/material/iron =HALF_SHEET_MATERIAL_AMOUNT*5, /datum/material/glass =HALF_SHEET_MATERIAL_AMOUNT*5, /datum/material/silver =HALF_SHEET_MATERIAL_AMOUNT*5, /datum/material/uranium =SHEET_MATERIAL_AMOUNT * 2.5)
 	build_path = /obj/item/borg/upgrade/modkit/resonator_blasts
-
-/datum/design/unique_modkit/bounty
-	name = "Kinetic Accelerator Death Syphon Mod"
-	desc = "A device which causes kinetic accelerators to permanently gain damage against creature types killed with it."
-	id = "bountymod"
-	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT*2, /datum/material/silver = SHEET_MATERIAL_AMOUNT*2, /datum/material/gold = SHEET_MATERIAL_AMOUNT*2, /datum/material/bluespace = SHEET_MATERIAL_AMOUNT*2)
-	build_path = /obj/item/borg/upgrade/modkit/bounty

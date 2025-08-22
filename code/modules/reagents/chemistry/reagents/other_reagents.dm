@@ -319,8 +319,6 @@
 
 /datum/reagent/water/holywater/on_mob_add(mob/living/affected_mob, amount)
 	. = ..()
-	if(IS_CULTIST(affected_mob))
-		to_chat(affected_mob, span_userdanger("A vile holiness begins to spread its shining tendrils through your mind, purging the Geometer of Blood's influence!"))
 
 /datum/reagent/water/holywater/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -330,36 +328,17 @@
 	affected_mob.adjust_jitter_up_to(4 SECONDS * REM * seconds_per_tick, 20 SECONDS)
 	var/need_mob_update = FALSE
 
-	if(IS_CULTIST(affected_mob))
-		for(var/datum/action/innate/cult/blood_magic/BM in affected_mob.actions)
-			var/removed_any = FALSE
-			for(var/datum/action/innate/cult/blood_spell/BS in BM.spells)
-				removed_any = TRUE
-				qdel(BS)
-			if(removed_any)
-				to_chat(affected_mob, span_cult_large("Your blood rites falter as holy water scours your body!"))
-
 	if(data["deciseconds_metabolized"] >= (25 SECONDS)) // 10 units
 		affected_mob.adjust_stutter_up_to(4 SECONDS * REM * seconds_per_tick, 20 SECONDS)
 		affected_mob.set_dizzy_if_lower(10 SECONDS)
-		if(IS_CULTIST(affected_mob) && SPT_PROB(10, seconds_per_tick))
-			affected_mob.say(pick("Av'te Nar'Sie","Pa'lid Mors","INO INO ORA ANA","SAT ANA!","Daim'niodeis Arc'iai Le'eones","R'ge Na'sie","Diabo us Vo'iscum","Eld' Mon Nobis"), forced = "holy water")
-			if(prob(10))
-				affected_mob.visible_message(span_danger("[affected_mob] starts having a seizure!"), span_userdanger("You have a seizure!"))
-				affected_mob.Unconscious(12 SECONDS)
-				to_chat(affected_mob, span_cult_large("[pick("Your blood is your bond - you are nothing without it", "Do not forget your place", \
-					"All that power, and you still fail?", "If you cannot scour this poison, I shall scour your meager life!")]."))
-		else if(HAS_TRAIT(affected_mob, TRAIT_EVIL) && SPT_PROB(25, seconds_per_tick)) //Congratulations, your committment to evil has now made holy water a deadly poison to you!
-			if(!IS_CULTIST(affected_mob) || affected_mob.mind?.holy_role != HOLY_ROLE_PRIEST)
+		if(HAS_TRAIT(affected_mob, TRAIT_EVIL) && SPT_PROB(25, seconds_per_tick)) //Congratulations, your committment to evil has now made holy water a deadly poison to you!
+			if(affected_mob.mind?.holy_role != HOLY_ROLE_PRIEST)
 				affected_mob.emote("scream")
 				need_mob_update += affected_mob.adjustFireLoss(3 * REM * seconds_per_tick, updating_health = FALSE)
 
 	if(data["deciseconds_metabolized"] >= (1 MINUTES)) // 24 units
-		if(IS_CULTIST(affected_mob))
-			affected_mob.mind.remove_antag_datum(/datum/antagonist/cult)
-			affected_mob.Unconscious(10 SECONDS)
-		else if(HAS_TRAIT(affected_mob, TRAIT_EVIL)) //At this much holy water, you're probably going to fucking melt. good luck
-			if(!IS_CULTIST(affected_mob) || affected_mob.mind?.holy_role != HOLY_ROLE_PRIEST)
+		if(HAS_TRAIT(affected_mob, TRAIT_EVIL)) //At this much holy water, you're probably going to fucking melt. good luck
+			if(affected_mob.mind?.holy_role != HOLY_ROLE_PRIEST)
 				need_mob_update += affected_mob.adjustFireLoss(10 * REM * seconds_per_tick, updating_health = FALSE)
 		affected_mob.remove_status_effect(/datum/status_effect/jitter)
 		affected_mob.remove_status_effect(/datum/status_effect/speech/stutter)
@@ -371,9 +350,6 @@
 	. = ..()
 	if(!istype(exposed_turf))
 		return
-	if(reac_volume >= 10)
-		for(var/obj/effect/rune/R in exposed_turf)
-			qdel(R)
 	exposed_turf.Bless()
 
 /datum/reagent/water/hollowwater
@@ -440,40 +416,16 @@
 
 /datum/reagent/fuel/unholywater/on_mob_metabolize(mob/living/affected_mob)
 	. = ..()
-	if(IS_CULTIST(affected_mob))
-		ADD_TRAIT(affected_mob, TRAIT_COAGULATING, type)
 
 /datum/reagent/fuel/unholywater/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 
 	var/need_mob_update = FALSE
-	if(IS_CULTIST(affected_mob))
-		affected_mob.adjust_drowsiness(-10 SECONDS * REM * seconds_per_tick)
-		affected_mob.AdjustAllImmobility(-40 * REM * seconds_per_tick)
-		need_mob_update += affected_mob.adjustStaminaLoss(-10 * REM * seconds_per_tick, updating_stamina = FALSE)
-		need_mob_update += affected_mob.adjustToxLoss(-2 * REM * seconds_per_tick, updating_health = FALSE)
-		need_mob_update += affected_mob.adjustOxyLoss(-2 * REM * seconds_per_tick, updating_health = FALSE)
-		need_mob_update += affected_mob.adjustBruteLoss(-2 * REM * seconds_per_tick, updating_health = FALSE)
-		need_mob_update += affected_mob.adjustFireLoss(-2 * REM * seconds_per_tick, updating_health = FALSE)
-		need_mob_update = TRUE
-		if(ishuman(affected_mob) && affected_mob.blood_volume < BLOOD_VOLUME_NORMAL)
-			affected_mob.blood_volume += 3 * REM * seconds_per_tick
-
-			var/datum/wound/bloodiest_wound
-
-			for(var/datum/wound/iter_wound as anything in affected_mob.all_wounds)
-				if(iter_wound.blood_flow && iter_wound.blood_flow > bloodiest_wound?.blood_flow)
-					bloodiest_wound = iter_wound
-
-			if(bloodiest_wound)
-				bloodiest_wound.adjust_blood_flow(-2 * REM * seconds_per_tick)
-
-	else  // Will deal about 90 damage when 50 units are thrown
-		need_mob_update += affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 3 * REM * seconds_per_tick, 150)
-		need_mob_update += affected_mob.adjustToxLoss(1 * REM * seconds_per_tick, updating_health = FALSE)
-		need_mob_update += affected_mob.adjustFireLoss(1 * REM * seconds_per_tick, updating_health = FALSE)
-		need_mob_update += affected_mob.adjustOxyLoss(1 * REM * seconds_per_tick, updating_health = FALSE)
-		need_mob_update += affected_mob.adjustBruteLoss(1 * REM * seconds_per_tick, updating_health = FALSE)
+	need_mob_update += affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 3 * REM * seconds_per_tick, 150)
+	need_mob_update += affected_mob.adjustToxLoss(1 * REM * seconds_per_tick, updating_health = FALSE)
+	need_mob_update += affected_mob.adjustFireLoss(1 * REM * seconds_per_tick, updating_health = FALSE)
+	need_mob_update += affected_mob.adjustOxyLoss(1 * REM * seconds_per_tick, updating_health = FALSE)
+	need_mob_update += affected_mob.adjustBruteLoss(1 * REM * seconds_per_tick, updating_health = FALSE)
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
 
@@ -2844,46 +2796,6 @@
 			wounded_part.heal_damage(0.25 * REM * seconds_per_tick, 0.25 * REM * seconds_per_tick)
 		if(affected_mob.adjustStaminaLoss(-1 * REM * seconds_per_tick, updating_stamina = FALSE)) // the more wounds, the more stamina regen
 			return UPDATE_MOB_HEALTH
-
-// unholy water, but for heretics.
-// why couldn't they have both just used the same reagent?
-// who knows.
-// maybe nar'sie is considered to be too "mainstream" of a god to worship in the heretic community.
-/datum/reagent/eldritch
-	name = "Eldritch Essence"
-	description = "A strange liquid that defies the laws of physics. \
-		It re-energizes and heals those who can see beyond this fragile reality, \
-		but is incredibly harmful to the closed-minded. It metabolizes very quickly."
-	taste_description = "Ag'hsj'saje'sh"
-	self_consuming = TRUE //eldritch intervention won't be limited by the lack of a liver
-	color = "#1f8016"
-	metabolization_rate = 2.5 * REAGENTS_METABOLISM  //0.5u/second
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_NO_RANDOM_RECIPE
-
-/datum/reagent/eldritch/on_mob_life(mob/living/carbon/drinker, seconds_per_tick, times_fired)
-	. = ..()
-	var/need_mob_update = FALSE
-	drinker.adjust_drowsiness(-10 * REM * seconds_per_tick)
-	drinker.AdjustAllImmobility(-40 * REM * seconds_per_tick)
-	need_mob_update += drinker.adjustStaminaLoss(-10 * REM * seconds_per_tick, updating_stamina = FALSE)
-	need_mob_update += drinker.adjustToxLoss(-2 * REM * seconds_per_tick, updating_health = FALSE, forced = TRUE)
-	need_mob_update += drinker.adjustOxyLoss(-2 * REM * seconds_per_tick, updating_health = FALSE)
-	need_mob_update += drinker.adjustBruteLoss(-2 * REM * seconds_per_tick, updating_health = FALSE)
-	need_mob_update += drinker.adjustFireLoss(-2 * REM * seconds_per_tick, updating_health = FALSE)
-	if(drinker.blood_volume < BLOOD_VOLUME_NORMAL)
-		drinker.blood_volume += 3 * REM * seconds_per_tick
-	need_mob_update = drinker.adjustOrganLoss(ORGAN_SLOT_BRAIN, 3 * REM * seconds_per_tick, 150)
-	need_mob_update += drinker.adjustToxLoss(2 * REM * seconds_per_tick, updating_health = FALSE)
-	need_mob_update += drinker.adjustFireLoss(2 * REM * seconds_per_tick, updating_health = FALSE)
-	need_mob_update += drinker.adjustOxyLoss(2 * REM * seconds_per_tick, updating_health = FALSE)
-	need_mob_update += drinker.adjustBruteLoss(2 * REM * seconds_per_tick, updating_health = FALSE)
-	if(need_mob_update)
-		return UPDATE_MOB_HEALTH
-
-/datum/reagent/eldritch/expose_turf(turf/exposed_turf, reac_volume)
-	. = ..()
-	if ((reac_volume >= 1.5 || isplatingturf(exposed_turf)) && !HAS_TRAIT(exposed_turf, TRAIT_RUSTY))
-		exposed_turf.rust_turf()
 
 /datum/reagent/universal_indicator
 	name = "Universal Indicator"

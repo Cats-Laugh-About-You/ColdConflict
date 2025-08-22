@@ -16,8 +16,6 @@ GLOBAL_LIST_INIT(autodrobe_costumes_items, list(
 	/obj/item/clothing/head/costume/griffin = 1,
 	/obj/item/clothing/under/costume/pirate = 3,
 	/obj/item/clothing/suit/costume/pirate = 3,
-	/obj/item/clothing/head/costume/pirate = 3,
-	/obj/item/clothing/head/costume/pirate/bandana = 3,
 	/obj/item/clothing/shoes/pirate = 3,
 	/obj/item/clothing/under/costume/soviet = 3,
 	/obj/item/clothing/head/costume/ushanka = 3,
@@ -167,7 +165,6 @@ GLOBAL_LIST_INIT(autodrobe_other_items, list(
 
 GLOBAL_LIST_INIT(autodrobe_premium_items, list(
 	/obj/item/clothing/suit/costume/pirate/captain = 2,
-	/obj/item/clothing/head/costume/pirate/captain = 2,
 	/obj/item/clothing/under/rank/civilian/clown/rainbow = 1,
 	/obj/item/clothing/head/helmet/roman/fake = 3,
 	/obj/item/clothing/head/helmet/roman/legionnaire/fake = 3,

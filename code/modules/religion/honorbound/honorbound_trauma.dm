@@ -113,8 +113,6 @@
 		var/datum/mind/guilty_conscience = attacked_mob.mind
 		if(guilty_conscience.has_antag_datum(/datum/antagonist/abductor))
 			guilty(attacked_mob, "for their blatant surgical malice...")
-		if(guilty_conscience.has_antag_datum(/datum/antagonist/nightmare))
-			guilty(attacked_mob, "for being a light-consuming nightmare!")
 		if(guilty_conscience.has_antag_datum(/datum/antagonist/ninja))
 			guilty(attacked_mob, "for their misaligned association with the Spider Clan!")
 

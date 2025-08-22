@@ -157,10 +157,6 @@
 				return
 	return ..()
 
-/obj/structure/light_construct/blob_act(obj/structure/blob/attacking_blob)
-	if(attacking_blob && attacking_blob.loc == loc)
-		qdel(src)
-
 /obj/structure/light_construct/atom_deconstruct(disassembled = TRUE)
 	new /obj/item/stack/sheet/iron(loc, sheets_refunded)
 

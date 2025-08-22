@@ -256,10 +256,6 @@
 		"min_players": 10,
 		"weight": 5
 	},
-	"Blob": {
-		"min_players": 20,
-		"weight": 10
-	},
 	"Changeling Meteor": {
 		"min_players": 20,
 		"weight": 8
@@ -272,10 +268,6 @@
 	"Spawn Morph": {
 		"min_players": 0,
 		"weight": 0
-	},
-	"Spawn Nightmare": {
-		"min_players": 20,
-		"weight": 10
 	},
 	"Lone Operative": {
 		"min_players": 0,

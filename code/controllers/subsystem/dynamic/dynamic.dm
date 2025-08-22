@@ -605,18 +605,6 @@ SUBSYSTEM_DEF(dynamic)
 
 	SSticker.mode_result = "undefined"
 
-	switch(GLOB.revolution_handler?.result)
-		if(STATION_VICTORY)
-			SSticker.mode_result = "loss - rev heads killed"
-			SSticker.news_report = REVS_LOSE
-		if(REVOLUTION_VICTORY)
-			SSticker.mode_result = "win - heads killed"
-			SSticker.news_report = REVS_WIN
-
-	// Something nuked the station - it wasn't nuke ops (they set their own via their rulset)
-	if(GLOB.station_was_nuked)
-		SSticker.news_report = STATION_NUKED
-
 	if(SSsupermatter_cascade.cascade_initiated)
 		SSticker.news_report = SUPERMATTER_CASCADE
 

@@ -11,9 +11,6 @@ SUBSYSTEM_DEF(points_of_interest)
 	/// List of all value:POI datums by their key:target refs.
 	var/list/datum/point_of_interest/points_of_interest_by_target_ref = list()
 
-	/// Special helper list of all real nuke disks.
-	var/list/obj/item/disk/nuclear/real_nuclear_disks = list()
-
 	/// Special helper list to track any Nar'sies.
 	var/list/obj/narsie/narsies = list()
 
@@ -43,15 +40,6 @@ SUBSYSTEM_DEF(points_of_interest)
 		BINARY_INSERT_PROC_COMPARE(new_poi_datum, other_points_of_interest, /datum/point_of_interest, new_poi_datum, compare_to, COMPARE_KEY)
 		points_of_interest_by_target_ref[REF(new_poi)] = new_poi_datum
 
-		// NUKE DISK HELPER
-		if(istype(new_poi, /obj/item/disk/nuclear))
-			var/obj/item/disk/nuclear/nuke_disk = new_poi
-			if(!nuke_disk.fake)
-				real_nuclear_disks += nuke_disk
-		// NAR'SIE HELPER
-		else if(istype(new_poi, /obj/narsie))
-			narsies += new_poi
-
 	SEND_SIGNAL(src, COMSIG_ADDED_POINT_OF_INTEREST, new_poi)
 
 /**
@@ -68,15 +56,6 @@ SUBSYSTEM_DEF(points_of_interest)
 		mob_points_of_interest -= poi_to_remove
 	else
 		other_points_of_interest -= poi_to_remove
-
-		// NUKE DISK HELPER
-		if(istype(old_poi, /obj/item/disk/nuclear))
-			var/obj/item/disk/nuclear/nuke_disk = old_poi
-			if(!nuke_disk.fake)
-				real_nuclear_disks -= nuke_disk
-		// NAR'SIE HELPER
-		else if(istype(old_poi, /obj/narsie))
-			narsies -= old_poi
 
 	points_of_interest_by_target_ref -= poi_ref
 

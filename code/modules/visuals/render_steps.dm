@@ -32,9 +32,6 @@
 /atom/movable/render_step/singularity_pull(atom/singularity, current_size)
 	return
 
-/atom/movable/render_step/blob_act()
-	return
-
 //Prevents people from moving these after creation, because they shouldn't be.
 /atom/movable/render_step/forceMove(atom/destination, no_tp=FALSE, harderforce = FALSE)
 	if(harderforce)

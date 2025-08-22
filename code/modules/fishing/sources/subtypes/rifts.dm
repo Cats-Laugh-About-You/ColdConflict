@@ -39,17 +39,14 @@
 		/obj/item/fish/gullion = 7,
 		/obj/item/fish/mossglob = 3,
 		/obj/item/fish/babbelfish = 1,
-		/mob/living/basic/heretic_summon/fire_shark/wild = 3,
 	)
 	fish_counts = list(
 		/obj/item/fish/mossglob = 3,
 		/obj/item/fish/babbelfish = 1,
-		/mob/living/basic/heretic_summon/fire_shark/wild = 3,
 	)
 	fish_count_regen = list(
 		/obj/item/fish/mossglob = 3 MINUTES,
 		/obj/item/fish/babbelfish = 5 MINUTES,
-		/mob/living/basic/heretic_summon/fire_shark/wild = 6 MINUTES,
 	)
 	fishing_difficulty = FISHING_DEFAULT_DIFFICULTY + 35
 	fish_source_flags = FISH_SOURCE_FLAG_EXPLOSIVE_NONE

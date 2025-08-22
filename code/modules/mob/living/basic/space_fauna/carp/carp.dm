@@ -195,6 +195,11 @@
 /mob/living/basic/carp/holographic/setup_eating()
 	return FALSE
 
+/mob/living/basic/carp/advanced
+	health = 40
+	maxHealth = 40
+	obj_damage = 15
+
 /**
  * Pet carp, abstract carp which just holds some shared properties.
  */
@@ -227,58 +232,6 @@
 	icon_living = "magicarp"
 	greyscale_config = NONE
 
-/// Boosted chance for Cayenne to be silver
-#define RARE_CAYENNE_CHANCE 10
-
-/**
- * Cayenne - Loyal member of the nuclear operatives.
- * Spawns in the nuke op shuttle, can be made sapient if they want to do that for some reason.
- * Is very talented and also capable of holding the nuclear disk.
- */
-/mob/living/basic/carp/pet/cayenne
-	name = "Cayenne"
-	real_name = "Cayenne"
-	desc = "A failed Syndicate experiment in weaponized space carp technology, it now serves as a lovable mascot."
-	faction = list(ROLE_SYNDICATE)
-	/// Overlay to apply to display the disk
-	var/mutable_appearance/disk_overlay
-	/// Overlay to apply over the disk so it looks like cayenne is holding it
-	var/mutable_appearance/mouth_overlay
-
-/mob/living/basic/carp/pet/cayenne/Initialize(mapload)
-	. = ..()
-	var/datum/callback/got_disk = CALLBACK(src, PROC_REF(got_disk))
-	var/datum/callback/display_disk = CALLBACK(src, PROC_REF(display_disk))
-	AddComponent(/datum/component/nuclear_bomb_operator, got_disk, display_disk)
-
-/mob/living/basic/carp/pet/cayenne/apply_colour()
-	if (prob(RARE_CAYENNE_CHANCE))
-		set_greyscale(colors = list(COLOR_CARP_SILVER))
-	else
-		return ..()
-
-/// She did it! Treats for Cayenne!
-/mob/living/basic/carp/pet/cayenne/proc/got_disk(obj/item/disk/nuclear/disky)
-	if (disky.fake) // Never mind she didn't do it
-		return
-	client.give_award(/datum/award/achievement/misc/cayenne_disk, src)
-
-/// Adds an overlay to show the disk on Cayenne
-/mob/living/basic/carp/pet/cayenne/proc/display_disk(list/new_overlays)
-	if (!mouth_overlay)
-		mouth_overlay = mutable_appearance(SSgreyscale.GetColoredIconByType(/datum/greyscale_config/carp/disk_mouth, greyscale_colors), "disk_mouth")
-	new_overlays += mouth_overlay
-
-	if (!disk_overlay)
-		disk_overlay = mutable_appearance('icons/mob/simple/carp.dmi', "disk_overlay")
-	new_overlays += disk_overlay
-
-/mob/living/basic/carp/advanced
-	health = 40
-	maxHealth = 40
-	obj_damage = 15
-
-#undef RARE_CAYENNE_CHANCE
 
 ///Carp-parasite from carpellosis disease
 /mob/living/basic/carp/ella

@@ -63,8 +63,6 @@
 			return /datum/outfit/consumed_golem
 		if("Clown")
 			return /datum/outfit/consumed_clown
-		if("Cultist")
-			return /datum/outfit/consumed_cultist
 		if("Dame")
 			return /datum/outfit/consumed_dame
 		if("Operative")
@@ -105,8 +103,6 @@
 			return /datum/outfit/consumed_heremoth
 		if("Clown")
 			return /datum/outfit/consumed_clown
-		if("Cultist")
-			return /datum/outfit/consumed_cultist
 		if("Golem")
 			return /datum/outfit/consumed_golem
 		if("Operative")
@@ -370,20 +366,6 @@
 	if(visuals_only)
 		return
 	shadowperson.set_species(/datum/species/shadow)
-
-/datum/outfit/consumed_cultist
-	name = "Legion-Consumed Cultist"
-	uniform = /obj/item/clothing/under/costume/roman
-	suit = /obj/item/clothing/suit/hooded/cultrobes
-	suit_store = /obj/item/tome
-	back = /obj/item/storage/backpack/cultpack
-	backpack_contents = list(
-		/obj/item/cult_shift = 1,
-		/obj/item/flashlight/flare/culttorch = 1,
-		/obj/item/reagent_containers/cup/beaker/unholywater = 1,
-		/obj/item/stack/sheet/runed_metal = 15,
-		)
-	r_pocket = /obj/item/clothing/glasses/hud/health/night/cultblind
 
 /datum/outfit/consumed_heremoth
 	name = "Legion-Consumed Tribal Mothman"

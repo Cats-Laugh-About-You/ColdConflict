@@ -821,35 +821,6 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 	victim.reagents.add_reagent(/datum/reagent/water, rand(5, 10))
 	return TRUE
 
-/datum/material/runedmetal
-	name = "runed metal"
-	desc = "Mir'ntrath barhah Nar'sie."
-	color = "#504742"
-	categories = list(
-		MAT_CATEGORY_RIGID = TRUE,
-		MAT_CATEGORY_BASE_RECIPES = TRUE,
-		MAT_CATEGORY_ITEM_MATERIAL = TRUE,
-		MAT_CATEGORY_ITEM_MATERIAL_COMPLEMENTARY = TRUE,
-		)
-	sheet_type = /obj/item/stack/sheet/runed_metal
-	value_per_unit = 1500 / SHEET_MATERIAL_AMOUNT
-	armor_modifiers = list(MELEE = 1.2, BULLET = 1.2, LASER = 1, ENERGY = 1, BOMB = 1.2, BIO = 1.2, FIRE = 1.5, ACID = 1.5)
-	beauty_modifier = -0.15
-	texture_layer_icon_state = "runed"
-	fish_weight_modifier = 1.5
-	fishing_difficulty_modifier = -6.66
-	fishing_experience_multiplier = 0.666
-	fishing_completion_speed = 1.666
-	fishing_bait_speed_mult = 1.666
-	fishing_deceleration_mult = 1.666
-	fishing_bounciness_mult = 0.666
-	fishing_gravity_mult = 1.666
-
-/datum/material/runedmetal/on_accidental_mat_consumption(mob/living/carbon/victim, obj/item/source_item)
-	victim.reagents.add_reagent(/datum/reagent/fuel/unholywater, rand(8, 12))
-	victim.apply_damage(10, BRUTE, BODY_ZONE_HEAD, wound_bonus = 5)
-	return TRUE
-
 /datum/material/bronze
 	name = "bronze"
 	desc = "Clock Cult? Never heard of it."

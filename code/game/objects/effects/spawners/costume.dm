@@ -132,15 +132,6 @@
 		/obj/item/clothing/suit/apron,
 	)
 
-/obj/effect/spawner/costume/pirate
-	name = "pirate costume spawner"
-	items = list(
-		/obj/item/clothing/under/costume/pirate,
-		/obj/item/clothing/suit/costume/pirate,
-		/obj/effect/spawner/random/clothing/pirate_or_bandana,
-		/obj/item/clothing/glasses/eyepatch,
-	)
-
 /obj/effect/spawner/costume/commie
 	name = "commie costume spawner"
 	items = list(

@@ -31,7 +31,6 @@
 /mob/living/basic/pet/penguin/Initialize(mapload)
 	. = ..()
 	add_traits(list(TRAIT_MOB_CAN_DIG, TRAIT_NODROWN, TRAIT_SWIMMER), INNATE_TRAIT)
-	AddElement(/datum/element/cultist_pet)
 	AddElement(/datum/element/wears_collar)
 	AddElement(/datum/element/ai_retaliate)
 	AddElement(/datum/element/ai_flee_while_injured)

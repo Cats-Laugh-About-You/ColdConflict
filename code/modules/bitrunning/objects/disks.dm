@@ -194,7 +194,6 @@
 		/obj/item/borg/upgrade/modkit/cooldown/repeater,
 		/obj/item/borg/upgrade/modkit/lifesteal,
 		/obj/item/borg/upgrade/modkit/resonator_blasts,
-		/obj/item/borg/upgrade/modkit/bounty,
 		/obj/item/borg/upgrade/modkit/indoors,
 	)
 

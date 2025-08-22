@@ -28,11 +28,9 @@
 	paycheck = PAYCHECK_COMMAND
 	paycheck_department = ACCOUNT_SCI
 
-	mind_traits = list(HEAD_OF_STAFF_MIND_TRAITS)
 	liver_traits = list(TRAIT_ROYAL_METABOLISM, TRAIT_BALLMER_SCIENTIST)
 
 	display_order = JOB_DISPLAY_ORDER_RESEARCH_DIRECTOR
-	bounty_types = CIV_JOB_SCI
 
 	mail_goodies = list(
 		/obj/item/storage/box/monkeycubes = 30,

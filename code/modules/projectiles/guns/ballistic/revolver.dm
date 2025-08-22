@@ -344,31 +344,6 @@
 		affecting == BODY_ZONE_HEAD ? /datum/mood_event/russian_roulette_lose : /datum/mood_event/russian_roulette_lose_cheater,
 	)
 
-/obj/item/gun/ballistic/revolver/russian/soul
-	name = "cursed Russian revolver"
-	desc = "To play with this revolver requires wagering your very soul."
-
-/obj/item/gun/ballistic/revolver/russian/soul/shoot_self(mob/living/user, affecting = BODY_ZONE_HEAD)
-	. = ..()
-	if(affecting == BODY_ZONE_HEAD)
-		var/obj/item/soulstone/anybody/revolver/stone = new(user.drop_location())
-		if(!stone.capture_soul(user, forced = TRUE)) //Something went wrong
-			qdel(stone)
-			return
-		user.visible_message(
-			span_danger("[user]'s soul is captured by \the [src]!"),
-			span_userdanger("You've lost the gamble! Your soul is forfeit!"),
-			visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
-		)
-		return
-
-	user.visible_message(
-		span_danger("[user] is punished for trying to cheat the game!"),
-		span_userdanger("You've lost the gamble! Not only is your soul forfeit, but it is whisked away for attempting to cheat death!"),
-		visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
-	)
-	user.dust(drop_items = TRUE)
-
 /obj/item/gun/ballistic/revolver/reverse //Fires directly at its user... unless the user is a clown, of course.
 	clumsy_check = FALSE
 

@@ -4,8 +4,6 @@
 #define REQUEST_CENTCOM "request_centcom"
 /// Requests for the Syndicate
 #define REQUEST_SYNDICATE "request_syndicate"
-/// Requests for the nuke code
-#define REQUEST_NUKE "request_nuke"
 /// Requests somebody from fax
 #define REQUEST_FAX "request_fax"
 /// Requests from Request Music
@@ -88,16 +86,6 @@ GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
  */
 /datum/request_manager/proc/message_syndicate(client/C, message)
 	request_for_client(C, REQUEST_SYNDICATE, message)
-
-/**
- * Creates a request for the nuclear self destruct codes
- *
- * Arguments:
- * * C - The client who is sending the request
- * * message - The message
- */
-/datum/request_manager/proc/nuke_request(client/C, message)
-	request_for_client(C, REQUEST_NUKE, message)
 
 /**
  * Creates a request for fax answer
@@ -219,15 +207,6 @@ GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
 			var/mob/M = request.owner?.mob
 			usr.client.admin_headset_message(M, request.req_type == REQUEST_SYNDICATE ? RADIO_CHANNEL_SYNDICATE : RADIO_CHANNEL_CENTCOM)
 			return TRUE
-		if ("setcode")
-			if (request.req_type != REQUEST_NUKE)
-				to_chat(usr, "You cannot set the nuke code for a non-nuke-code-request request!", confidential = TRUE)
-				return TRUE
-			var/code = random_nukecode()
-			for(var/obj/machinery/nuclearbomb/selfdestruct/SD in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/nuclearbomb/selfdestruct))
-				SD.r_code = code
-			message_admins("[key_name_admin(usr)] has set the self-destruct code to \"[code]\".")
-			return TRUE
 		if ("show")
 			if(request.req_type != REQUEST_FAX)
 				to_chat(usr, "Request doesn't have a paper to read.", confidential = TRUE)
@@ -278,6 +257,5 @@ GLOBAL_DATUM_INIT(requests, /datum/request_manager, new)
 #undef REQUEST_PRAYER
 #undef REQUEST_CENTCOM
 #undef REQUEST_SYNDICATE
-#undef REQUEST_NUKE
 #undef REQUEST_FAX
 #undef REQUEST_INTERNET_SOUND

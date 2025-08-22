@@ -238,17 +238,6 @@
 	smoothing_groups = SMOOTH_GROUP_PLATFORMS_STONE
 	canSmoothWith = SMOOTH_GROUP_PLATFORMS_STONE
 
-/obj/structure/platform/cult
-	name = "runed stone platform"
-	icon = 'icons/obj/smooth_structures/platform/window_frame_cult.dmi'
-	frame_icon = 'icons/obj/smooth_structures/platform/frame_faces/window_frame_cult.dmi'
-	icon_state = "window_frame_cult-0"
-	base_icon_state = "window_frame_cult"
-	sheet_type = /datum/material/runedmetal
-	custom_materials = list(/datum/material/runedmetal = PLATFORM_BASE_MATERIAL_AMOUNT)
-	smoothing_groups = SMOOTH_GROUP_PLATFORMS_STONE
-	canSmoothWith = SMOOTH_GROUP_PLATFORMS_STONE
-
 /obj/structure/platform/pizza
 	name = "huge pizza"
 	desc = "Big enough to stand on, although possibly you shouldn't eat it after that."

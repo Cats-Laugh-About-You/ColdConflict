@@ -790,8 +790,6 @@
 
 /obj/item/paper/medical_report/examine(mob/user)
 	. = ..()
-	if(last_healthy_scanned_mob)
-		. += span_notice("This medical report is applicable for medical bounties.")
 
 
 #undef SCANMODE_HEALTH

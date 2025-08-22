@@ -113,17 +113,6 @@
 	r_hand = /obj/item/gun/energy/recharge/ebow
 	shoes = /obj/item/clothing/shoes/magboots/advance
 
-/datum/outfit/rev_cutout
-	name = "Revolutionary Cutout"
-
-	uniform = /obj/item/clothing/under/color/grey
-	back = /obj/item/storage/backpack
-	gloves = /obj/item/clothing/gloves/color/yellow
-	mask = /obj/item/clothing/mask/gas
-	belt = /obj/item/storage/belt
-	l_hand = /obj/item/melee/baton/security/cattleprod
-	shoes = /obj/item/clothing/shoes/sneakers/black
-
 /datum/outfit/laser_tag/blue
 	name = "Laser Tag Blue"
 
@@ -260,23 +249,6 @@
 	back = /obj/item/mod/control/pre_equipped/corporate
 	internals_slot = ITEM_SLOT_SUITSTORE
 
-/datum/outfit/ghost_cultist
-	name = "Cultist Ghost"
-
-	uniform = /obj/item/clothing/under/color/black/ghost
-	suit = /obj/item/clothing/suit/hooded/cultrobes/alt/ghost
-	shoes = /obj/item/clothing/shoes/cult/alt/ghost
-	l_hand = /obj/item/melee/cultblade/ghost
-
-/datum/outfit/cult_cutout
-	name = "Cultist Cutout"
-
-	uniform = /obj/item/clothing/under/rank/civilian/chaplain
-	suit = /obj/item/clothing/suit/hooded/cultrobes/hardened
-	shoes = /obj/item/clothing/shoes/cult/alt
-	back = /obj/item/storage/backpack/cultpack
-	r_hand = /obj/item/melee/cultblade/dagger
-
 /datum/outfit/wizard
 	name = "Blue Wizard"
 
@@ -349,7 +321,6 @@
 	ears = /obj/item/radio/headset/headset_cent
 	glasses = /obj/item/clothing/glasses/thermal/eyepatch
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
-	head = /obj/item/clothing/head/costume/pirate/captain
 	shoes = /obj/item/clothing/shoes/combat
 
 /datum/outfit/centcom/soviet/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)

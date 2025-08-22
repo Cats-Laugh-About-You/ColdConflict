@@ -28,7 +28,6 @@
 		/obj/effect/temp_visual,
 		/obj/effect/wisp,
 		/obj/energy_ball,
-		/obj/narsie,
 		/obj/projectile,
 		/obj/singularity,
 		/obj/structure/lattice,

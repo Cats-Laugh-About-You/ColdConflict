@@ -109,7 +109,7 @@
 	rename_team = "Unarmed Horde of Interns"
 
 /datum/ert/erp
-	roles = list(/datum/antagonist/ert/security/party, /datum/antagonist/ert/clown/party, /datum/antagonist/ert/engineer/party, /datum/antagonist/ert/janitor/party)
+	roles = list(/datum/antagonist/ert/security/party, /datum/antagonist/ert/engineer/party, /datum/antagonist/ert/janitor/party)
 	leader_role = /datum/antagonist/ert/commander/party
 	opendoors = FALSE
 	rename_team = "Emergency Response Party"

@@ -318,21 +318,6 @@ LINEN BINS
 	inhand_icon_state = "sheetwiz"
 	dream_messages = list("a book", "an explosion", "lightning", "a staff", "a skeleton", "a robe", "magic")
 
-/obj/item/bedsheet/rev
-	name = "revolutionary's bedsheet"
-	desc = "A bedsheet stolen from a Central Command official's bedroom, used a symbol of triumph against Nanotrasen's tyranny. The golden emblem on the front has been scribbled out."
-	icon_state = "sheetrev"
-	inhand_icon_state = "sheetrev"
-	dream_messages = list(
-		"the people",
-		"liberation",
-		"collaboration",
-		"heads rolling",
-		"so, so many baseball bats",
-		"blinding light",
-		"your brothers in arms"
-	)
-
 /obj/item/bedsheet/nanotrasen
 	name = "\improper Nanotrasen bedsheet"
 	desc = "It has the Nanotrasen logo on it and has an aura of duty."

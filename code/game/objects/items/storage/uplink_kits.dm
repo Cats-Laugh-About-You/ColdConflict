@@ -8,9 +8,7 @@
 #define KIT_IMPLANTS "implant"
 #define KIT_HACKER "hacker"
 #define KIT_SNIPER "sniper"
-#define KIT_NUKEOPS_METAGAME "metaops"
 #define KIT_LORD_SINGULOTH "lordsingulo"
-#define KIT_REVOLUTIONARY "revolutionary"
 
 #define KIT_JAMES_BOND "bond"
 #define KIT_NINJA "ninja"
@@ -39,8 +37,6 @@
 		KIT_IMPLANTS = 1,
 		KIT_HACKER = 3,
 		KIT_SNIPER = 1,
-		KIT_NUKEOPS_METAGAME = 1,
-		KIT_REVOLUTIONARY = 2
 		)))
 		if(KIT_RECON)
 			new /obj/item/clothing/glasses/thermal/xray(src) // ~8 tc?
@@ -158,29 +154,6 @@
 			new /obj/item/clothing/mask/gas/clown_hat(src)
 			new /obj/item/clothing/under/suit/black_really(src)
 			new /obj/item/clothing/neck/tie/red/hitman(src)
-
-		if(KIT_NUKEOPS_METAGAME)
-			new /obj/item/mod/control/pre_equipped/nuclear/unrestricted(src) // 8 tc
-			new /obj/item/gun/ballistic/shotgun/bulldog/unrestricted(src) // 8 tc
-			new /obj/item/implanter/explosive(src) // 2 tc
-			new /obj/item/ammo_box/magazine/m12g(src) // 2 tc
-			new /obj/item/ammo_box/magazine/m12g(src) // 2 tc
-			new /obj/item/grenade/c4 (src) // 1 tc
-			new /obj/item/grenade/c4 (src) // 1 tc
-			new /obj/item/card/emag(src) // 4 tc
-			new /obj/item/card/emag/doorjack(src) // 3 tc
-
-		if(KIT_REVOLUTIONARY)
-			new /obj/item/healthanalyzer/rad_laser(src) // 3 TC
-			new /obj/item/assembly/flash/hypnotic(src) // 7 TC
-			new /obj/item/storage/pill_bottle/lsd(src) // ~1 TC
-			new /obj/item/pen/sleepy(src) // 4 TC
-			new /obj/item/gun/ballistic/revolver/nagant(src) // 13 TC comparable to 357. revolvers
-			new /obj/item/megaphone(src)
-			new /obj/item/bedsheet/rev(src)
-			new /obj/item/clothing/suit/armor/vest/russian_coat(src)
-			new /obj/item/clothing/head/helmet/rus_ushanka(src)
-			new /obj/item/storage/box/syndie_kit/poster_box(src)
 
 /obj/item/storage/box/syndicate/bundle_b/PopulateContents()
 	switch (pick_weight(list(
@@ -491,15 +464,6 @@
 	new /obj/item/reagent_containers/cup/bottle/amanitin(src)
 	new /obj/item/reagent_containers/syringe(src)
 
-/obj/item/storage/box/syndie_kit/nuke
-	name = "nuke core extraction kit"
-	desc = "A box containing the equipment and instructions for extracting the plutonium cores of most Nanotrasen nuclear explosives."
-
-/obj/item/storage/box/syndie_kit/nuke/PopulateContents()
-	new /obj/item/screwdriver/nuke(src)
-	new /obj/item/nuke_core_container(src)
-	new /obj/item/paper/guides/antag/nuke_instructions(src)
-
 /obj/item/storage/box/syndie_kit/supermatter
 	name = "supermatter sliver extraction kit"
 	desc = "A box containing the equipment and instructions for extracting a sliver of supermatter."
@@ -507,7 +471,6 @@
 /obj/item/storage/box/syndie_kit/supermatter/PopulateContents()
 	new /obj/item/scalpel/supermatter(src)
 	new /obj/item/hemostat/supermatter(src)
-	new /obj/item/nuke_core_container/supermatter(src)
 	new /obj/item/paper/guides/antag/supermatter_sliver(src)
 
 /obj/item/storage/box/syndie_kit/tuberculosisgrenade
@@ -739,14 +702,13 @@
 
 /obj/item/storage/box/syndie_kit/induction_kit/PopulateContents()
 	// Basic weaponry, so they have something to use.
-	new /obj/item/gun/ballistic/automatic/pistol/clandestine(src) // 6 TC, but free for nukies
+	new /obj/item/gun/ballistic/automatic/pistol/clandestine(src) // 6 TC
 	new /obj/item/ammo_box/magazine/m10mm/hp(src) // 3 TC, a reward for the teamwork involved
 	new /obj/item/ammo_box/magazine/m10mm/ap(src) // 3 TC, a reward for the teamwork involved
 	new /obj/item/pen/edagger(src) // 2 TC
 	// The necessary equipment to help secure that disky.
-	new /obj/item/radio/headset/syndicate/alt(src) // 5 TC / Free for nukies
-	new /obj/item/modular_computer/pda/nukeops(src) // ?? TC / Free for nukies
-	new /obj/item/card/id/advanced/chameleon/elite(src) // 2 TC / Free for nukies
+	new /obj/item/radio/headset/syndicate/alt(src) // 5 TC
+	new /obj/item/card/id/advanced/chameleon/elite(src) // 2 TC
 	var/obj/item/clothing/suit/space/syndicate/spess_suit = pick(GLOB.syndicate_space_suits_to_helmets)
 	new spess_suit(src) // Above allows me to get the helmet from a variable on the object
 	var/obj/item/clothing/head/helmet/space/syndicate/spess_helmet = GLOB.syndicate_space_suits_to_helmets[spess_suit]
@@ -766,62 +728,6 @@
 /obj/item/implanter/induction_implant
 	name = "implanter (nuclear operative)"
 	desc = "A sterile automatic implant injector. You can see a tiny, somehow legible sticker on the side: 'NOT A BRAINWASH DEVICE'"
-	imp_type = /obj/item/implant/nuclear_operative
-
-/obj/item/implant/nuclear_operative
-	name = "nuclear operative implant"
-	desc = "Registers you as a member of a Syndicate nuclear operative team."
-	implant_color = "r"
-
-/obj/item/implant/nuclear_operative/get_data()
-	return "<b>Implant Specifications:</b><BR> \
-		<b>Name:</b> Suspicious Implant<BR> \
-		<b>Life:</b> UNKNOWN <BR> \
-		<b>Implant Details:</b> <BR> \
-		<b>Function:</b> Strange implant that seems to resist any attempts at scanning it."
-
-/obj/item/implant/nuclear_operative/implant(mob/living/target, mob/user, silent = FALSE, force = FALSE)
-	. = ..()
-	if(!. || !ishuman(target) || !(target.mind))
-		return FALSE
-	var/mob/living/carbon/human/human_target = target
-
-	if(IS_NUKE_OP(human_target)) // this wont proc due to ..() but i guess its good as a just-in-case?
-		if(human_target == user)
-			to_chat(user, span_userdanger("You're already a nuclear operative, dumbass! The implant disintegrates within you! You feel sick..."))
-			human_target.Stun(10 SECONDS)
-			human_target.reagents.add_reagent(/datum/reagent/toxin, 10)
-			return FALSE
-		else
-			to_chat(user, span_notice("You finish implanting [human_target], but you don't really notice a difference. Huh."))
-			to_chat(human_target, span_userdanger("Nothing seems to really happen, but you start to feel a little ill.."))
-			human_target.reagents.add_reagent(/datum/reagent/toxin, 2)
-			return FALSE
-
-	if(!human_target.is_antag()) // GTFO. Technically not foolproof but making a heartbreaker or a paradox clone a nuke op sounds hilarious
-		to_chat(human_target, span_notice("Huh? Nothing happened? But you're starting to feel a little ill..."))
-		human_target.reagents.add_reagent(/datum/reagent/toxin, 15)
-		return FALSE
-
-	var/datum/antagonist/nukeop/nuke_datum = new()
-	nuke_datum.send_to_spawnpoint = FALSE
-	nuke_datum.nukeop_outfit = null
-	human_target.mind?.add_antag_datum(nuke_datum)
-	human_target.faction |= ROLE_SYNDICATE
-	to_chat(human_target, span_warning("You are now a nuclear operative. Your main objective, if you were an antagonist and willing, is presumably to assist the nuclear operative team and secure the disk."))
-	to_chat(human_target, span_userdanger("This implant does NOT, in any way, brainwash you. If you were a normal crew member beforehand, forcibly implanted or otherwise, you are still one and cannot assist the nuclear operatives."))
-	return TRUE
-
-/obj/item/implant/nuclear_operative/removed(mob/target, silent = FALSE, special = FALSE)
-	. = ..()
-	if(!. || !isliving(target))
-		return FALSE
-	var/mob/living/living_target = target
-	living_target.mind.remove_antag_datum(/datum/antagonist/nukeop)
-	living_target.faction -= ROLE_SYNDICATE
-	to_chat(target, span_notice("You feel a little less nuclear."))
-	to_chat(target, span_userdanger("You're no longer identified as a nuclear operative! You are free to follow any valid goals you wish, even continuing to secure the disk. Just make sure neither any turrets nor operatives kill you on sight."))
-	return TRUE
 
 /obj/item/storage/box/syndie_kit/poster_box
 	name = "syndicate poster pack"
@@ -842,7 +748,6 @@
 	generate_items_inside(list(
 		/obj/item/clothing/shoes/cowboy/black/syndicate= 1,
 		/obj/item/clothing/head/cowboy/black/syndicate = 1,
-		/obj/item/storage/belt/holster/nukie/cowboy/full = 1,
 		/obj/item/clothing/under/costume/dutch/syndicate = 1,
 		/obj/item/lighter/skull = 1,
 		/obj/item/sbeacondrop/horse = 1,
@@ -902,9 +807,7 @@
 #undef KIT_IMPLANTS
 #undef KIT_HACKER
 #undef KIT_SNIPER
-#undef KIT_NUKEOPS_METAGAME
 #undef KIT_LORD_SINGULOTH
-#undef KIT_REVOLUTIONARY
 
 #undef KIT_JAMES_BOND
 #undef KIT_NINJA

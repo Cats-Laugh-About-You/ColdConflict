@@ -24,7 +24,6 @@
 		/obj/item/kirbyplants/fern = 20,
 		/obj/structure/closet/crate/decorations = 15,
 		/obj/effect/decal/remains/human/smokey/maintenance = 7,
-		/obj/structure/destructible/cult/pants_altar = 1,
 	)
 
 /obj/effect/spawner/random/structure/crate_abandoned

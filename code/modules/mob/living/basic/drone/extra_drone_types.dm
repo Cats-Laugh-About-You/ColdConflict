@@ -51,24 +51,6 @@
 	title = ROLE_SYNDICATE_DRONE
 	policy_index = ROLE_SYNDICATE_DRONE
 
-/// A version of the syndrone that gets a nuclear uplink, a firearms implant, and 30 TC.
-/mob/living/basic/drone/syndrone/badass
-	name = "Badass Syndrone"
-	default_storage = /obj/item/uplink/nuclear
-	telecrystal_count = 30
-
-/mob/living/basic/drone/syndrone/badass/Initialize(mapload)
-	. = ..()
-	var/obj/item/implant/weapons_auth/weapon_implant = new/obj/item/implant/weapons_auth(src)
-	weapon_implant.implant(src, force = TRUE)
-
-/obj/effect/mob_spawn/ghost_role/drone/syndrone/badass
-	name = "badass syndrone shell"
-	mob_name = "badass syndrone"
-	mob_type = /mob/living/basic/drone/syndrone/badass
-	prompt_name = "a badass syndrone"
-	flavour_text = "In a prior life, you maintained a Nanotrasen Research Station. Abducted from your home, you were given some BETTER upgrades... and now serve an enemy of your former masters."
-
 /// A drone that spawns with a chameleon hat for fashion purposes.
 /mob/living/basic/drone/snowflake
 	default_headwear = /obj/item/clothing/head/chameleon/drone

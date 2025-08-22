@@ -195,7 +195,6 @@
 	sound_type = list(
 		'sound/music/antag/bloodcult/bloodcult_gain.ogg',
 		'sound/music/antag/clockcultalr.ogg',
-		'sound/music/antag/heretic/heretic_gain.ogg',
 		'sound/music/antag/ling_alert.ogg',
 		'sound/music/antag/malf.ogg',
 		'sound/music/antag/ops.ogg',

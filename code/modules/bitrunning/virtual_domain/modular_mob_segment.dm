@@ -138,13 +138,6 @@
 		/mob/living/basic/bee/toxin,
 	)
 
-
-/datum/modular_mob_segment/blob_spores
-	mobs = list(
-		/mob/living/basic/blob_minion,
-	)
-
-
 /datum/modular_mob_segment/carps
 	mobs = list(
 		/mob/living/basic/carp,

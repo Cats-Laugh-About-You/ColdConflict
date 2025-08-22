@@ -30,7 +30,6 @@
 /datum/antagonist/highlander/forge_objectives()
 	var/datum/objective/steal/steal_objective = new
 	steal_objective.owner = owner
-	steal_objective.set_target(new /datum/objective_item/steal/nukedisc)
 	objectives += steal_objective
 	var/datum/objective/elimination/highlander/elimination_objective = new
 	elimination_objective.owner = owner
@@ -60,9 +59,6 @@
 	H.equip_to_slot_or_del(new /obj/item/radio/headset/syndicate(H), ITEM_SLOT_EARS)
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/beret/highlander(H), ITEM_SLOT_HEAD)
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/combat(H), ITEM_SLOT_FEET)
-	H.equip_to_slot_or_del(new /obj/item/pinpointer/nuke(H), ITEM_SLOT_LPOCKET)
-	for(var/obj/item/pinpointer/nuke/P in H)
-		P.attack_self(H)
 	var/obj/item/card/id/advanced/highlander/W = new(H)
 	W.registered_name = H.real_name
 	ADD_TRAIT(W, TRAIT_NODROP, HIGHLANDER_TRAIT)

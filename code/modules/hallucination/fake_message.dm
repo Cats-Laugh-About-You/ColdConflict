@@ -39,7 +39,6 @@
 				/obj/item/gun/syringe/syndicate,
 				/obj/item/hand_tele,
 				/obj/item/melee/baton/security,
-				/obj/item/melee/cultblade/dagger,
 				/obj/item/melee/energy,
 				/obj/item/powersink, //this is a bulky item what
 				/obj/item/reagent_containers/hypospray/cmo,

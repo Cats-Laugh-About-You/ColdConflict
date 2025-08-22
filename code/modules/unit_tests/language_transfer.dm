@@ -59,16 +59,8 @@
 
 /datum/unit_test/language_species_change_other_known/Run()
 	var/mob/living/carbon/human/dummy = allocate(/mob/living/carbon/human/consistent)
-	dummy.grant_language(/datum/language/piratespeak, source = LANGUAGE_MIND)
 	dummy.grant_language(/datum/language/draconic, source = LANGUAGE_ATOM)
 	dummy.set_species(/datum/species/lizard)
-
-	TEST_ASSERT(dummy.has_language(/datum/language/piratespeak, SPOKEN_LANGUAGE), \
-		"Dummy should still speak Pirate after changing species, as it's a mind language!")
-
-	TEST_ASSERT(dummy.has_language(/datum/language/piratespeak, UNDERSTOOD_LANGUAGE), \
-		"Dummy should still understand Pirate after changing species, as it's a mind language!")
-
 	dummy.set_species(/datum/species/human)
 
 	TEST_ASSERT(dummy.has_language(/datum/language/draconic, SPOKEN_LANGUAGE), \
@@ -84,22 +76,10 @@
 	var/mob/living/carbon/human/dummy = allocate(/mob/living/carbon/human/consistent)
 	var/mob/living/basic/pet/dog/corgi/transfer_target = allocate(/mob/living/basic/pet/dog/corgi)
 	dummy.mind_initialize()
-	dummy.grant_language(/datum/language/piratespeak, source = LANGUAGE_MIND)
 	dummy.grant_language(/datum/language/draconic, source = LANGUAGE_ATOM)
 	dummy.set_species(/datum/species/lizard/silverscale)
 
 	dummy.mind.transfer_to(transfer_target)
-
-	// transfer_target should speak and understand pirate
-	TEST_ASSERT(!dummy.has_language(/datum/language/piratespeak, SPOKEN_LANGUAGE), \
-		"Dummy should no longer be speaking Pirate after losing their mind!")
-	TEST_ASSERT(transfer_target.has_language(/datum/language/piratespeak, SPOKEN_LANGUAGE), \
-		"Dummy's new mob should be capable of speaking Pirate!")
-
-	TEST_ASSERT(!dummy.has_language(/datum/language/piratespeak, UNDERSTOOD_LANGUAGE), \
-		"Dummy should no longer be understanding Pirate after losing their mind!")
-	TEST_ASSERT(transfer_target.has_language(/datum/language/piratespeak, UNDERSTOOD_LANGUAGE), \
-		"Dummy's new mob should be capable of understanding Pirate!")
 
 	// transfer_target should NOT speak and understand draconic
 	TEST_ASSERT(dummy.has_language(/datum/language/draconic, SPOKEN_LANGUAGE), \
@@ -137,27 +117,12 @@
 	var/datum/mind/dummy_B_mind = dummy_B.mind
 
 	dummy_A.set_species(/datum/species/lizard)
-	dummy_B.grant_language(/datum/language/piratespeak, source = LANGUAGE_MIND)
 
 	dummy_A_mind.transfer_to(dummy_B)
 	dummy_B_mind.transfer_to(dummy_A)
 
 	var/datum/language_holder/holder_A = dummy_A.get_language_holder()
 	var/datum/language_holder/holder_B = dummy_B.get_language_holder()
-
-	// Holder A is a lizard: starts with 2 languages (common, draconic)
-	// Holder B is a human with a mind language: starts with 2 language (common, pirate)
-	// Swap occurs
-	// Holder A is a lizard with 2 languages, but should now also have pirate: 3 languages (common, draconic, pirate)
-	// Holder B is a human with just 1 language left over (common)
-
-	TEST_ASSERT_EQUAL(length(holder_A.spoken_languages), 3, \
-		"Holder A / Dummy A / Dummy B mind should speak Common, Draconic, and Pirate! \
-		Instead, it knew the following: [print_language_list(holder_A.spoken_languages)]")
-
-	TEST_ASSERT_EQUAL(length(holder_A.understood_languages), 3, \
-		"Holder A / Dummy A / Dummy B mind should only understand Common, Draconic, and Pirate! \
-		Instead, it knew the following: [print_language_list(holder_A.understood_languages)]")
 
 	TEST_ASSERT_EQUAL(length(holder_B.spoken_languages), 1, \
 		"Holder B / Dummy B / Dummy A mind should only speak 1 language - Common! \

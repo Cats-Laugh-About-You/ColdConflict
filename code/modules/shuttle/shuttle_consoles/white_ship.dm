@@ -30,8 +30,6 @@
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/whiteship/Initialize(mapload)
 	. = ..()
-	GLOB.jam_on_wardec += src
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/whiteship/Destroy()
-	GLOB.jam_on_wardec -= src
 	return ..()

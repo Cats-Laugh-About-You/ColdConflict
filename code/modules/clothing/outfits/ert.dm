@@ -216,7 +216,6 @@
 	id = /obj/item/card/id/advanced/centcom/ert/chaplain
 	back = /obj/item/mod/control/pre_equipped/responsory/chaplain
 	l_hand = /obj/item/gun/energy/e_gun
-	belt = /obj/item/storage/belt/soulstone
 	glasses = /obj/item/clothing/glasses/hud/health
 	box = /obj/item/storage/box/survival/centcom
 	backpack_contents = list(
@@ -232,7 +231,6 @@
 		/obj/item/grenade/chem_grenade/holy = 1,
 		/obj/item/nullrod = 1,
 	)
-	belt = /obj/item/storage/belt/soulstone/full/chappy
 
 /datum/outfit/centcom/ert/janitor
 	name = "ERT Janitor"
@@ -264,32 +262,6 @@
 	)
 	ears = /obj/item/radio/headset/headset_cent/alt/leader
 	r_hand = /obj/item/reagent_containers/spray/chemsprayer/janitor
-
-/datum/outfit/centcom/ert/clown
-	name = "ERT Clown"
-
-	id = /obj/item/card/id/advanced/centcom/ert/clown
-	back = /obj/item/mod/control/pre_equipped/responsory/clown
-	box = /obj/item/storage/box/survival/centcom
-	backpack_contents = list(
-		/obj/item/gun/ballistic/revolver/reverse = 1,
-		/obj/item/melee/energy/sword/bananium = 1,
-		/obj/item/shield/energy/bananium = 1,
-	)
-	belt = /obj/item/storage/belt/champion
-	glasses = /obj/item/clothing/glasses/trickblindfold
-	mask = /obj/item/clothing/mask/gas/clown_hat
-	shoes = /obj/item/clothing/shoes/clown_shoes/combat
-	l_pocket = /obj/item/food/grown/banana
-	r_pocket = /obj/item/bikehorn/golden
-	additional_radio = /obj/item/encryptionkey/heads/hop
-
-/datum/outfit/centcom/ert/clown/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
-	..()
-	if(visuals_only)
-		return
-	ADD_TRAIT(H.mind, TRAIT_NAIVE, INNATE_TRAIT)
-	H.dna.add_mutation(/datum/mutation/clumsy, MUTATION_SOURCE_CLOWN_CLUMSINESS)
 
 /datum/outfit/centcom/centcom_intern
 	name = "CentCom Intern"
@@ -394,20 +366,6 @@
 	head = /obj/item/clothing/head/utility/hardhat/welding
 	mask = /obj/item/clothing/mask/gas/atmos
 	l_hand = /obj/item/blueprints
-
-/datum/outfit/centcom/ert/clown/party
-	name = "ERP Comedian"
-
-	uniform = /obj/item/clothing/under/rank/civilian/clown
-	suit = /obj/item/clothing/suit/chameleon
-	suit_store = null
-	back = /obj/item/storage/backpack/ert/clown
-	backpack_contents = list(
-		/obj/item/instrument/piano_synth = 1,
-		/obj/item/shield/energy/bananium = 1,
-	)
-	glasses = /obj/item/clothing/glasses/chameleon
-	head = /obj/item/clothing/head/chameleon
 
 /datum/outfit/centcom/ert/commander/party
 	name = "ERP Coordinator"
